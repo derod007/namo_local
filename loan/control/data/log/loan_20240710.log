@@ -1,0 +1,3779 @@
+
+[2024-07-10 09:20:45]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49840
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 4500
+    [jd_interest] => 13.6~13.9
+    [jd_condition] => 선순위 근저당권 감액조건
+    [jd_memo] => 
+    [rf_first3] => 23000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 09:22:20]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49841
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 15000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 45000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:00:43]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49842
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 채권최고액 493,560만원
+    [rf_first3] => 600000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:01:29]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49843
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 22000
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 선순위 근저당권 감액조건
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:02:02]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49844
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:04:12]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49845
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 6000
+    [jd_interest] => 14~14.5
+    [jd_condition] => 현장방문 시세조사 필수
+지상권 설정
+    [jd_memo] => 
+    [rf_first3] => 15000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:04:55]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49846
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 33000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:22:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49847
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 35000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:25:04]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49848
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 12000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:26:19]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49849
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 11000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:31:33]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49852
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 이지은/아파트/2순위대환
+    [wr_cont1] => 직장인
+    [address1] => 전북 군산시 조촌동 3931
+    [address2] => 타워써미트
+    [address3] => 101-1201
+    [address_ext] => 770세대
+    [wr_m2] => 59.94
+    [wr_cont2] => * 전체지분
+
+시세 18500만 kb일
+
+9,680/8,800만 우리은행 21.08
+1,300/1000만 오케이파이낸셜대부 24.05
+    [wr_amount] => 2순위 최대한도 요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:32:17]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49848
+    [prev_status] => 10
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 최진무
+    [wr_cont1] => 사업자
+    [address1] => 인천 부평구 부평동 38-131
+    [address2] => 
+    [address3] => 태진비반트 제16층 제1604호
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 최진무 / 개인사업자 / 38세
+인천광역시 부평구 부평동 38-131 태진비반트 제16층 제1604호
+오피스텔 / 120세대 / 총 1동 / 77.48㎡ / 방 3개 / 16층 / 전체 18층
+소유권 이전일 2019.12.05
+
+[하한가](KB 하한) / [일반가](KB 일반)
+
+◈선순위
+1.농협은행주식회사 3,600(3,000)
+총 설정 3,600만원 총 원금 3,000만원
+(KB시세없음)
+===============
+선순위 감액조건 
+2017년도경 귀화한 분입니다. 
+의사소통에는 지장없습니다.
+후순위 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:32:26]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49845
+    [prev_status] => 10
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 전 / 양희문
+    [wr_cont1] => 
+    [address1] => 경북 의성군 다인면 가원리 116-3
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 양희문 / 무직 / 660123-1       [토지]
+
+경상북도 의성군 다인면 가원리 116-3
+경상북도 의성군 다인면 가원리 116-6
+경상북도 의성군 다인면 가원리 116-9
+
+
+기대출 없음
+
+▶ 프리(소득증빙 불가) 
+
+
+나모 
+
+전
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:33:33]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49853
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 전 / 최원식
+    [wr_cont1] => 
+    [address1] => 대구 남구 현충로42길 50-1
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 최원식 / 사업자 / 700311-1 / 상가주택
+대구광역시 남구 현충로42길 50-1 [대명동 1909-2]
+
+공시가 - 14700
+
+기대출
+대구(2015.8.24) 20400
+
+▶ 대구은행 원금 10500(120%) 감액등기 기준
+▶ 1층 차주 운영중
+▶ 2층 1호 방1,화1 / 월세 2000(월 20만)
+▶ 2층 2호 방1,화1 / 차주거주
+▶ 3층 방1,화1 / 전세 9000
+→ 세입자 동의 가능
+
+전
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:36:26]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49850
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:37:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49851
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 43000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:38:49]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49852
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 16000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:39:09]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49853
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 전 / 최원식
+    [wr_cont1] => 
+    [address1] => 대구 남구 대명동 1909-2
+    [address2] =>  (대명동)
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 최원식 / 사업자 / 700311-1 / 상가주택
+대구광역시 남구 현충로42길 50-1 [대명동 1909-2]
+
+공시가 - 14700
+
+기대출
+대구(2015.8.24) 20400
+
+▶ 대구은행 원금 10500(120%) 감액등기 기준
+▶ 1층 차주 운영중
+▶ 2층 1호 방1,화1 / 월세 2000(월 20만)
+▶ 2층 2호 방1,화1 / 차주거주
+▶ 3층 방1,화1 / 전세 9000
+→ 세입자 동의 가능
+
+전
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:45:12]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49853
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 12600
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 10:50:30]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49854
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 이정근/토지/선순위대출
+    [wr_cont1] => 직장인
+    [address1] => 경기 가평군 설악면 신천리 산64-1
+    [address2] => 
+    [address3] => 토지
+    [address_ext] => 임야
+    [wr_m2] => 4612
+    [wr_cont2] => * 기대출
+
+개별공시지가 : 미등재
+    [wr_amount] => 선순위최대한도요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:03:33]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49855
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 26000
+    [jd_interest] => 13.3~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:03:47]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49854
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 15000
+    [jd_interest] => 14~14.5
+    [jd_condition] => 현장방문 시세조사 필수
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:03:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49856
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:04:14]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49856
+    [prev_status] => 20
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:06:59]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49857
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13~13.5
+    [jd_condition] => 선순위 조건
+    [jd_memo] => 
+    [rf_first3] => 38000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:11:14]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49858
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 
+    [jd_memo] => 7150
+    [rf_first3] => 14000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:14:16]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49819
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_subject] => 백정희
+    [wr_cont1] => 소유자:백정희(45년생)담보제공/차주:아들무직
+    [address1] => 경기 고양시 일산동구 백석동 1314
+    [address2] =>  (백석동)
+    [address3] => 1314성우아뜨리움오피스텔602호
+    [address_ext] => 
+    [wr_m2] => 127.76
+    [wr_cont2] => 선순위 30000요청
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세 41500/43500/46000
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:25:06]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49860
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 한주호
+    [wr_cont1] => 사업자
+    [address1] => 울산 중구 동동 666-2
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => <3층단독>
+*명의인 : 한주호 
+*주소 : 울산광역시 중구 동동 666-2
+*직업 :  사업자  
+*면적 : 149
+*공시지가 : 837,600 
+*공가 : 124,802,400
+*설정 : 새마을금고 2건 36400 / 원금 27000만
+
+*특이사항 : 
+*3층 본인거주 
+가족분들이 지하층 / 1층 / 2층 다 가족분들 거주중이시고 무상거주 확인서 발급 가능하다고 하십니다
+
+
+=============================
+
+전부 가족무상거주 / 동의가능 / 3층 본인거주 
+
+새마을뒤로 후순위 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:26:10]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49859
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3500
+    [jd_interest] => 13.5~14
+    [jd_condition] => 전세권설정
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:28:09]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49860
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 25000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:29:02]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49861
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 12000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 선순위 감액조건
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:33:47]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49862
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 20000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 현장시세조사 
+    [jd_memo] => 
+    [rf_first3] => 70000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:35:23]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49863
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 8500
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 전세권 설정
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:38:03]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49864
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 한도 6500만원
+    [rf_first3] => 12500
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:43:38]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49865
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:43:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49866
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 12000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:48:11]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49867
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 13000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당 1순위
+    [jd_memo] => 
+    [rf_first3] => 19000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:56:37]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49868
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 이수길
+    [wr_cont1] => 직장인
+    [address1] => 서울 강북구 번동 418-3
+    [address2] => (번동, 효성네오인텔리안)
+    [address3] => 효성네오인텔리안 제12층 제1210호
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 이수길 / 직장인 / 55세
+서울특별시 강북구 번동 418-3 효성네오인텔리안 제12층 제1210호
+주상복합 / 121세대 / 총 1동 / 81.12㎡ / 방 3개 / 12층 / 전체 17층
+소유권 이전일 2005.10.28
+
+57,000(KB 하한) / 61,000(KB 일반)
+
+◈선순위
+1.주식회사조흥은행 12,000(10,000)
+총 설정 12,000만원 총 원금 10,000만원
+(시세대비 원금 16.39% 사용중)
+===============
+
+후순위 한도 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 11:58:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49868
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:39:35]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49870
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 155000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:39:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49871
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 12000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 19000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:40:26]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49872
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:41:02]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49868
+    [prev_status] => 10
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 이수길
+    [wr_cont1] => 직장인
+    [address1] => 서울 강북구 번동 418-3
+    [address2] => (번동, 효성네오인텔리안)
+    [address3] => 제12층 제1210호
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 이수길 / 직장인 / 55세
+서울특별시 강북구 번동 418-3 효성네오인텔리안 제12층 제1210호
+주상복합 / 121세대 / 총 1동 / 81.12㎡ / 방 3개 / 12층 / 전체 17층
+소유권 이전일 2005.10.28
+
+57,000(KB 하한) / 61,000(KB 일반)
+
+◈선순위
+1.주식회사조흥은행 12,000(10,000)
+총 설정 12,000만원 총 원금 10,000만원
+(시세대비 원금 16.39% 사용중)
+===============
+
+후순위 한도 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:48:23]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49873
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 20000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 현장시세조사 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 12:48:38]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49874
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:19:44]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49875
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 25000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:21:16]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49876
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3000
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 임대차 확인서 징구
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:22:29]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49877
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 13000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:24:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49878
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 70000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:27:32]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49879
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:27:39]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49880
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 임미경/아파트/후순위추가
+    [wr_cont1] => 직장인
+    [address1] => 충북 충주시 연수동 1629
+    [address2] => 연수리슈빌
+    [address3] => 105-506
+    [address_ext] => 594/18
+    [wr_m2] => 99.21
+    [wr_cont2] => * 전체지분
+
+* 기대출
+1. 새마을금고 22,000/25,350
+
+KB시세 : 33,000/35,000/36,000
+    [wr_amount] => 2순위 최대한도 요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:28:24]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49880
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 280000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:29:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49881
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 5000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 하자동시진행 지급수당 1.5%
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:40:18]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49882
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14.3
+    [jd_condition] => 203-2 / 203-3 공담설정 / 선순위조건 / 현장시세조사 필수
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:40:33]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49883
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:40:50]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49884
+    [prev_status] => 10
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 나리나/아파트/1순위or2순위대환
+    [wr_cont1] => *채무자 법인대표 개업: 2023.06월달/연봉: 2600만(월220만원정도)
+차주:나리나 (600429-6 (거조증소지자. 미국시민권자))
+담제 : 신연순 360715
+    [address1] => 대전 중구 태평동 407
+    [address2] => 삼부2
+    [address3] => 21-64
+    [address_ext] => 750/15
+    [wr_m2] => 127.26
+    [wr_cont2] => * 전체지분
+
+KB 35000 36000 37000
+최근 실거래가 3억 5,700 ’23.08.27/14층
+
+기대출 
+한화생명 잔액 10500 / 12600 감액등기가능 (채무자 신연순)
+    [wr_amount] => 1순위or2순위 최대한도요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:43:35]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49885
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 40000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:43:42]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49886
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 김희영
+    [wr_cont1] => 직장인
+    [address1] => 부산 해운대구 좌동 1448
+    [address2] => (좌동, 경남선경아파트)
+    [address3] => 제119동 제1층 제102호
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 김희영 / 직장인 / 63세
+부산광역시 해운대구 좌동 1448 경남선경아파트 제119동 제1층 제102호
+아파트 / 1,358세대 / 총 19동 / 59.85㎡ / 방 3개 / 1층 / 전체 23층
+소유권 이전일 2019.10.07
+
+28,000(KB 하한) / 30,000(KB 일반)
+
+◈선순위
+1.해운대농업협동조합 9,600(8,000)
+2.해운대농업협동조합 960(800)
+3.해운대농업협동조합 3,240(2,700)
+총 설정 13,800만원 총 원금 11,500만원
+(시세대비 원금 41.07% 사용중)
+===============
+
+
+후순위 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:44:37]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49886
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3000
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 25000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:46:20]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49887
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3000
+    [jd_interest] => 13.8~14.3
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:50:28]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49888
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 18000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:52:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49889
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:53:45]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49890
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 정영숙
+    [wr_cont1] => 사업자
+    [address1] => 충남 천안시 동남구 용곡동 334
+    [address2] => (용곡동, 현대아이파크아파트)
+    [address3] => 제102동 제6층 제601호
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 정영숙 / 개인사업자 / 57세
+충청남도 천안시 동남구 용곡동 334 용곡마을 아이파크 제102동 제6층 제601호
+아파트 / 403세대 / 총 7동 / 84.77㎡ / 방 3개 / 6층 / 전체 15층
+소유권 이전일 2011.02.17
+
+23,000(KB 하한) / 25,000(KB 일반)
+
+◈선순위
+1.주식회사한국씨티은행 14,400(12,000)
+총 설정 14,400만원 총 원금 12,000만원
+(시세대비 원금 48% 사용중)
+===============
+
+ 선순위 원금 12000만 감액조건  후순위 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:54:41]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49890
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 13:56:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49891
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 7500
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:00:25]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49892
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 58000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:01:57]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49893
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 35000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:03:37]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 48777
+    [prev_status] => 30
+    [next_status] => 60
+    [jd_amount] => 10000
+    [jd_interest] => 14
+    [jd_condition] => 1억 / 14% / 3.85% / 12개월로 심사완료 / 자서서류 문자발송
+    [jd_memo] => 기존 본심사 결과 준용
+부재중/안내문자 발송
+타사접수로 심사완료후 본인 취소건입니다
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:04:04]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49106
+    [prev_status] => 30
+    [next_status] => 60
+    [jd_amount] => 6000
+    [jd_interest] => 14
+    [jd_condition] => 6000만원 / 14% / 3.85% / 12개월로 심사완료 / 자서서류 문자발송
+    [jd_memo] => 타업체 기접수건으로 2024.04월 6000만원 / 13.5% / 3.85% / 12개월로 심사완료 후 본인 대출 취소건입니다
+신.조완료(취급가능)/간편심사 진행예정
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:04:47]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49017
+    [prev_status] => 30
+    [next_status] => 60
+    [jd_amount] => 8000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 8000만원 / 13.8% / 3.85% / 12개월로 심사완료 / 자서서류 문자발송
+    [jd_memo] => 신.조완료(취급가능)/간편심사 진행예정
+    [rf_first3] => 33250
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:11:08]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49894
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:14:40]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49895
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 20000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:19:29]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49896
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 35000
+    [jd_interest] => 13.2~13.5
+    [jd_condition] => 임대차 확인서 징구
+    [jd_memo] => 
+    [rf_first3] => 150000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:27:49]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49897
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:28:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49898
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 이우훈
+    [wr_cont1] => 
+    [address1] => 경기 양평군 양평읍 백안리 565-8
+    [address2] => 
+    [address3] => 경기도 양평군 양평읍 백안리 565-10 전 406㎡
+    [address_ext] => 경기도 양평군 양평읍 백안리 565-9 전 67㎡
+    [wr_m2] => 
+    [wr_cont2] => [3필지 공동담보]
+이우훈 / 611107 (만62세)
+
+-경기도 양평군 양평읍 백안리 565-8 전 287㎡
+-경기도 양평군 양평읍 백안리 565-10 전 406㎡
+-경기도 양평군 양평읍 백안리 565-9 전 67㎡
+
+* 소유권이전일: 2023년 11월 13일(매매)
+
+▶  선순위 
+1. 금사농업협동조합 27,600만 (23,000만) / 120.0%
+2. 목 적 0만 (0만) 
+:: 총 합계 27,600만  (23,000만)
+
+* 사업자
+* 3필지 공동담보 5천만원 이상 요청
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:32:05]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49898
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 매입가 준용(23.11)
+    [rf_first3] => 39030
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:35:13]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49884
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 9000
+    [jd_interest] => 13.5
+    [jd_condition] => 2순위 한도 / 선순위 21600만원(13~13.3%)
+    [jd_memo] => 자동 가승인
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:36:25]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49899
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 15000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:36:50]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49900
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:38:03]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49901
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 전세권설정
+    [jd_memo] => 
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:39:31]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49902
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 20000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:41:05]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49903
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 20000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 40000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:41:21]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49904
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 전명자
+    [wr_cont1] => 법인대표
+    [address1] => 경기 남양주시 진접읍 금곡리 1121-12
+    [address2] => 
+    [address3] =>  주건축물제1동
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => [단독주택/후순위]
+전명자 (소유자) 700125
+[건물] 경기도 남양주시 진접읍 금곡리 1121-12 주건축물제1동
+
+>선순위 / 유지
+1.새마을금고 84000 / 70000
+
+* 전명자 법인사업자 / 연 1억 
+* 토지에만 선순위 설정
+* 선순위 대환 최대요청 
+* 감정평가서 추가
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:41:26]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49904
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:48:52]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49441
+    [prev_status] => 30
+    [wr_name] => 옥준석
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_subject] => 옥준석
+    [wr_cont1] => 사업자
+    [address1] => 경남 거제시 사등면 성포리 356
+    [address2] => (미래 미라지)
+    [address3] => 제102동 제2층 제 201호
+    [address_ext] => 96세대 / 4층 중 2층
+    [wr_m2] => 84.97
+    [wr_cont2] => [빌라연립다세대 / 매입자금 / 1순위]
+매매자 성함 확인중
+
+경상남도 거제시 사등면 성포리 356외 6필지 미래미라지 제102동 제2층 제 201호
+전용 84.97 ㎡ / 96세대 / 4층 중 2층
+
+▶ KB 하 24,000만 / 일 25,600만 (하)
+* 실거래: 0만(-)
+* 대지권: 있음
+* 소유권이전일: 2023년 09월 01일
+
+* 개인사업자 - 공인중개업
+* 매매가 28000만 
+* 매매 선순위 요청
+    [wr_amount] => 
+    [wr_link1] => https://kbland.kr/c/476088
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 14:49:00]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49901
+    [prev_status] => 30
+    [wr_name] => 김남례
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_subject] => 김남례
+    [wr_cont1] => 연금 400만 소득
+    [address1] => 경남 거제시 사등면 성포리 356
+    [address2] => (미래 미라지)
+    [address3] => 제102동 제1층 제101호
+    [address_ext] => 96세대 / 4층 중 1층
+    [wr_m2] => 84.97
+    [wr_cont2] => [빌라연립다세대 / 매입자금 / 1순위]
+매매자 성함 확인중
+
+경상남도 거제시 사등면 성포리 356외 6필지 미래미라지 제102동 제1층 제101호
+전용 84.97 ㎡ / 96세대 / 4층 중 1층
+
+▶ KB 하 22,100만 / 일 23,200만 (일)
+* 실거래: 0만(-)
+* 대지권: 있음
+* 소유권이전일: 2023년 09월 01일
+
+* 연금수령 400만 
+* 매가 28000만 
+* 선순위 요청
+    [wr_amount] => 
+    [wr_link1] => https://kbland.kr/c/476088
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:04:22]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49441
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신.조상 점수미달(3백점대) 및 공공정보 등록중/차주변경 안내
+    [jd_memo] => 전세권 설정
+    [rf_first3] => 25600
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:18:30]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49901
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신.조예정
+    [jd_memo] => 전세권설정
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:33:14]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49317
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 6000
+    [jd_interest] => 14.5~15
+    [jd_condition] => 신.조상 연체 및 점수 미달(4백점대)/차주변경 안내
+    [jd_memo] => 현장방문 시세조사 필수
+하자 정리시 지급수수료 조정건
+오종호 지분대출 4000만원
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:36:32]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49901
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신.조상 점수미달(3백점대) 및 채.불 등록중/차주변경 안내
+    [jd_memo] => 전세권설정
+    [rf_first3] => 22000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:38:31]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49919
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 강호상
+    [wr_cont1] => 강호상
+
+경기도 광주시 양벌동 379- 17번지 아리아빌리지 1103- 301호  전용 83.81m
+분양가 36,500
+필요 25,000~
+잔금 8월초
+
+년봉 12,000
+등급 양호
+
+본인 거주 목적
+DSR오바로 은행권 불가
+분양잔금 1순위 검토 부탁드립니다.
+    [address1] => 경기 광주시 양벌동 379- 17
+    [address2] => 
+    [address3] => 아리아빌리지 1103- 301호  전용 83.81m
+    [address_ext] => 
+    [wr_m2] => 83.81
+    [wr_cont2] => 강호상
+
+경기도 광주시 양벌동 379- 17번지 아리아빌리지 1103- 301호  전용 83.81m
+분양가 36,500
+필요 25,000~
+잔금 8월초
+
+년봉 12,000
+등급 양호
+
+본인 거주 목적
+DSR오바로 은행권 불가
+분양잔금 1순위 검토 부탁드립니다.
+    [wr_amount] => 25000
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:38:44]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49916
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 유승문/아파트/선순위대출
+    [wr_cont1] => 유승문-몸이 많이불편하셔서 내방자서 어려움/본인거주중
+딸 차주가능 / 직장인
+    [address1] => 인천 서구 신현동 200-4
+    [address2] => 원흥
+    [address3] => 가동 603호
+    [address_ext] => 183세대
+    [wr_m2] => 74.22
+    [wr_cont2] => * 전체지분
+KB시세 : 18,500 - 19,500 - 20,500
+* 기대출 금액
+* 기대출 총액 : 0만원
+    [wr_amount] => 선순위최대한도요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:38:56]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49907
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 김정수/아파트/3순위추가
+    [wr_cont1] => 직장인 / 연 7,000
+신용 897
+    [address1] => 부산 강서구 명지동 3231
+    [address2] => 퀸덤1차링컨타운
+    [address3] => 204-205
+    [address_ext] => 1102/14
+    [wr_m2] => 144.5
+    [wr_cont2] => * 전체지분
+
+KB 71,000 (*) / 74,000 / 76,000
+
+①삼성생명 36,300 (원 33,000) 110% / 20년 05월 11일 / 잔30,471
+②삼성화재 11,500 (원 10,000) 115% / 22년 06월 23일 / 채무자 박서정
+* 합계: 47,800 (원 43,000) / 잔40,471
+    [wr_amount] => 3순위 최대한도 요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:40:25]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49905
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 9000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 17000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:40:36]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49906
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:42:34]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49907
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 1순위 동일차주
+    [rf_first3] => 60000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:43:40]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49919
+    [prev_status] => 1
+    [next_status] => 90
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 15:44:39]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49908
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 100000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:08:56]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49911
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 43000
+    [jd_interest] => 13.2~13.7
+    [jd_condition] => 임대차 확인서 징구
+    [jd_memo] => 
+    [rf_first3] => 60000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:11:21]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49912
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 17000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 2순위 조건
+    [jd_memo] => 
+    [rf_first3] => 45000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:12:53]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49913
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 14000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 임대차 확인서 징구
+    [jd_memo] => 
+    [rf_first3] => 110000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:15:53]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49921
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 36500
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:17:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49922
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 15000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 본건 타사 기접수건으로 매입자 신용점수 문제로 보류된 건임
+    [jd_memo] => 
+    [rf_first3] => 24000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:19:54]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49579
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 7000
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 7000만원 / 13.8% / 3.85% / 12개월로 심사완료 / 자서서류 문자발송
+    [jd_memo] => 임대차 확인서 징구
+신.조 완료(취급가능)/간편심사 진행 예정
+    [rf_first3] => 66000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:24:39]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49923
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:25:27]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49914
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 40000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:27:16]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49915
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 26000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:28:15]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49916
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 11000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 전세권 설정
+    [jd_memo] => 
+    [rf_first3] => 19000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:30:13]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49917
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 20000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:31:33]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49918
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 18000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 63000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:32:34]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49920
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 63000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:32:55]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49924
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 11000
+    [jd_interest] => 13.3~13.8
+    [jd_condition] => 전세권 설정
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:35:32]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49925
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 320000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:35:53]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49926
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 63000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:37:15]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49927
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 18000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:39:16]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49928
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 25000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:39:49]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49929
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 3000
+    [jd_interest] => 14
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 10000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:40:12]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49930
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 18000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 30000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:49:01]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 48684
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 8000
+    [jd_interest] => 14~15
+    [jd_condition] => 신.조완료(취급가능)/간편심사 진행예정
+    [jd_memo] => 현장시세조사(50/20)
+공부상 맹지로 진입로 미확인시 취급불가할수 있음
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 16:49:44]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49931
+    [prev_status] => 1
+    [next_status] => 90
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:04:44]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49932
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 18000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:06:34]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49933
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:08:10]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49934
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 12000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 전세권 설정
+    [jd_memo] => 22.10매매가 인정
+    [rf_first3] => 24000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:08:26]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49934
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 12000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 전세권 설정
+현장방문 시세조사 필수
+    [jd_memo] => 22.10매매가 인정
+    [rf_first3] => 24000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:08:54]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49935
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 25000
+    [jd_interest] => 13.5~13.9
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:09:20]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49936
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:12:00]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49937
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 62000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:13:03]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49938
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 5000
+    [jd_interest] => 14~14.5
+    [jd_condition] => 전세권 설정
+    [jd_memo] => 
+    [rf_first3] => 15000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:13:42]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49939
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 13000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:13:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49937
+    [prev_status] => 20
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 임영수
+    [wr_cont1] => 법인대표
+    [address1] => 경북 경주시 감포읍 전동리 157-2
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => <토지 임야>
+*명의인 : 임영수 
+*주소 :  경상북도 경주시 감포읍 전동리 157-2 임야 3446㎡
+*직업 : 법인대표 
+*면적 : 3446
+*설정 : 
+울산광역시산림조합 46800 원금 39000
+울산광역시산림조합 16900 원금 13000 
+
+총설정 63700 원금 52000
+
+울산광역시산림조합 2건 합 잔액 52000 - 1순위 채최 120% 감액기준 )
+ㄴ 원금 각각 확인불가
+
+*특이사항 : 지상권설정 
+
+=======================
+
+공시지가 , 공가 확인불가 
+
+후순위 부탁드립니다
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:14:20]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49940
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 10000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 16000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:17:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49942
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 김혜식/아파트/후순위추가
+    [wr_cont1] => 사업자
+    [address1] => 부산 영도구 봉래동4가 343
+    [address2] => (봉래동4가, 영도 센트럴 에일린의 뜰)
+    [address3] => 제110동 제10층 제1001호
+    [address_ext] => 1216/33
+    [wr_m2] => 84.88
+    [wr_cont2] => * 기대출
+1. 국민은행 24,500/26,950
+
+KB시세 : 미등재 (실거래51,500)
+    [wr_amount] => 2순위 최대한도요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:18:06]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49935
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_subject] => 강호상
+    [wr_cont1] => [타운하우스 / 분양 / 1순위]
+분양자 : 강호상
+    [address1] => 경기 광주시 양벌동 379-15
+    [address2] => (양벌동, 아리아빌리지 더 노블타운)
+    [address3] => 제1103동 제3층 제301호
+    [address_ext] => 20세대 / 4층 중 3층
+    [wr_m2] => 83.81
+    [wr_cont2] => [타운하우스 / 분양 / 1순위]
+분양자 : 강호상
+
+경기도 광주시 양벌동 379-17 아리아빌리지 제1103동 제3층 제301호
+전용 83.81 ㎡ / 20세대 / 4층 중 3층
+
+▶ KB 하 미등재 / 일 미등재
+* 실거래: 0만(-)
+* 대지권: 있음
+
+* 직장인(연봉1.2억)
+* 분양가 3.65억 / 잔금일 8월초
+* 본인 거주 예정 / 선순위 최대요청
+
+KB시세 조회 주소: -
+    [wr_amount] => 최대
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:33:35]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49941
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 120000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:34:52]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49942
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 8000
+    [jd_interest] => 13.8~14
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 50000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:35:17]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49943
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 10000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 16000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:37:34]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49944
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 4000
+    [jd_interest] => 13.7~14
+    [jd_condition] => 현장방문 시세조사 필수
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:38:13]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49945
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 20000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:39:23]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49946
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 13000
+    [jd_interest] => 13.5~13.8
+    [jd_condition] => 세입자 확인조건
+    [jd_memo] => 
+    [rf_first3] => 140000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:39:43]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49947
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 10000
+    [jd_interest] => 13.5~14
+    [jd_condition] => 신탁+근저당권
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:40:46]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49948
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 16000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:51:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49949
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 80000
+    [jd_interest] => 14~14.5
+    [jd_condition] => 현장방문 시세조사 필수
+지상권 설정
+    [jd_memo] => 
+    [rf_first3] => 200000
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:52:21]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49950
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 지분한도는 안나옵니다
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:52:57]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49949
+    [prev_status] => 10
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 피케  /이상원
+    [wr_cont1] => 
+    [address1] => 충북 제천시 신월동 산63-10
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => [토지] 충청북도 제천시 신월동 산63-10
+
+갑구/이상원
+공유자 이평선  - 동의가능
+
+근저당無
+
+자연녹지지역 /  준보전산지
+토지 16.509 / 임야 / 개인
+
+공시지가 8억4195만원
+2024년1월기준 공시지가 5.10만원
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:05]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49951
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 전 / 임영수
+    [wr_cont1] => 
+    [address1] => 경북 경주시 동천동 914-10
+    [address2] => 앙시
+    [address3] => 제1동 제7층 제703호
+    [address_ext] => 6
+    [wr_m2] => 121.19
+    [wr_cont2] => * 전체지분
+
+* 기대출 금액
+1 / 새마을금고  / 19,500만원(동일차주)
+* 기대출 총액 : 19,500만원
+
+임영수 / 법인대표 / 740301-1     [KB미등재]
+경상북도 경주시 탈해로 15, 제1동 제7층 제703호 [동천동 914-10외 1필지 앙시아파트]
+
+면적 - 121.19
+공시가 - 16400
+세대수 - 6
+
+기대출 
+성동새마을금고 (2017.09.27) 19500 /
+
+▶ N650 / 법인대표 / 연 5000 / 본인거주
+▶ 새마을(130%) 원금 11300 감액등기기준
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:15]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49945
+    [prev_status] => 20
+    [wr_ca] => A
+    [wr_part] => P
+    [wr_subject] => 김윤정지분/아파트/후순위추가
+    [wr_cont1] => 직장인
+    [address1] => 광주 광산구 운남동 387-22
+    [address2] => 삼성
+    [address3] => 118-2004
+    [address_ext] => 1956/20
+    [wr_m2] => 84.92
+    [wr_cont2] => * 지분(50%)
+
+KB하한 20000 / KB일반 22000   
+ 낙찰가율 80%   
+   
+1순위 광주은행 7150(6500)   [채무자;김윤정]
+설정 7150  원금 6500   
+(시세대비 원금 29.5% 사용중)
+    [wr_amount] => 후순위 최대한도 요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:22]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49951
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:27]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49933
+    [prev_status] => 20
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 최원식
+    [wr_cont1] => [상가주택 / 임차동의 / 3순위]
+최원식 / 700311 (만54세)
+    [address1] => 대구 남구 대명동 1909-2
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => [상가주택 / 임차동의 / 3순위]
+최원식 / 700311 (만54세)
+
+[건물] 대구광역시 남구 대명동 1909-2
+[토지] 대구광역시 남구 대명동 1909-2 대 180.2㎡
+
+* 소유권이전일: 2015년 08월 24일
+
+▶  선순위 
+1. 임대차보증금 11,000만 (11,000만) / 100.0%
+2. 대구은행 20,400만 (17,000만) / 120.0%
+:: 총 합계 31,400만  (28,000만)
+
+1층 소매점-본인운영(한국야구르트)
+2층 월세 2000/20만 / 202호 본인거주
+3층 전세 9000만 
+
+* 사업자 야구르트 
+* 임차2가구 > 세입자 동의가능
+* 임차동의 3순위 최대 한도요청
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:43]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49952
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 4000
+    [jd_interest] => 13.7~14
+    [jd_condition] => 현장방문 시세조사 필수
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:53:48]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49932
+    [prev_status] => 20
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_subject] => 전 / 김경제
+    [wr_cont1] => 
+    [address1] => 충남 천안시 동남구 목천읍 동평리 128-1
+    [address2] => 
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 김경제 / 무직 / 630505-1 / 토지
+충청남도 천안시 동남구 목천읍 동평리 128-1
+
+기대출
+OK저축(2019.7.26) 8450 / 5700
+
+▶ N 350점 / 회생 120회차중 6회차 납부 / 2회 연체중
+
+전
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 17:54:12]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 49914
+    [prev_status] => 10
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 박시현/아파트/선순위대출
+    [wr_cont1] => 직장인
+    [address1] => 강원 속초시 조양동 1588
+    [address2] => 속초2차IPARK
+    [address3] => 105-1203
+    [address_ext] => 578/29
+    [wr_m2] => 84.9
+    [wr_cont2] => * 전체지분
+
+KB 없음 테크 중간가 40000
+최근 실거래가 4억 2,000 ’24.06.17/14층
+
+기대출 없음
+    [wr_amount] => 선순위최대한도요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 18:14:57]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49952
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 8500
+    [jd_interest] => 13.7~14
+    [jd_condition] => 현장방문 시세조사 필수/선순위 최고액 11700만원 기준
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-07-10 18:15:14]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 49952
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 8500
+    [jd_interest] => 13.7~14
+    [jd_condition] => 현장방문 시세조사 필수/선순위 최고액 11700만원 기준 /2순위 조건
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+

@@ -1,0 +1,61 @@
+
+[2024-08-08 10:08:59]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [idx] => 
+    [mb_id] => test2
+    [mb_pw] => test2
+    [mb_bizname] => 테스트
+    [mb_name] => 테스트
+    [mb_use] => 1
+    [mb_display] => 1
+)
+[MESSAGE] : 
+ insert into `partner_member`
+				set mb_id   = 'test2',
+					mb_pw   = '*7CEB3FDE5F7A9C4CE5FBE610D7D8EDA62EBE5F4E',
+					mb_name   = '테스트',
+					mb_bizname   = '테스트',
+					mb_level   = '2',
+					mb_joindate = NOW(),
+					mb_lastlogin = NOW(),
+					mb_use   = '1',
+					mb_display   = '1',
+					is_sub = '0',
+					parent_id = ''
+					
+
+[2024-08-08 10:09:25]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => sw
+    [idx] => 
+    [pt_idx] => 23
+    [mb_id] => test2a
+    [mb_pw] => test2a
+    [mb_bizname] => 테스트
+    [mb_name] => 테스트A
+    [mb_use] => 1
+    [mb_display] => 1
+)
+[MESSAGE] : 
+ insert into `partner_member`
+				set mb_id   = 'test2a',
+					mb_pw   = '*C6F5B2331599AB51FC6BF647167C07B76224E133',
+					mb_name   = '테스트A',
+					mb_bizname   = '테스트',
+					mb_level   = '2',
+					mb_joindate = NOW(),
+					mb_lastlogin = NOW(),
+					mb_use   = '1',
+					mb_display   = '1',
+					is_sub = '1',
+					parent_id = '23'
+					

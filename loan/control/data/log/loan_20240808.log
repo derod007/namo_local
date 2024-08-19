@@ -1,0 +1,145 @@
+
+[2024-08-08 09:52:55]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/new/loan-apt-act.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [wr_id] => 
+    [pt_idx] => 
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 
+    [s_region] => 
+    [s_danzi] => 화정동 988
+    [wr_addr1] => 경기도 고양시 덕양구 화정동 988
+    [wr_addr2] => 옥빛마을12단지
+    [wr_addr3] => 101동 708호
+    [wr_addr_ext1] => 
+    [wr_m2] => 59.19
+)
+[MESSAGE] : 
+ insert into `loan_apt_tmp`
+			set  wr_ca   = 'A',
+				wr_part   = 'A',
+				wr_part_percent   = '0',
+				wr_subject   = '',
+				wr_addr1   = '경기도 고양시 덕양구 화정동 988',
+				wr_addr2   = '옥빛마을12단지',
+				wr_addr3   = '101동 708호',
+				wr_addr_ext1   = '',
+				wr_m2   = '59.19',
+				wr_region = '',
+				wr_amount   = '',
+				wr_status = '81',
+				wr_datetime = NOW(),
+				wr_ip   = '175.121.155.210',
+				wr_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'
+				
+
+[2024-08-08 09:53:01]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/new/ajax.loan-apt-calc.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [wr_id] => 544
+    [pt_id] => 
+    [wr_live] => T
+    [wr_deposit] => 0
+    [wr_agree] => Y
+    [mor_no] => Array
+        (
+            [0] => 1
+        )
+
+    [mor_amount] => Array
+        (
+            [0] => 
+        )
+
+    [mor_bank] => Array
+        (
+            [0] => 
+        )
+
+)
+[MESSAGE] : 
+ update `loan_apt_tmp`
+			set wr_live   = 'T',
+				wr_deposit   = '0',
+				wr_tnagree   = 'Y',
+				wr_mortgage   = '{\"total\":0,\"same\":0,\"differ\":0}',
+				wr_mortgage_total   = '0',
+				wr_status = '82'
+			where wr_id='544'
+				
+
+[2024-08-08 09:53:01]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/new/ajax.loan-apt-calc.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [wr_id] => 544
+    [pt_id] => 
+    [wr_live] => T
+    [wr_deposit] => 0
+    [wr_agree] => Y
+    [mor_no] => Array
+        (
+            [0] => 1
+        )
+
+    [mor_amount] => Array
+        (
+            [0] => 
+        )
+
+    [mor_bank] => Array
+        (
+            [0] => 
+        )
+
+)
+[MESSAGE] : 
+
+
+[2024-08-08 09:59:42]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [wr_id] => 
+    [prev_status] => 
+    [jd_autoid] => 544
+    [pt_idx] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_subject] => 홍길동
+    [wr_cont1] => 
+    [address1] => 경기도 고양시 덕양구 화정동 988
+    [address2] => 옥빛마을12단지
+    [address3] => 101동 708호
+    [address_ext] => 
+    [wr_m2] => 59.19
+    [wr_cont2] => * 전체지분
+
+* 세입자 거주 / 보증금 : 0만원
+
+* 기대출 금액
+* 기대출 총액 : 0만원
+
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

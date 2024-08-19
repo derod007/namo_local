@@ -1,0 +1,34 @@
+
+[2024-08-07 13:39:42]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+/home/namo/loan/control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 51539
+    [prev_status] => 1
+    [wr_ca] => E
+    [wr_part] => A
+    [wr_part_percent] => 0
+    [wr_subject] => 이숙향/단독주택
+    [wr_cont1] => 개인사업자
+    [address1] => 경기 동두천시 안흥동 337-1
+    [address2] => (안흥동)
+    [address3] => 
+    [address_ext] => 
+    [wr_m2] => 
+    [wr_cont2] => 경일감정정감 39,400  
+(감정서보유)현시세 5억
+2층단독  2011.11신축
+1층 91.91㎡  2층63.76㎡
+개인 15,000대환 추가
+현재공실 매매 준비중
+    [wr_amount] => 선순위요청
+    [wr_link1] => 
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

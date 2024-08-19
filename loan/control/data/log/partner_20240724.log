@@ -1,0 +1,30 @@
+
+[2024-07-24 09:15:02]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => 
+    [idx] => 
+    [mb_id] => guest1
+    [mb_pw] => guest1234
+    [mb_bizname] => 게스트
+    [mb_name] => 게스트
+    [mb_use] => 1
+    [mb_display] => 1
+)
+[MESSAGE] : 
+ insert into `partner_member`
+				set mb_id   = 'guest1',
+					mb_pw   = '*48D9471C423283B33B9D5A9120F6C13E45423A7D',
+					mb_name   = '게스트',
+					mb_bizname   = '게스트',
+					mb_level   = '2',
+					mb_joindate = NOW(),
+					mb_lastlogin = NOW(),
+					mb_use   = '1',
+					mb_display   = '1',
+					is_sub = '0',
+					parent_id = ''
+					

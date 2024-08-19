@@ -1,0 +1,25 @@
+
+[2024-07-25 11:41:04]
+58.123.54.42 : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 22
+    [mb_id] => guest1
+    [mb_pw] => 
+    [mb_bizname] => 게스트
+    [mb_name] => 게스트
+    [mb_use] => 1
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'guest1', 
+					mb_name   = '게스트',
+					mb_bizname   = '게스트',
+					mb_level   = '2',
+					mb_use   = '1',
+					mb_display   = '0'
+			  where idx   = '22' 

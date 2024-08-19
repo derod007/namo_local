@@ -1,0 +1,367 @@
+/** DEFAULT CSS ------------------------------------------------- START ----------------------------------- **/
+
+html,
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding-top: 70px;
+}
+
+#wrap-content {
+  font-size: 0.9em;
+}
+
+.no-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+	.container {
+		width: 98%;
+		max-width: 1870px;
+	}
+}
+/* BOOTSTRAP DEFAULT OVERRIDING */
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 0px 0 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.h1,
+.h2,
+.h3,
+h1,
+h2,
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+.modal-content {
+  border-radius: 0px;
+}
+
+.modal-body {
+  padding: 20px 40px;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.input-group-addon {
+  border-radius: 0px;
+}
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    border: 0px solid #ddd;
+  }
+}
+
+/* SELECT2 */
+
+.select2 {
+  width: 100%;
+}
+
+.select2-container--bootstrap .select2-selection {
+  border-radius: 0px;
+}
+
+/* 필수 입력 부분 붉은 색이 통일성을 해침 */
+
+/* .required,
+input:required,
+select:required {
+  background-color: #FBEFF8;
+} */
+
+/** DEFAULT CSS ------------------------------------------------- END ----------------------------------- **/
+
+/** COMMON CSS ------------------------------------------------- START -------------------------------------- **/
+
+.nowrap {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.tb-hd {
+  background-color: #ccc;
+}
+
+/* .max-768-toggle {}
+.max-768-target {}
+.max-768-target.show {}; */
+
+@media (min-width: 768px) {
+  .max-768-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .max-768-target {
+    display: none!important;
+  }
+
+  .max-768-target.max-768-show {
+    display: inherit!important;
+  }
+}
+
+/** COMMON CSS ------------------------------------------------- END -------------------------------------- **/
+
+/** PAGE-HEADER ------------------------------------------------- START ----------------------------------- **/
+
+.page-header h1,
+.page-header h2,
+.page-header h3,
+.page-header h4,
+.page-header h5,
+.page-header h6 {
+  font-size: 1.7em;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.page-header .btn-div {
+  float: right;
+  margin-top: -3px;
+}
+
+/** JSB-DESIGN CSS --------------------------------------- START -------------------------------------- **/
+
+/* INFO-TABLE --------------- START --- */
+
+table.jsb-info {
+  border-color: #9eafca;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+table.jsb-info>tbody>tr>th,
+table.jsb-info>tbody>tr>td {
+  border-color: #9eafca;
+}
+
+table.jsb-info>tbody>tr>th {
+  background-color: #6e819e;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* INFO-TABLE --------------- END --- */
+
+/* SIMPLE FORM --------------- START --- */
+
+div.jsb-simple-form {
+  width: 100%;
+  border: 2px solid #88af70;
+  margin: 15px 0px 15px 0px;
+  padding: 2px;
+}
+
+div.jsb-simple-form .row {
+  margin: 0;
+}
+
+div.jsb-simple-form .row div[class*="col-"] {
+  margin: 0;
+  padding: 5px 5px 5px 0px;
+}
+
+div.jsb-simple-form .row div[class*="col-"].header {
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+  background-color: #7aa95c;
+  color: #ffffff;
+  margin: 5px;
+}
+
+@media (min-width: 768px) {
+  div.jsb-simple-form .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  div.jsb-simple-form .row div[class*="col-"].header {
+    width: 100%;
+    margin: 0px;
+  }
+
+  div.jsb-simple-form .row div[class*="col-"] {
+    padding: 10px;
+  }
+}
+
+/* SIMPLE FORM --------------- END --- */
+
+.search-box {
+  padding: 10px;
+  border: 2px solid #ddd;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.search-box .row {
+  margin: 0;
+}
+
+.search-box .row div[class*="col-"] {
+  margin: 0;
+  padding: 5px 5px 0px 0px;
+}
+
+.form-box {
+  max-width: 750px;
+  border: 2px solid #ccc;
+  margin: auto;
+  padding: 40px 20px 20px 20px;
+  border-radius: 10px;
+}
+
+.jsb-form {}
+
+.jsb-form .form-control {
+  border-bottom: 2px solid #ddd;
+}
+
+.jsb-form .has-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.jsb-form div[class*="col-"] {
+  padding-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 12px;
+    margin-bottom: 0;
+    text-align: right;
+  }
+}
+
+.jsb-table1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top-color: #666;
+}
+
+.jsb-table1 thead {
+  background-color: #333;
+  color: #fff;
+}
+
+.jsb-table1 tbody {
+  background-color: #eee;
+}
+
+.jsb-table1>thead>tr>th {
+  border-color: #666;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.jsb-table1>tfoot>tr>th {
+  text-align: center;
+}
+
+.jsb-table1>thead>tr>th,
+.jsb-table1>thead>tr>td {
+  border-bottom-width: 1px;
+}
+
+.jsb-table1 tbody {
+  background-color: #fff;
+}
+
+.jsb-table1>tbody>tr:hover>td,
+.jsb-table1>tbody>tr:hover>th {
+  background-color: #eee;
+}
+
+/* jsb-table1-color --- default */
+
+.jsb-table1 {
+  border-top-color: #676967;
+}
+
+.jsb-table1 thead {
+  background-color: #4b4e4b;
+  color: #fff;
+}
+.jsb-table1 tfoot {
+  background-color: #cccccc;
+}
+
+
+.jsb-table1>thead>tr>th {
+  border-color: #676967;
+}
+
+/* jsb-table1-color --- orange */
+
+.jsb-table1.orange {
+  border-top-color: #aa9f4d;
+}
+
+.jsb-table1.orange thead {
+  background-color: #9e9131;
+  color: #fff;
+}
+
+.jsb-table1.orange>thead>tr>th {
+  border-color: #aa9f4d;
+}
+
+/* jsb-table1-color --- red */
+
+.jsb-table1.red {
+  border-top-color: #742823;
+}
+
+.jsb-table1.red thead {
+  background-color: #601813;
+  color: #fff;
+}
+
+.jsb-table1.red>thead>tr>th {
+  border-color: #742823;
+}
+
+.red 		{ color: #FF0000; }
+.blue 	{ color: #0000FF; }
+.magenta { color: #FF00FF; }
+.green 	{ color: #008000; }
+
+.control-label {
+	vertical-align: bottom;
+	line-height:2em;
+	padding-top:5px;
+}
+
+/** JSB-DESIGN CSS --------------------------------------- END -------------------------------------- **/

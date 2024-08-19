@@ -1,0 +1,150 @@
+
+[2024-06-24 16:05:36]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 16
+    [mb_id] => gm2022
+    [mb_pw] => 
+    [mb_bizname] => GM캐피탈
+    [mb_name] => 원종찬
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'gm2022', 
+					mb_name   = '원종찬',
+					mb_bizname   = 'GM캐피탈',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '16' 
+
+[2024-06-24 16:05:44]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 15
+    [mb_id] => shinyh1234
+    [mb_pw] => 
+    [mb_bizname] => 신용희
+    [mb_name] => 신용희
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'shinyh1234', 
+					mb_name   = '신용희',
+					mb_bizname   = '신용희',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '15' 
+
+[2024-06-24 16:05:51]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 14
+    [mb_id] => boksh2
+    [mb_pw] => 
+    [mb_bizname] => 스피드콜
+    [mb_name] => 이재혁
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'boksh2', 
+					mb_name   = '이재혁',
+					mb_bizname   = '스피드콜',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '14' 
+
+[2024-06-24 16:06:41]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 13
+    [mb_id] => leekim
+    [mb_pw] => 
+    [mb_bizname] => 김상태
+    [mb_name] => 김상태
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'leekim', 
+					mb_name   = '김상태',
+					mb_bizname   = '김상태',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '13' 
+
+[2024-06-24 16:06:48]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 12
+    [mb_id] => kbs7583
+    [mb_pw] => 
+    [mb_bizname] => 김병수
+    [mb_name] => 김병수
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = 'kbs7583', 
+					mb_name   = '김병수',
+					mb_bizname   = '김병수',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '12' 
+
+[2024-06-24 16:06:58]
+175.121.155.210 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0
+/home/user/hosting/loan/control/app/partner-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [idx] => 4
+    [mb_id] => 4pmpartners
+    [mb_pw] => 
+    [mb_bizname] => 포피엠
+    [mb_name] => 포피엠
+    [mb_use] => 0
+    [mb_display] => 0
+)
+[MESSAGE] : 
+ update `partner_member`
+				set mb_id   = '4pmpartners', 
+					mb_name   = '포피엠',
+					mb_bizname   = '포피엠',
+					mb_level   = '2',
+					mb_use   = '0',
+					mb_display   = '0'
+			  where idx   = '4' 
