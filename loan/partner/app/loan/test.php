@@ -145,7 +145,7 @@ if($w == 'u') {
     </select>
     
     <input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control">
-    <button class="btn btn-success" type="submit">파일1등록</button>
+    <button class="btn btn-success" type="submit">파일등록</button>
 </form>
 <br/><br/>
 <!-- CONTENT START -->
