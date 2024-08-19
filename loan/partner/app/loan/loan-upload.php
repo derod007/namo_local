@@ -6,6 +6,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/inc/common.php');
 
 $w 	= trim($_POST['w']);
 $wr_id 	= trim($_POST['wr_id']);
+$jd_autoid 	= trim($_POST['jd_autoid'] ?? '0');
 
 $upload_max_filesize = ini_get('upload_max_filesize');
 
@@ -20,11 +21,72 @@ global $new_post;
 if(!$wr_id) {
 	// alert("잘못된 접근입니다.");
 
-	$sql = "INSERT INTO `loan_write` (`pt_idx`, `pt_name`) VALUES ('{$member['idx']}', '{$member['mb_name']}')";
+	$sql = "INSERT INTO `loan_write` set
+				pt_idx = '{$member['idx']}',
+				pt_name = '{$member['mb_name']}',
+				wr_status = '1',
+				wr_datetime = NOW(),
+				wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+				wr_agent = '{$_SERVER['HTTP_USER_AGENT']}',
+				jd_autoid = '$jd_autoid' 
+	";
+	echo $sql;
 	$result = sql_query($sql, FALSE);
 
 	$wr_id = mysqli_insert_id($jsb['connect_db']);
 	$new_post = 1;
+
+	if($jd_autoid) {
+		
+		$sql = "select * from `loan_apt_tmp` where wr_id = '{$jd_autoid}' limit 1";
+		$jd = sql_fetch($sql);
+		
+		if($jd['wr_id'] && $jd['wr_judge_code'] == '0') {
+			
+			$jd_data = json_decode($jd['wr_judge'], true);
+			$jd_amount = $jd_data['judge']['last_judge'];
+			$jd_interest = $jd_data['judge']['interest'];
+			$jd_condition = '';
+			$jd_memo = '자동 가승인';
+
+			$sql = " update `loan_write`
+						set  wr_status = '10',
+							jd_amount  = '{$jd_amount}',
+							jd_interest  = '{$jd_interest}',
+							jd_condition  = '{$jd_condition}',
+							jd_memo  = '{$jd_memo}'
+					  where wr_id   = '{$wr_id}' ";
+			//echo "<pre>".$sql."</pre>";
+			sql_query($sql);
+
+			log_write($wr_id, '', 'SYSTEM', '1', '10' );
+			
+			$row['wr_status'] = '10';
+		}
+
+		// 자동심사 승인건의 경우 진행요청 처리. 24.05.16
+		if($next_status == '30') {
+			
+			$wr_name   = safe_request_string(trim($_POST['wr_name']));
+			$wr_tel 	= safe_request_string(trim($_POST['wr_tel']));
+			$wr_memo 	= safe_request_string(trim($_POST['wr_memo']));
+
+			if(!$wr_tel) {
+				alert('차주 연락처가 누락되었습니다.', './loan-write.php?w=u&wr_id='.$wr_id);
+				die();
+			}
+			
+			$sql = " update `loan_write` set wr_status = '30', wr_name='{$wr_name}', wr_tel='{$wr_tel}', wr_memo='{$wr_memo}' where wr_id = '{$wr_id}' ";
+			//echo "<pre>".$sql."</pre>";
+			sql_query($sql);
+			
+			log_write($wr_id, $member['mb_id'], '', $row['wr_status'], '30' );
+			
+			alert('진행요청이 접수되었습니다.', './loan-list.php');
+			die();
+		}
+		
+	}
 }
 
 if($w == 'file') {
@@ -135,7 +197,7 @@ if($w == 'file') {
 	//@log_write("WRITE", "PROJECT", "FILE");
 	
 	if($new_post=='1'){
-		goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post);
+		goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
 	}else{
 		goto_url('./loan-file.php?wr_id='.$wr_id);
 	}
