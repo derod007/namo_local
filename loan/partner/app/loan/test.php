@@ -126,8 +126,13 @@ if($w == 'u') {
 	if(!$row['wr_id']) {
 		alert('해당되는 데이터가 없습니다');
 	}
-	$btntxt = "수정";
-	$btnclass = "btn-warning";
+	if($new_post=='1'){
+		$btntxt = "등록";
+		$btnclass = "btn-primary";
+	}else{
+		$btntxt = "수정";
+		$btnclass = "btn-warning";
+	}
 	
 } else {
 	$btntxt = "등록";
