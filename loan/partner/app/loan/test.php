@@ -7,94 +7,104 @@ require '../../vendor/autoload.php';
 
 use Smalot\PdfParser\Parser;
 
-// PDF 파일 경로
-$pdfFilePath = 'f1.pdf';
+$new_post = $_GET['new_post'] ?? '0';
+$pjfile = get_writefile($wr_id);
+$filteredFiles = array_filter($pjfile, function($item) {
+	return isset($item['category']) && $item['category'] === '등기부등본';
+});
 
-// PDF 파서 객체 생성
-$parser = new Parser();
+$filteredFiles = array_values($filteredFiles);
+// var_dump($filteredFiles);
+// 최초입력에 등기부등본이 존재할경우 파싱 및 기입
+if(!empty($filteredFiles) && $new_post=='1'){
+	// file과 name을 합친 변수 생성
+	foreach ($filteredFiles as &$filepath) {
+		$filepath['full_path'] = "../..".$filepath['path'] . '/' . $filepath['file'];
+	}
+	// PDF 파일 경로
+	$pdfFilePath = $filepath['full_path'];
 
-// PDF 파일 파싱
-$pdf = $parser->parseFile($pdfFilePath);
+	$parser = new Parser();
+	$pdf = $parser->parseFile($pdfFilePath);
+	$text = $pdf->getText();
 
-// PDF에서 텍스트 추출
-$text = $pdf->getText();
+	// park 전용면적
+	$startSearch0  = '전유부분의 건물의 표시 )';
+	$endSearch0  = '대지권의';
+	$startPos0 = strpos($text, $startSearch0);
+	$endPos0 = strpos($text, $endSearch0, $startPos0);
+	$text0 = '';
+	$area = [];
+	if ($startPos0 !== false && $endPos0 !== false) {
+		$startPos0 += strlen($startSearch0);
+		$text0 = substr($text, $startPos0, $endPos0 - $startPos0);
+		$text0= trim($text0);
+		// 제곱미터 앞에 숫자 추출
+		preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
+		if (!empty($matches[0])) {
+			$area = $matches[0];
+		}
+	}
 
-// park 전용면적
-$startSearch0  = '전유부분의 건물의 표시 )';
-$endSearch0  = '대지권의';
-$startPos0 = strpos($text, $startSearch0);
-$endPos0 = strpos($text, $endSearch0, $startPos0);
-$text0 = '';
-$area = [];
-if ($startPos0 !== false && $endPos0 !== false) {
-    $startPos0 += strlen($startSearch0);
-    $text0 = substr($text, $startPos0, $endPos0 - $startPos0);
-    $text0= trim($text0);
-    // 제곱미터 앞에 숫자 추출
-    preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
-    if (!empty($matches[0])) {
-        $area = $matches[0];
-    }
+	// park 소유자
+	$startSearch1 = '소유지분현황 ( 갑구 )';
+	$endSearch1 = '2. 소유지분을';
+	$startPos1 = strpos($text, $startSearch1);
+	$endPos1 = strpos($text, $endSearch1, $startPos1);
+	$owner = '';
+	if ($startPos1 !== false && $endPos1 !== false) {
+		$startPos1 += strlen($startSearch1);
+		$owner = substr($text, $startPos1, $endPos1 - $startPos1);
+		$owner = trim($owner);
+	}
+
+	// park 근저당권 및 전세권 등
+	$startSearch2 = '전세권 등 ( 을구 )';
+	$endSearch2 = '[ 참';
+	$startPos2 = strpos($text, $startSearch2);
+	$endPos2 = strpos($text, $endSearch2, $startPos2);
+
+	$mortgage = '';
+	if ($startPos2 !== false && $endPos2 !== false) {
+		$startPos2 += strlen($startSearch2);
+		$mortgage = substr($text, $startPos2, $endPos2 - $startPos2);
+		// 정규식을 사용하여 단독 숫자를 제거
+		$mortgage = preg_replace('/(?<=\s|^)\d+(?=\s|$)/', '', $mortgage);
+		$mortgage = trim($mortgage);
+	}
+
+	// park 신규주소
+	$startSearch3 = ']';
+	$endSearch3 = '고유번호';
+	$startPos3 = strpos($text, $startSearch3);
+	$endPos3 = strpos($text, $endSearch3, $startPos3);
+
+	$new_addr = '';
+	if ($startPos3 !== false && $endPos3 !== false) {
+		$startPos3 += strlen($startSearch3);
+		$new_addr = substr($text, $startPos3, $endPos3 - $startPos3);
+		$new_addr = trim($new_addr);
+	}
+
+
+	// 불필요한 헤더 및 메타데이터 제거
+	function removeHeaders($text) {
+		$patterns = [
+			'/등기명의인\s*\(주민\)등록번호\s*최종지분\s*주\s*소\s*순위번호\s*/u',
+			'/순위번호\s*등기목적\s*접수정보\s*주요등기사항\s*대상소유자\s*/u',
+			
+		];
+
+		foreach ($patterns as $pattern) {
+			$text = preg_replace($pattern, '', $text);
+		}
+
+		return trim($text);
+	}
+
+	$owner = removeHeaders($owner);
+	$mortgage = removeHeaders($mortgage);
 }
-
-// park 소유자
-$startSearch1 = '소유지분현황 ( 갑구 )';
-$endSearch1 = '2. 소유지분을';
-$startPos1 = strpos($text, $startSearch1);
-$endPos1 = strpos($text, $endSearch1, $startPos1);
-$owner = '';
-if ($startPos1 !== false && $endPos1 !== false) {
-    $startPos1 += strlen($startSearch1);
-    $owner = substr($text, $startPos1, $endPos1 - $startPos1);
-    $owner = trim($owner);
-}
-
-// park 근저당권 및 전세권 등
-$startSearch2 = '전세권 등 ( 을구 )';
-$endSearch2 = '[ 참';
-$startPos2 = strpos($text, $startSearch2);
-$endPos2 = strpos($text, $endSearch2, $startPos2);
-
-$mortgage = '';
-if ($startPos2 !== false && $endPos2 !== false) {
-    $startPos2 += strlen($startSearch2);
-    $mortgage = substr($text, $startPos2, $endPos2 - $startPos2);
-    // 정규식을 사용하여 단독 숫자를 제거
-    $mortgage = preg_replace('/(?<=\s|^)\d+(?=\s|$)/', '', $mortgage);
-    $mortgage = trim($mortgage);
-}
-
-// park 신규주소
-$startSearch3 = ']';
-$endSearch3 = '고유번호';
-$startPos3 = strpos($text, $startSearch3);
-$endPos3 = strpos($text, $endSearch3, $startPos3);
-
-$new_addr = '';
-if ($startPos3 !== false && $endPos3 !== false) {
-    $startPos3 += strlen($startSearch3);
-    $new_addr = substr($text, $startPos3, $endPos3 - $startPos3);
-    $new_addr = trim($new_addr);
-}
-
-
-// 불필요한 헤더 및 메타데이터 제거
-function removeHeaders($text) {
-    $patterns = [
-        '/등기명의인\s*\(주민\)등록번호\s*최종지분\s*주\s*소\s*순위번호\s*/u',
-        '/순위번호\s*등기목적\s*접수정보\s*주요등기사항\s*대상소유자\s*/u',
-        
-    ];
-
-    foreach ($patterns as $pattern) {
-        $text = preg_replace($pattern, '', $text);
-    }
-
-    return trim($text);
-}
-
-$owner = removeHeaders($owner);
-$mortgage = removeHeaders($mortgage);
 
 $w = $_GET['w'];
 
@@ -132,7 +142,7 @@ if($w == 'u') {
 <div class="btn-div">
 	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
 	<h2>등기부 우선 등록</h2>
-    <p>우선 등록시 일부 정보가 자동 기입 됩니다.</p>
+    <p>우선 등록시 일부 정보가 자동 기입 됩니다. <span style="color:red">이미 입력 된 상태에서 신규 등록할 경우 정보가 변경됩니다.</span></p>
 </div>
 
 <form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php"
@@ -140,12 +150,19 @@ if($w == 'u') {
     <input type="hidden" name="w" value="file">
     <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
     
-    <select id="category" name="category[]" class="form-control">
-        <option value="등기부등본">등기부등본</option>
-    </select>
-    
-    <input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control">
-    <button class="btn btn-success" type="submit">파일등록</button>
+	<?php
+		if(empty($filteredFiles)){
+	?>
+	    <select id="category" name="category[]" class="form-control">
+			<option value="등기부등본">등기부등본</option>
+		</select>
+		<input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control">
+		<button class="btn btn-success" type="submit">파일등록</button>
+	<?php
+		}else{
+	?>
+		<p>이미 등록된 등기부등본이 있습니다.
+	<?php }?>
 </form>
 <br/><br/>
 <!-- CONTENT START -->

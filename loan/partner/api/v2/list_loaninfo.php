@@ -1,6 +1,6 @@
 <?php
 //error_reporting(E_ALL);
-//ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 header("Content-Type: application/json; charset=utf-8");
 ini_set("default charset","utf8");
@@ -95,12 +95,12 @@ while($row=sql_fetch_array($result)){
 	$no--;
 }
 
-$res['draw'] = intval($draw ?? '');
+$res['draw'] = intval($draw);
 //$res['success'] = true;
 $res['recordsTotal'] = intval($total_count);
 $res['recordsFiltered'] = intval($total_count);
 //$res['page'] = $page;
-$res['search'] = $search ?? '';
+$res['search'] = $search;
 $res['data'] = $data;
 $res['total']['cnt'] = number_format($total_count);
 $res['sql'] = $sql;

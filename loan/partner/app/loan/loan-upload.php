@@ -15,12 +15,16 @@ $upload_max_filesize = ini_get('upload_max_filesize');
 if (empty($_POST)) {
     alert("파일의 크기가 서버에서 설정한 값을 넘어 오류가 발생하였습니다.\\npost_max_size=".ini_get('post_max_size')." , upload_max_filesize=".$upload_max_filesize."\\n서버관리자에게 문의 바랍니다.");
 }
-
+global $new_post;
+//park 글이 없어도 파일 등록시 글 등록
 if(!$wr_id) {
 	// alert("잘못된 접근입니다.");
 
 	$sql = "INSERT INTO `loan_write` (`pt_idx`, `pt_name`) VALUES ('{$member['idx']}', '{$member['mb_name']}')";
 	$result = sql_query($sql, FALSE);
+
+	$wr_id = mysqli_insert_id($jsb['connect_db']);
+	$new_post = 1;
 }
 
 if($w == 'file') {
@@ -130,7 +134,11 @@ if($w == 'file') {
 	//echo "<p>".$sql."</p>";
 	//@log_write("WRITE", "PROJECT", "FILE");
 	
-	goto_url('./loan-file.php?wr_id='.$wr_id);
+	if($new_post=='1'){
+		goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post);
+	}else{
+		goto_url('./loan-file.php?wr_id='.$wr_id);
+	}
 	
 } else if($w == 'filedel') {
 	// 파일삭제
