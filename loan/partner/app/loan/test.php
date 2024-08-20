@@ -284,13 +284,13 @@ if($w == 'u') {
 			</div>
 			<div class="row"><label class="col-sm-2 control-label">지분여부</label>
 			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_02" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A')?"checked":"";?>>
-				  <label for="control_02">단독소유 &nbsp;</label>
-				  <input type="radio" id="control_03" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
-				  <label for="control_03">지분소유(50%) &nbsp;</label>
-				  <input type="radio" id="control_04" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE')?"checked":"";?>>
-				  <label for="control_04">지분소유(기타) &nbsp;</label>
-				  <input type="number" id="control_05" name="wr_part_percent" value="<?php echo $row['wr_part_percent'];?>" min="0" max="100" placeholder="30" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
+				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A')?"checked":"";?>>
+				  <label for="control_04">단독소유 &nbsp;</label>
+				  <input type="radio" id="control_05" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
+				  <label for="control_05">지분소유(50%) &nbsp;</label>
+				  <input type="radio" id="control_06" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE')?"checked":"";?>>
+				  <label for="control_06">지분소유(기타) &nbsp;</label>
+				  <input type="number" id="control_07" name="wr_part_percent" value="<?php echo $row['wr_part_percent'];?>" min="0" max="100" placeholder="30" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
 				   (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요)
 			  </div>
 			</div>
