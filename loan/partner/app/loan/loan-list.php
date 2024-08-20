@@ -172,6 +172,9 @@ $(function () {
 					return '';
 				},
 				createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
+                    if(rowData.wr_subject == ''){
+                        rowData.wr_subject = "임시 저장 파일입니다";
+                    }
 					var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
 					$(cell).append(btn);
 				}

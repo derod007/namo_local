@@ -147,7 +147,11 @@ if($w == 'u') {
 <div class="btn-div">
 	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
 	<h2>등기부 우선 등록</h2>
-    <p>우선 등록시 일부 정보가 자동 기입 됩니다. <span style="color:red">이미 입력 된 상태에서 신규 등록할 경우 정보가 변경됩니다.</span></p>
+    <p>우선 등록시 일부 정보가 자동 기입 됩니다.</p>
+	<span style="color:red">
+		이미 입력 된 상태에서 신규 등록할 경우 정보가 변경됩니다.<br/>
+		임시저장된 게시글일 경우 자동 기입은 진행하지 않습니다.
+	</span>
 </div>
 
 <form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php"
@@ -454,6 +458,59 @@ $filecnt = number_format($pjfile['count']);
     </form>
 
 </div>
+
+<!-- 파싱한 주소를 이용해 위도 경도 계산 -->
+<!-- <script type="text/javascript">
+	var new_addr = "<?php echo $new_addr; ?>";
+	var gps = '';
+	
+	$(document).ready(function() {
+		$.ajax({
+			url: "https://api.vworld.kr/req/address?",
+			type: "GET",
+			dataType: "jsonp",
+			data: {
+				service: "address",
+				request: "GetCoord",
+				version: "2.0",
+				crs: "EPSG:4326",
+				type: "ROAD",
+				address: new_addr,
+				format: "json",
+				errorformat: "json",
+				key: "BF663BFA-4217-3D64-94BE-466B998EE83F"
+			},success: function (ret) {
+				if(ret.response.result){
+					gps = ret.response.result.point;
+					console.log(gps);
+				}
+			}
+		})
+
+		$.ajax({
+			url: "https://api.vworld.kr/req/address?",
+			type: "GET",
+			dataType: "jsonp",
+			data: {
+				service: "address",
+				request: "GetCoord",
+				version: "2.0",
+				crs: "EPSG:4326",
+				type: "PARCEL",
+				address: new_addr,
+				format: "json",
+				errorformat: "json",
+				key: "BF663BFA-4217-3D64-94BE-466B998EE83F"
+			},success: function (ret) {
+				if(ret.response.result){
+					gps = ret.response.result.point;
+					console.log(gps);
+				}
+			}
+		})
+
+	});  
+</script> -->
 
 <script>
 $(function () {
