@@ -25,6 +25,7 @@ $wr_addr3 	= safe_request_string(trim($_POST['address3']));
 $wr_addr_ext1 	= safe_request_string(trim($_POST['address_ext']));
 $wr_m2 	= safe_request_string(trim($_POST['wr_m2']));
 $wr_cont2 	= safe_request_string(trim($_POST['wr_cont2']));
+$wr_cont3	= safe_request_string(trim($_POST['wr_cont3']));
 $wr_amount 	= safe_request_string(trim($_POST['wr_amount']));
 $wr_link1 	= safe_request_string(trim($_POST['wr_link1']));
 $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
@@ -83,6 +84,7 @@ if(!$w) {
 					wr_subject   = '{$wr_subject}',
 					wr_cont1   = '{$wr_cont1}',
 					wr_cont2   = '{$wr_cont2}',
+					wr_cont3   = '{$wr_cont3}',
 					wr_addr1   = '{$wr_addr1}',
 					wr_addr2   = '{$wr_addr2}',
 					wr_addr3   = '{$wr_addr3}',
@@ -180,6 +182,7 @@ if(!$w) {
 					wr_subject   = '{$wr_subject}',
 					wr_cont1   = '{$wr_cont1}',
 					wr_cont2   = '{$wr_cont2}',
+					wr_cont3   = '{$wr_cont3}',
 					wr_addr1   = '{$wr_addr1}',
 					wr_addr2   = '{$wr_addr2}',
 					wr_addr3   = '{$wr_addr3}',

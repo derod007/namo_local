@@ -303,7 +303,7 @@ if($w == 'u') {
 			</div>
 			
             <!-- park 신규주소-->
-            <div class="row"><label class="col-sm-2 control-label">신규주소</label>
+            <div class="row"><label class="col-sm-2 control-label">담보주소</label>
 				<div class="col-sm-10">
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
 					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr)); ?>" class="form-control">
@@ -341,16 +341,16 @@ if($w == 'u') {
             <div class="row">
                 <label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
                 <div class="col-sm-10">
-                    <textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont2"]) && !empty($row["wr_cont2"]) ? htmlspecialchars(trim($row["wr_cont2"])) : htmlspecialchars(trim($mortgage)); ?></textarea>
+                    <textarea id="wr_cont3" name="wr_cont3" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont3"]) && !empty($row["wr_cont3"]) ? htmlspecialchars(trim($row["wr_cont3"])) : htmlspecialchars(trim($mortgage)); ?></textarea>
                 </div>
             </div>
 
 
 
-
-			<div class="row"><label class="col-sm-2 control-label">기타메모</label>
+			<!-- park 기타메모 임시 삭제 -->
+			<!-- <div class="row"><label class="col-sm-2 control-label">기타메모</label>
 				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:50px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
-			</div>
+			</div> -->
 			
 			<div class="row"><label class="col-sm-2 control-label">희망금액</label>
 				<div class="col-sm-10"><input type="text" id="wr_amount" name="wr_amount" value="<?php echo $row["wr_amount"]; ?>" class="form-control"></div>
