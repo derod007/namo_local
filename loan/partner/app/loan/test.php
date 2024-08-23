@@ -28,7 +28,7 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	$pdf = $parser->parseFile($pdfFilePath);
 	$text = $pdf->getText();
 
-	$cate = 'E'; // 기본값으로 'E' 설정
+	$cate = 'E'; // 기본값으로 'E'(기타) 설정
 	if (strpos($text, '아파트') !== false) {
 		$cate = 'A';
 	} elseif (strpos($text, '빌라') !== false) {
@@ -112,6 +112,17 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$startPos3 += strlen($startSearch3);
 		$new_addr = substr($text, $startPos3, $endPos3 - $startPos3);
 		$new_addr = trim($new_addr);
+	}
+	
+	$pattern = '/^(.*?\d+[-\d]*)(.*)$/u';
+	preg_match($pattern, $new_addr, $matches);
+
+	if (isset($matches[1])) {
+		$new_addr1 = trim($matches[1]);
+		$new_addr2 = trim($matches[2]);
+	} else {
+		$new_addr1 = $new_addr;
+		$new_addr2 = '';
 	}
 
 
@@ -334,7 +345,8 @@ if($w == 'u') {
             <div class="row"><label class="col-sm-2 control-label">담보주소</label>
 				<div class="col-sm-10">
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
-					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr)); ?>" class="form-control">
+					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
+					<input type="text" name="address2" value="<?php echo isset($row["wr_addr2"]) && !empty($row["wr_addr2"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr2)); ?>" class="form-control">
 				</div>
 			</div>
 			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
