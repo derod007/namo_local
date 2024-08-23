@@ -323,7 +323,7 @@ if($w == 'u') {
 			</div>
 			<div class="row"><label class="col-sm-2 control-label">지분여부</label>
 			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A')?"checked":"";?>>
+				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A' || strpos($owner, '단독소유'))?"checked":"";?>>
 				  <label for="control_04">단독소유 &nbsp;</label>
 				  <input type="radio" id="control_05" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
 				  <label for="control_05">지분소유(50%) &nbsp;</label>
