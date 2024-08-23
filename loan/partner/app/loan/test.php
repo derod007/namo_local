@@ -346,7 +346,7 @@ if($w == 'u') {
 				<div class="col-sm-10">
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
 					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
-					<input type="text" name="address2" value="<?php echo isset($row["wr_addr2"]) && !empty($row["wr_addr2"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr2)); ?>" class="form-control">
+					<input type="text" name="address2" value="<?php echo isset($row["wr_addr2"]) && !empty($row["wr_addr2"]) ? htmlspecialchars(trim($row["wr_addr2"])) : htmlspecialchars(trim($new_addr2)); ?>" class="form-control">
 				</div>
 			</div>
 			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
