@@ -28,6 +28,13 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	$pdf = $parser->parseFile($pdfFilePath);
 	$text = $pdf->getText();
 
+	$cate = 'E'; // 기본값으로 'E' 설정
+	if (strpos($text, '아파트') !== false) {
+		$cate = 'A';
+	} elseif (strpos($text, '빌라') !== false) {
+		$cate = 'B';
+	}
+
 	// park 전용면적
 	$startSearch0  = '전유부분의 건물의 표시 )';
 	$endSearch0  = '대지권의';
@@ -68,9 +75,30 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	if ($startPos2 !== false && $endPos2 !== false) {
 		$startPos2 += strlen($startSearch2);
 		$mortgage = substr($text, $startPos2, $endPos2 - $startPos2);
-		// 정규식을 사용하여 단독 숫자를 제거
-		$mortgage = preg_replace('/(?<=\s|^)\d+(?=\s|$)/', '', $mortgage);
 		$mortgage = trim($mortgage);
+	}
+
+	// 테스트중!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	preg_match_all('/(전세권|근저당권설정|근저당권변경|질권)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
+
+	// 	// 임의 계산
+	// 	echo preg_replace("/[^\d]/","",$t3[$key])*1.5."<br/>";
+	// }
+
+	// 행을 생성하여 표시
+	$output = "";
+	for ($i = 0; $i < count($matches[0]); $i++) {
+		$t1 = $matches[1][$i];
+		$t2 = $matches[2][$i];
+		$t3 = $matches[3][$i];
+		$t4 = isset($matches[4][$i]) ? $matches[4][$i] : '';
+		$t5 = isset($matches[5][$i]) ? $matches[5][$i] : '';
+
+		// 각 행을 HTML로 출력
+		$output .= "<div class='row' id='row_$i' style='width:65%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
+		$output .= "<span class='line-text'>$t1 / $t2 / $t3 / $t4 $t5 </span>";
+		$output .= "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>대환</button>";
+		$output .= "</div>";
 	}
 
 	// park 신규주소
@@ -274,11 +302,11 @@ if($w == 'u') {
 
 			<div class="row"><label class="col-sm-2 control-label">담보구분</label>
 			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_01" name="wr_ca" value="A" required <?php echo ($row['wr_ca']=='A')?"checked":"";?>>
+				  <input type="radio" id="control_01" name="wr_ca" value="A" required <?php echo ($row['wr_ca']=='A' || $cate=='A')?"checked":"";?>>
 				  <label for="control_01">아파트 &nbsp;</label>
-				  <input type="radio" id="control_02" name="wr_ca" value="B" required <?php echo ($row['wr_ca']=='B')?"checked":"";?>>
+				  <input type="radio" id="control_02" name="wr_ca" value="B" required <?php echo ($row['wr_ca']=='B' || $cate=='B')?"checked":"";?>>
 				  <label for="control_02">빌라 &nbsp;</label>
-				  <input type="radio" id="control_03" name="wr_ca" value="E" required <?php echo ($row['wr_ca']=='E')?"checked":"";?>>
+				  <input type="radio" id="control_03" name="wr_ca" value="E" required <?php echo ($row['wr_ca']=='E' || $cate=='E')?"checked":"";?>>
 				  <label for="control_03">기타 &nbsp;</label>
 			  </div>
 			</div>
@@ -338,12 +366,129 @@ if($w == 'u') {
                 </div>
             </div>
 
-            <div class="row">
-                <label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
-                <div class="col-sm-10">
-                    <textarea id="wr_cont3" name="wr_cont3" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont3"]) && !empty($row["wr_cont3"]) ? htmlspecialchars(trim($row["wr_cont3"])) : htmlspecialchars(trim($mortgage)); ?></textarea>
-                </div>
-            </div>
+			<!-- park 대환기능 / 기준 날짜 이전은 텍스트에어리어, 이후는 대환 기능 추가된 -->
+			<style>
+				.highlighted {
+					color: red;
+					text-decoration: line-through;
+				}
+			</style>
+
+			<script>
+				function highlightRow(rowId) {
+					var row = document.getElementById('row_' + rowId);
+					var button = row.querySelector('button');
+					var span = row.querySelector('.line-text'); // 각 행의 텍스트를 담고 있는 span 요소 선택
+					
+					// 버튼 텍스트 변경 및 스타일 적용
+					if (button.textContent === '대환') {
+						button.textContent = '대환됨';
+						span.textContent = span.textContent.replace(/대환/, '대환됨'); // 텍스트 변경
+						row.classList.add('highlighted');
+					} else {
+						button.textContent = '대환';
+						span.textContent = span.textContent.replace(/대환됨/, '대환'); // 텍스트 변경
+						row.classList.remove('highlighted');
+					}
+
+					if (!(span.textContent.includes('대환') || span.textContent.includes('대환됨'))) {
+						span.textContent += "대환됨";
+					}
+				}
+
+				function saveOutputToTextarea() {
+					var rows = document.querySelectorAll('.output-container .row');
+					var combinedText = '';
+
+					rows.forEach(function(row) {
+						var span = row.querySelector('.line-text'); // 각 행의 텍스트를 포함한 span 요소
+						var rowText = span.textContent.trim(); // span 요소 내의 텍스트를 가져옴
+
+							// 마지막 세 글자를 확인
+						var lastThreeChars = rowText.slice(-3);
+
+						if (lastThreeChars === '대환') {
+							rowText = rowText.slice(0, -3) + '  대환됨';
+						} else if (lastThreeChars === '환됨') {
+							rowText = rowText.slice(0, -3) + ' 대환';
+						} else {
+							rowText += ' 대환';
+						}
+
+						if (combinedText !== '') {
+							combinedText += '\n';
+						}
+
+						rowText = rowText.slice(0,-3);
+						rowText = rowText.replace(/[\r\n]+/g, '');
+
+
+						combinedText += rowText;
+					});
+
+					var textarea = document.getElementById('wr_cont3');
+					if (!textarea) {
+						textarea = document.createElement('textarea');
+						textarea.id = 'wr_cont3';
+						textarea.name = 'wr_cont3';
+						textarea.style.display = 'none';
+						document.body.appendChild(textarea);
+					}
+
+					// 최종 텍스트를 textarea에 업데이트
+					if (textarea.value !== combinedText) {
+						textarea.value = combinedText;
+					}
+				}
+
+
+				document.addEventListener('DOMContentLoaded', function() {
+					var form = document.getElementById('fwrite');
+					form.onsubmit = function() {
+						saveOutputToTextarea();
+					};
+				});
+			</script>
+
+<div class="row">
+    <label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
+    <div class="col-sm-10 output-container" style="border:1px solid #ccc; width:81%; margin: 5px 0px 5px 15px;">
+        <?php
+        if ($row["wr_datetime"] < '2024-08-21 00:00:00') {
+        ?>
+            <textarea id="wr_cont3" name="wr_cont3" class="form-control" style="height:100px;" placeholder="자유양식 작성">
+                <?php echo isset($row["wr_cont3"]) && !empty($row["wr_cont3"]) ? htmlspecialchars(trim($row["wr_cont3"])) : htmlspecialchars(trim($mortgage)); ?>
+            </textarea>
+        <?php
+        } else {
+            if (!$row["wr_cont3"]) {
+                // 등록 시
+                echo $output;
+                echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
+            } else {
+                $lines = explode("\n", $row['wr_cont3']);
+                foreach ($lines as $i => $line) {
+                    $line = htmlspecialchars($line);
+                    $lastTwoChars = mb_substr($line, -4);
+                    if (strpos($lastTwoChars, '대환됨') !== false) {
+                        $buttonText = "대환됨";
+                        $class = "highlighted";
+                    } else {
+                        $buttonText = "대환";
+                        $class = "";
+                    }
+
+                    echo "<div class='row $class' id='row_$i' style='width:65%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
+                    echo "<span class='line-text'>".$line."</span>";
+                    echo "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>$buttonText</button>";
+                    echo "</div>";
+                }
+                echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
+            }
+        }
+        ?>
+    </div>
+</div>
 
 
 
@@ -351,7 +496,7 @@ if($w == 'u') {
 			<!-- <div class="row"><label class="col-sm-2 control-label">기타메모</label>
 				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:50px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
 			</div> -->
-			
+			 
 			<div class="row"><label class="col-sm-2 control-label">희망금액</label>
 				<div class="col-sm-10"><input type="text" id="wr_amount" name="wr_amount" value="<?php echo $row["wr_amount"]; ?>" class="form-control"></div>
 			</div>
@@ -370,7 +515,7 @@ if(!empty($row["wr_link1"])) {
 		echo "<div><a href='{$row['wr_link1']}' target='_blank'>새창링크</a></div>";
 	}	
 }
-?>					
+?>
 				</div>
 			</div>
 			<div class="row"><label class="col-sm-2 control-label">참고링크#2<br/>(추가정보 URL)</label>
