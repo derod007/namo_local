@@ -119,10 +119,10 @@ if(!empty($filteredFiles) && $new_post=='1'){
 
 	if (isset($matches[1])) {
 		$new_addr1 = trim($matches[1]);
-		$new_addr2 = trim($matches[2]);
+		$new_addr3 = trim($matches[2]);
 	} else {
 		$new_addr1 = $new_addr;
-		$new_addr2 = '';
+		$new_addr3 = '';
 	}
 
 
@@ -346,7 +346,7 @@ if($w == 'u') {
 				<div class="col-sm-10">
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
 					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
-					<input type="text" name="address2" value="<?php echo isset($row["wr_addr2"]) && !empty($row["wr_addr2"]) ? htmlspecialchars(trim($row["wr_addr2"])) : htmlspecialchars(trim($new_addr2)); ?>" class="form-control">
+					<input type="text" name="address3" value="<?php echo isset($row["wr_addr3"]) && !empty($row["wr_addr3"]) ? htmlspecialchars(trim($row["wr_addr3"])) : htmlspecialchars(trim($new_addr3)); ?>" class="form-control">
 				</div>
 			</div>
 			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
@@ -487,6 +487,7 @@ if($w == 'u') {
                         $class = "highlighted";
                     } else {
                         $buttonText = "대환";
+						$line = str_replace('대환','',$line);
                         $class = "";
                     }
 
