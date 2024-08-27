@@ -95,7 +95,7 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$t5 = isset($matches[5][$i]) ? $matches[5][$i] : '';
 
 		// 각 행을 HTML로 출력
-		$output .= "<div class='row' id='row_$i' style='width:65%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
+		$output .= "<div class='row' id='row_$i' style='width:100%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
 		$output .= "<span class='line-text'>$t1 / $t2 / $t3 / $t4 $t5 </span>";
 		$output .= "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>대환</button>";
 		$output .= "</div>";
@@ -193,7 +193,7 @@ if($w == 'u') {
 	</span>
 </div>
 
-<form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php"
+<form name="fpfilereg2" id="fpfilereg2" method="post" enctype="multipart/form-data" action="./loan-upload.php"
     class="form-inline">
     <input type="hidden" name="w" value="file">
     <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
@@ -490,7 +490,7 @@ if($w == 'u') {
                         $class = "";
                     }
 
-                    echo "<div class='row $class' id='row_$i' style='width:65%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
+                    echo "<div class='row $class' id='row_$i' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
                     echo "<span class='line-text'>".$line."</span>";
                     echo "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>$buttonText</button>";
                     echo "</div>";
@@ -534,15 +534,15 @@ if(!empty($row["wr_link1"])) {
 				<div class="col-sm-10">
 					<input type="text" id="wr_link2" name="wr_link2" value="<?php echo $row["wr_link2"]; ?>" class="form-control" placeholder="https://링크URL">
 					<input type="text" id="wr_link2_subj" name="wr_link2_subj" value="<?php echo $row["wr_link2_subj"]; ?>" class="form-control" placeholder="링크제목">
-<?php
-if(!empty($row["wr_link2"])) {
-	if(!empty(trim($row["wr_link2_subj"]))) {
-		echo "<div><a href='{$row['wr_link2']}' target='_blank'>".$row["wr_link2_subj"]."</a></div>";
-	} else {
-		echo "<div><a href='{$row['wr_link2']}' target='_blank'>새창링크</a></div>";
-	}	
-}
-?>					
+					<?php
+					if(!empty($row["wr_link2"])) {
+						if(!empty(trim($row["wr_link2_subj"]))) {
+							echo "<div><a href='{$row['wr_link2']}' target='_blank'>".$row["wr_link2_subj"]."</a></div>";
+						} else {
+							echo "<div><a href='{$row['wr_link2']}' target='_blank'>새창링크</a></div>";
+						}	
+					}
+					?>					
 				</div>
 			</div>
 			
@@ -550,9 +550,9 @@ if(!empty($row["wr_link2"])) {
 $pjfile = get_writefile($wr_id);
 $filecnt = number_format($pjfile['count']);
 ?>
-			<div class="row"><label class="col-sm-2 control-label">첨부파일 <?php echo "(".$filecnt .")";?><br/><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>">관리 &gt;&gt;</a></label>
-				<div class="col-sm-10">
+
 		<?php
+		/* 기존 첨부파일
 			$cnt = $pjfile['count'];
 			if ($cnt) {
 				?>
@@ -588,23 +588,103 @@ $filecnt = number_format($pjfile['count']);
 			} else {
 				echo "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
 			}
+		*/
 		?>
 				</div>
-			</div>
 
 			<div class="row"><hr/></div>
 
-			<div class="row">
-			<?php if($w == '') { ?><div class="col-sm-12 blue"> ※ 첨부파일을 추가하시려면 저장후 첨부파일 버튼을 눌러 업로드해주세요. </div>
-			<?php } else { ?><div class="col-sm-12 blue"> ※ 첨부파일을 추가 또는 삭제하시려면 첨부파일 버튼을 눌러 업로드해주세요. </div><?php } ?>
-			</div>
-
-			<div class="row">
-			<?php if($row['wr_status'] <= 1) { ?><div class="col-sm-4"><button class="btn <?php echo $btnclass; ?> btn-block col-sm-4" type="submit"><?php echo $btntxt; ?></button></div><?php } ?>
-			<?php if($wr_id) { ?><div class="col-sm-4"><button class="btn btn-info btn-block col-sm-4" type="button" onclick="document.location.href='./loan-file.php?wr_id=<?php echo $wr_id;?>';">첨부파일<?php echo "(".$filecnt .")";?></button></div><?php } ?>
-			<div class="col-sm-4"><button class="btn btn-default btn-block col-sm-4" type="button" onclick="document.location.href='./loan-list.php';">목록으로</button></div>
+	<div style="display: flex; flex-direction: column;">
+			<!-- 여기 들어가야함 폼 -->
+			<div class="row" style="order:2; display: flex; justify-content: center;">
+				<?php if($row['wr_status'] <= 1) { ?><div class="col-sm-4"><button class="btn <?php echo $btnclass; ?> btn-block col-sm-4" type="submit"><?php echo $btntxt; ?></button></div><?php } ?>
+				<!-- <?php if($wr_id) { ?><div class="col-sm-4"><button class="btn btn-info btn-block col-sm-4" type="button" onclick="document.location.href='./loan-file.php?wr_id=<?php echo $wr_id;?>';">첨부파일<?php echo "(".$filecnt .")";?></button></div><?php } ?> -->
+				<div class="col-sm-4"><button class="btn btn-default btn-block col-sm-4" type="button" onclick="document.location.href='./loan-list.php';">목록으로</button></div>
 			</div>
 		</form>
+		
+	<!-- park 추가 개발 시작 -->
+	<?php if($wr_id && $new_post!='1'){ ?>
+	<div class="row"  style="order:1;"><label class="col-sm-2 control-label">첨부파일 <?php echo "(".$filecnt .")";?><br/><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>">관리 &gt;&gt;</a></label>
+		<div class="col-sm-10">
+			<div >
+				<table class="table table-bordered bs-xs-table ">
+					<tr>
+						<td>
+							<div style="display: flex;">
+								<form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php" class="form-inline">
+									<input type="hidden" name="w" value="file">
+									<input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
+									<select id="category" name="category[]" class="form-control" style="width:150px;">
+										<option value="">선택</option>
+										<option value="등기부등본">등기부등본</option>
+										<option value="건축물/토지대장">건축물/토지대장</option>
+										<option value="일반">일반</option>
+									</select>
+									&emsp;
+									<input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control" style="width: 300px;">
+									&emsp;
+									<button class="btn btn-success" type="submit">파일등록</button>
+								</form>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<?php
+							$cnt = $pjfile['count'];
+							if ($cnt) {
+								?>
+								<!-- 첨부파일 시작 { -->
+								<div id="project_v_file">
+									<table class="table">
+									<?php // 가변 파일
+										//print_r2($pjfile);
+									foreach ($pjfile as $i => $file) {
+										if (isset($file['source']) && $file['source']) {
+									?>
+										<tr style="border-bottom: 1px solid #ddd">
+											<td style="padding-left: 10px;padding-right:10px;">
+												<?php echo "[" . $file['category'] . "] "; ?>
+											</td>
+											<td style="padding-left: 10px;padding-right:10px;">
+												<a href="<?php echo $file['href']; ?>" class="view_file_download">
+													<strong>
+														<?php echo $file['source']; ?></strong>
+													( <?php echo $file['size']; ?> ) <i class="fa fa-download" aria-hidden="true"></i></a>
+													<?php echo $file['memo']; ?>	</td>
+											<td style="padding-left: 10px;padding-right:10px;"><span class="project_v_file_date">
+													<?php echo substr($file['datetime'], 0, 16); ?></span></td>
+											<?php if($row['wr_status'] <= 1) { ?><td><span class="btn btn-danger btn-xs project_file_del" data-file-no='<?php echo $i; ?>' data-pid='<?php echo $wr_id; ?>'>삭제</span></td><?php } ?>
+										</tr>
+									<?php
+										}
+									}
+									?>
+									</table>
+								</div>
+								<!-- } 첨부파일 끝 -->
+						<?php 
+							} else {
+								echo "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
+							}
+						?>
+						</td>
+					</tr>
+				</table>
+
+						<br class="clear"/>
+				</div>
+			<?php }else{ ?>
+				<div class="col-sm-12 blue"> ※ 글 최초 등록 후 첨부파일 등록/삭제가 가능합니다.</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+	<!-- 추가 개발 마무리 -->
+
+		
+
 	<form id="fprocessing" name="fprocessing" action="/app/loan/loan-act.php" method="post" style="display:none;">
 	 <input type="hidden" name="w" value="pr">
 	 <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
@@ -670,6 +750,27 @@ $filecnt = number_format($pjfile['count']);
 </script> -->
 
 <script>
+// 첨부파일 삭제
+$(function () {
+	commonjs.selectNav("navbar", "loaninfo");
+	
+
+	$('.project_file_del').click(function () {
+		if (confirm("파일을 삭제하시겠습니까?")) {
+			var file_no = $(this).attr("data-file-no");
+			var delform = $('<form></form>');
+			delform.attr('action', './loan-upload.php');
+			delform.attr('method', 'post');
+			delform.appendTo('body');
+			delform.append('<input type="hidden" name="w" value="filedel" />');
+			delform.append('<input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>" />');
+			delform.append('<input type="hidden" name="file_no" value="' + file_no + '" />');
+			delform.submit();
+		}
+	});
+	
+});
+
 $(function () {
 	commonjs.selectNav("navbar", "loaninfo");
 	

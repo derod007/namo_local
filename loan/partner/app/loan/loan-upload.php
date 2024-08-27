@@ -197,9 +197,14 @@ if($w == 'file') {
 	//@log_write("WRITE", "PROJECT", "FILE");
 	
 	if($new_post=='1'){
-		goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
+		alert('등록되었습니다.', './test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
+		// alert('등록되었습니다.');
+		// goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
 	}else{
-		goto_url('./loan-file.php?wr_id='.$wr_id);
+		alert('등록되었습니다.', './test.php?wr_id='.$wr_id.'&w=u');
+		// alert('첨부파일이 등록되었습니다.');
+		// goto_url('./test.php?wr_id='.$wr_id.'&w=u');
+		// goto_url('./loan-file.php?wr_id='.$wr_id);
 	}
 	
 } else if($w == 'filedel') {
@@ -213,5 +218,7 @@ if($w == 'file') {
 	$sql = " delete from file_loaninfo where file_id = '{$file_id}' limit 1 ";
 	sql_query($sql);
 	
-	goto_url('./loan-file.php?wr_id='.$wr_id);
+	alert('삭제되었습니다.', './test.php?wr_id='.$wr_id.'&w=u');
+	// goto_url('./test.php?wr_id='.$wr_id.'&w=u');
+	// goto_url('./loan-file.php?wr_id='.$wr_id);
 }
