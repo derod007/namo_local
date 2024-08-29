@@ -28,13 +28,6 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	$pdf = $parser->parseFile($pdfFilePath);
 	$text = $pdf->getText();
 
-	$cate = 'E'; // 기본값으로 'E'(기타) 설정
-	if (strpos($text, '아파트') !== false) {
-		$cate = 'A';
-	} elseif (strpos($text, '빌라') !== false) {
-		$cate = 'B';
-	}
-
 	// park 전용면적
 	$startSearch0  = '전유부분의 건물의 표시 )';
 	$endSearch0  = '대지권의';
@@ -65,6 +58,22 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$owner = trim($owner);
 	}
 
+	// park 제목 요약
+	preg_match_all('/([\p{L}]+) \((공유자|소유자)\)/u', $owner, $matches);
+	$auto_sub = implode(' , ', $matches[1]);
+
+	// park 담보 구분 및 제목 요약
+	$cate = 'E'; // 기본값으로 'E'(기타) 설정
+	if (strpos($text, '아파트') !== false) {
+		$cate = 'A';
+		$auto_sub .= ' / 아파트';
+	} elseif (strpos($text, '빌라') !== false) {
+		$cate = 'B';
+		$auto_sub .= ' / 빌라';
+	}else{
+		$auto_sub .= ' / 기타';
+	}
+
 	// park 근저당권 및 전세권 등
 	$startSearch2 = '전세권 등 ( 을구 )';
 	$endSearch2 = '[ 참';
@@ -79,7 +88,7 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	}
 
 	// 테스트중!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	preg_match_all('/(전세권|근저당권설정|근저당권변경|질권)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
+	preg_match_all('/(전세권|근저당권설정|근저당권변경|질권|근질권|압류|가압류)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
 
 	// 	// 임의 계산
 	// 	echo preg_replace("/[^\d]/","",$t3[$key])*1.5."<br/>";
@@ -310,6 +319,14 @@ if($w == 'u') {
 			</div>
 			<?php } ?>
 			
+			<div class="row"><label class="col-sm-2 control-label">제목</label>
+				<div class="col-sm-10"><input type="text" id="wr_subject" name="wr_subject" value="<?php if($row["wr_subject"]){ echo $row["wr_subject"]; }else if(!$row["wr_subject"] && $new_post=='1') {echo $auto_sub;} ?>"
+					required class="form-control required" placeholder="홍길동 / 담보종류 / 자금용도 (확인된 사항만 기재)">
+				</div>
+			</div>
+			<div class="row"><label class="col-sm-2 control-label">대출자정보</label>
+				<div class="col-sm-10"><textarea id="wr_cont1" name="wr_cont1" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont1"]; ?></textarea></div>
+			</div>
 
 			<div class="row"><label class="col-sm-2 control-label">담보구분</label>
 			  <div class="col-sm-10 bs-padding10">
@@ -334,19 +351,14 @@ if($w == 'u') {
 			  </div>
 			</div>
 		  
-			<div class="row"><label class="col-sm-2 control-label">제목</label>
-				<div class="col-sm-10"><input type="text" id="wr_subject" name="wr_subject" value="<?php echo $row["wr_subject"]; ?>" required class="form-control required" placeholder="홍길동 / 담보종류 / 자금용도 (확인된 사항만 기재)"></div>
-			</div>
-			<div class="row"><label class="col-sm-2 control-label">대출자정보</label>
-				<div class="col-sm-10"><textarea id="wr_cont1" name="wr_cont1" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont1"]; ?></textarea></div>
-			</div>
 			
             <!-- park 신규주소-->
             <div class="row"><label class="col-sm-2 control-label">담보주소</label>
 				<div class="col-sm-10">
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
-					<input type="text" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
+					<input type="text" id="address1" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
 					<input type="text" name="address3" value="<?php echo isset($row["wr_addr3"]) && !empty($row["wr_addr3"]) ? htmlspecialchars(trim($row["wr_addr3"])) : htmlspecialchars(trim($new_addr3)); ?>" class="form-control">
+					<a href="#" onclick="copyAddress()">주소 복사</a>
 				</div>
 			</div>
 			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
@@ -387,6 +399,17 @@ if($w == 'u') {
 			</style>
 
 			<script>
+				function copyAddress(){
+					var addressInput = document.getElementById("address1");
+
+					addressInput.select();
+					addressInput.setSelectionRange(0, 99999); // For mobile devices
+
+					document.execCommand("copy");
+
+					alert("주소가 복사되었습니다.");
+				}
+
 				function highlightRow(rowId) {
 					var row = document.getElementById('row_' + rowId);
 					var button = row.querySelector('button');
