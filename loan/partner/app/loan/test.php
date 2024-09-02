@@ -204,7 +204,7 @@ if($w == 'u') {
 
 <form name="fpfilereg2" id="fpfilereg2" method="post" enctype="multipart/form-data" action="./loan-upload.php"
     class="form-inline">
-    <input type="hidden" name="w" value="file">
+    <input type="hidden" name="w" value="first_file">
     <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
     
 	<?php
@@ -628,7 +628,7 @@ $filecnt = number_format($pjfile['count']);
 		</form>
 		
 	<!-- park 추가 개발 시작 -->
-	<?php if($wr_id && $new_post!='1'){ ?>
+	<?php if($wr_id){ ?>
 	<div class="row"  style="order:1;"><label class="col-sm-2 control-label">첨부파일 <?php echo "(".$filecnt .")";?><br/><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>">관리 &gt;&gt;</a></label>
 		<div class="col-sm-10">
 			<div >
@@ -700,7 +700,7 @@ $filecnt = number_format($pjfile['count']);
 						<br class="clear"/>
 				</div>
 			<?php }else{ ?>
-				<div class="col-sm-12 blue"> ※ 글 최초 등록 후 첨부파일 등록/삭제가 가능합니다.</div>
+				<div class="col-sm-12 blue"> ※ 글 최초 등록 혹은 등기부등본 등록 후 첨부파일 등록/삭제가 가능합니다.</div>
 			<?php } ?>
 		</div>
 	</div>
@@ -774,6 +774,68 @@ $filecnt = number_format($pjfile['count']);
 </script> -->
 
 <script>
+// 파일업로드 비동기
+	document.getElementById('fpfilereg').addEventListener('submit', function(e) {
+    e.preventDefault(); // 기본 폼 제출 방지
+
+    var formData = new FormData(this);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', this.action, true);
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+			console.log(xhr.responseText);
+
+			var files = JSON.parse(xhr.responseText);
+			
+            updateFileList(files);
+            alert('파일이 성공적으로 업로드되었습니다.');
+            // 필요한 경우 데이터를 다시 로드하거나 상태를 업데이트합니다.
+        } else {
+            alert('파일 업로드에 실패했습니다.');
+        }
+    };
+
+    xhr.send(formData);
+});
+
+function updateFileList(files) {
+    var fileListContainer = document.getElementById('project_v_file');
+    var table = document.createElement('table');
+    table.className = 'table';
+
+    if (files.length === 0) {
+        fileListContainer.innerHTML = "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
+        return;
+    }
+
+    files.forEach(function(file, index) {
+        var tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid #ddd';
+
+        tr.innerHTML = `
+            <td style="padding-left: 10px;padding-right:10px;">[${file.category}]</td>
+            <td style="padding-left: 10px;padding-right:10px;">
+                <a href="${file.href}" class="view_file_download">
+                    <strong>${file.source}</strong>
+                    (${file.size}) <i class="fa fa-download" aria-hidden="true"></i>
+                </a>
+                ${file.memo}
+            </td>
+            <td style="padding-left: 10px;padding-right:10px;">
+                <span class="project_v_file_date">${file.datetime}</span>
+            </td>
+            <td><span class="btn btn-danger btn-xs project_file_del" data-file-no='${file.file_no}' data-pid='${file.wr_id}'>삭제</span></td>
+        `;
+
+        table.appendChild(tr);
+    });
+
+    fileListContainer.innerHTML = ''; // 기존 파일 목록을 비움
+    fileListContainer.appendChild(table); // 새로 만든 테이블 삽입
+}
+
 // 첨부파일 삭제
 $(function () {
 	commonjs.selectNav("navbar", "loaninfo");

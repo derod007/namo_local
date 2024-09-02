@@ -200,7 +200,8 @@ if(!$w) {
 	sql_query($sql);
 	
 	log_write($wr_id, '', $member['mb_id'], $prev_status, $wr_status );
-	alert('수정되었습니다.', './loan-write.php?w=u&wr_id='.$wr_id);
+	// alert('수정되었습니다.', './loan-write.php?w=u&wr_id='.$wr_id);
+	alert('등록되었습니다.', './loan-list.php');
 	die();
 
 } else if($w=='pr') {
