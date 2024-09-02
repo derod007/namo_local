@@ -74,6 +74,26 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$auto_sub .= ' / 기타';
 	}
 
+	// 기본 면적이 없고, 기타(토지)인 경우 1층 면적으로 계산
+	if(!$area[0] && $cate == 'E'){
+		$startSearch0  = '1층';
+		$endSearch0  = '2층';
+		$startPos0 = strpos($text, $startSearch0);
+		$endPos0 = strpos($text, $endSearch0, $startPos0);
+		$text0 = '';
+		$area = [];
+		if ($startPos0 !== false && $endPos0 !== false) {
+			$startPos0 += strlen($startSearch0);
+			$text0 = substr($text, $startPos0, $endPos0 - $startPos0);
+			$text0= trim($text0);
+			// 제곱미터 앞에 숫자 추출
+			preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
+			if (!empty($matches[0])) {
+				$area = $matches[0];
+			}
+		}
+	}
+
 	// park 근저당권 및 전세권 등
 	$startSearch2 = '전세권 등 ( 을구 )';
 	$endSearch2 = '[ 참';
