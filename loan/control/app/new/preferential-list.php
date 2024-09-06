@@ -1,6 +1,6 @@
 <?php
 //error_reporting(E_ALL);
-//ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 // http://apitest.ddiablo.net/app/apt_list.php
 include_once '../../header.php';
@@ -16,7 +16,7 @@ $total_count = ($row['cnt'])?$row['cnt']:0;
 if(!isset($start)) $start = 0;
 if(!isset($length)) $length = $config['rows'];
 
-$sql = " select * from {$list_table} {$where_sql} {$orderby} limit {$start}, {$length} ";
+$sql = " select * from {$list_table} {$where_sql} {$orderby} ";
 //echo "<div>".$sql."</div>";
 $result = sql_query($sql);
 ?>
