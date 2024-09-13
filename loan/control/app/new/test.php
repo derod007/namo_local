@@ -1,6 +1,6 @@
 <?php
 //error_reporting(E_ALL);
-//ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 // http://apitest.ddiablo.net/app/apt_list.php
 include_once '../../header.php';
@@ -32,7 +32,374 @@ if($w == 'u') {
 	$row["wr_link1_subj"] = "KB시세조회";
 }
 
+// 시세 테스트
 ?>
+<form name="fnewwin_real" id="fnewwin_real" method="GET">
+<input type="hidden" name="addr1" value="<?php echo $row['wr_addr1'];?>">
+<input type="hidden" name="py" value="<?php echo $row["wr_m2"];?>">
+</form>
+
+<script>
+function addCommas(number) {
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function removeCommas(number) {
+	if (typeof number === 'string' && number !== "0") {
+		return number.replace(/,/g, "");
+	}else{
+		return 0;
+	}
+}
+
+$(function () {
+		var params = $("#fnewwin_real").serialize();
+		$.ajax({
+			url: '/app/real/get_realprice4.php',
+			type: "post",
+			data: params,
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+			dataType: "text",
+			success: function (data) {
+				// 그래프 데이터
+				let json = $.parseJSON(data);
+				if(json.data.ave_price){
+					var real_price = addCommas(json.data.ave_price * 10000);
+					$("input[name='price']").val(real_price);
+				}
+			}
+		});
+});
+</script>
+
+<?php
+// park 소액임차보증금
+$large_regions = [
+    "서울특별시", "인천광역시", "세종특별자치시", "경기도", "부산광역시",
+    "대구광역시", "광주광역시", "대전광역시", "울산광역시", "강원도",
+    "충청북도", "충청남도", "전라북도", "전라남도", "경상북도",
+    "경상남도", "제주특별자치도"
+];
+
+$address = $row["wr_addr1"];
+$region_mapping = [
+    "서울" => "서울특별시", "인천" => "인천광역시", "경기" => "경기도", "제주" => "제주특별자치도", "강원" => "강원특별자치도", 
+	"전북" => "전북특별자치도", "부산" => "부산광역시", "대구" => "대구광역시", "대전" => "대전광역시", "경남" => "경상남도"
+];
+
+foreach ($region_mapping as $abb => $full_name) {
+    if (strpos($address, $abb) !== false) {
+        $address = str_replace($abb, $full_name, $address);
+        break;
+    }
+}
+
+
+$add1 = '';
+
+foreach ($region_mapping as $full_name) {
+    if (strpos($address, $full_name) !== false) {
+        //시,도
+		$add1 = $full_name;
+        break;
+    }
+}
+
+$detail_address = str_replace($add1, '', $address);
+
+$add2 = [];
+
+// 추가로 동, 구를 찾기 위한 보다 세부적인 패턴 추가
+$sub_patterns = [
+    '/(\b[가-힣]{2,}시\b)(?!.*\b[가-힣]{2,}시\b)/u',    // 마지막 시
+    '/(\b[가-힣]{2,}동\b)(?!.*\b[가-힣]{2,}동\b)/u',  // 마지막 동
+    '/(\b[가-힣]{2,}구\b)(?!.*\b[가-힣]{2,}구\b)/u',  // 마지막 구
+    '/(\b[가-힣]{2,}면\b)(?!.*\b[가-힣]{2,}면\b)/u'  // 마지막 면
+];
+
+$stop_search = false;
+
+foreach ($sub_patterns as $pattern) {
+    if ($stop_search) {
+        break;
+    }
+    
+    // 현재 패턴에 대해 검색
+    if (preg_match_all($pattern, $detail_address, $matches)) {
+        foreach ($matches[0] as $match) {
+            $add2[] = $match; // 모든 매칭된 값을 배열에 추가
+        }
+    }
+    
+    // 현재 패턴이 '동'일 경우, '구', '면' 패턴 검색 중지
+    if ($pattern === '/(\b[가-힣]{2,}동\b)(?!.*\b[가-힣]{2,}동\b)/u') {
+        $stop_search = true; // '동'이 발견된 경우, 나머지 패턴 검색 중지
+    }
+}
+
+// 중복 제거
+
+// echo "추출된 주소: " . implode(' ', $add2);
+
+
+
+// $add2 = array_unique($add2);
+// $add2 = implode(' ', $add2);
+
+
+// 가장 구체적인 조건으로 검색
+$add2 = array_unique($add2);
+$address_condition = implode(' ', $add2);
+if(!$add2) $address_condition = $address;
+
+	$sql1 = "SELECT rp_repay_amt FROM region_preferential WHERE rp_rcity = '{$address_condition}'";
+
+	$result1 = sql_query($sql1);
+    $row1 = sql_fetch_array($result1);
+    if ($row1) {
+        $repay_amt = $row1['rp_repay_amt'];
+    } else {
+        // 정확히 일치하는 값이 없는 경우, 부분 일치 검색
+        // 주소의 각 부분을 포함하는 조건을 생성합니다.
+        $sub_conditions = [];
+		
+        foreach ($add2 as $part) {
+            $sub_conditions[] = "rp_rcity LIKE '%{$part}%'";
+        }
+		
+		if($sub_conditions){
+			$sub_condition_sql = implode(' OR ', $sub_conditions);
+
+			$sql2 = "SELECT rp_repay_amt FROM region_preferential WHERE {$sub_condition_sql}";
+
+			$result2 = sql_query($sql2);
+			if ($result2) {
+				$row2 = sql_fetch_array($result2);
+				if ($row2) {
+					$repay_amt = $row2['rp_repay_amt'];
+				}
+			}
+		}
+    }
+
+// rp_rcity에 맞는 값이 없을 경우 add1을 기준으로 값을 가져옵니다.
+if (!isset($repay_amt)) {
+    $sql3 = "SELECT rp_repay_amt FROM region_preferential WHERE rp_rname = '{$add1}'";
+    $result3 = sql_query($sql3);
+    if ($result3) {
+        $row3 = sql_fetch_array($result3);
+        if ($row3) {
+            $repay_amt = $row3['rp_repay_amt'];
+        }
+    }
+}
+// echo "소액임차보증금 : ".$repay_amt." / 주소 : ".$address;
+?>
+
+<?php
+// park 선순위 최고액 산출
+
+$wr_cont3_lines = explode("\n", $row['wr_cont3']);
+
+$best_entry = null;
+foreach ($wr_cont3_lines as $wr_cont3_line) {
+
+	if (strpos($wr_cont3_line, '대환됨') !== false) {
+        continue;
+    }
+
+    $parts = explode(' / ', trim($wr_cont3_line));
+
+    if (count($parts) < 3) {
+        continue;
+    }
+
+    preg_match('/(\d{4})년(\d{1,2})월(\d{1,2})일/', $parts[1], $matches);
+    if ($matches) {
+        $year = $matches[1];
+        $month = str_pad($matches[2], 2, '0', STR_PAD_LEFT);
+        $day = str_pad($matches[3], 2, '0', STR_PAD_LEFT);
+        $date = $year . $month . $day;
+
+        $amount = intval(str_replace(',', '', $parts[2]));
+
+        // 가장 이른 날짜이거나, 같은 날짜면 금액이 더 높은 것을 선택
+        if ($best_entry === null || $date < $best_entry['date'] || ($date === $best_entry['date'] && $amount > $best_entry['amount'])) {
+            $best_entry = [
+                'date' => $date,
+                'amount' => $amount
+            ];
+        }
+    }
+
+}
+?>
+<input type="hidden" id="repay_amt" value="<?php echo htmlspecialchars($repay_amt, ENT_QUOTES, 'UTF-8'); ?>">
+<input type="hidden" id="best_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
+<!-- park 산식계산 -->
+
+<form id="formulaForm">
+    <div class="formula-result">
+        <div><strong>선순위 차주 상이물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
+		( (&emsp;&emsp;&emsp;시세 &emsp;&emsp;&emsp;&ensp;*&emsp;지분율 &ensp;) *&emsp;&ensp;LTV&emsp; ) - (&emsp;&emsp;소액보증금 &emsp;&emsp;or&emsp;임대차보증금&emsp;&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp;선순위 최고액&emsp;&ensp;*&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;지분율&emsp;)</div>
+    </div>
+    <div>
+        ( ( <input type="text" id="price1" name="price" required style="width: 100px;"> * 
+        <input type="text" id="share1" name="share" required style="width: 50px;"> ) * 
+        <input type="text" id="ltv1" name="ltv" value="85" required style="width: 50px;"> ) - 
+        ( <input type="text" id="small_deposit1" name="small_deposit" required style="width: 100px;"> or 
+        <input type="number" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
+        <input type="text"  name="share" required style="width: 50px;"> ) - 
+        ( <input type="text" id="senior_loan1" name="senior_loan" required style="width: 100px;" readonly>
+		<select id="senior_loan_multi1" name="senior_loan_multi1" style="height:25px;">
+			<option value="0.8">80%</option>
+			<option value="0.9">90%</option>
+			<option value="1" selected>100%</option>
+			<option value="1.1">110%</option>
+			<option value="1.2">120%</option>
+			<option value="1.3">130%</option>
+			<option value="1.4">140%</option>
+			<option value="1.5">150%</option>
+			<option value="1.6">160%</option>
+		</select> 
+		* 
+        <input type="text" name="share" required style="width: 50px;"> )
+    </div>
+
+	<br/>
+	<div>결과 1: <span id="result1Value"></span></div>
+    <br/>
+
+    <div><strong>선순위 차주 동일물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
+	(&emsp;&emsp;&emsp;시세&emsp;&emsp;&emsp;&ensp; *&emsp;지분율&ensp; ) - (&emsp;&emsp;&ensp;소액보증금&emsp;&ensp; or&emsp;&emsp;임대차보증금&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp; 선순위 최고액&emsp;&ensp;)</div>
+    <div>
+        ( <input type="text" id="price2" name="price" required style="width: 100px;"> * 
+        <input type="text" id="share2" name="share" required style="width: 50px;"> ) - 
+        ( <input type="text" id="small_deposit2" name="small_deposit" required style="width: 100px;"> or 
+        <input type="text" id="rental_deposit2" name="rental_deposit" required style="width: 100px;"> * 
+        <input type="text" name="share" required style="width: 50px;"> ) - 
+        ( <input type="text" id="senior_loan2" name="senior_loan" required style="width: 100px;" readonly> 
+		<select id="senior_loan_multi2" name="senior_loan_multi2" style="height:25px;">
+			<option value="0.8">80%</option>
+			<option value="0.9">90%</option>
+			<option value="1" selected>100%</option>
+			<option value="1.1">110%</option>
+			<option value="1.2">120%</option>
+			<option value="1.3">130%</option>
+			<option value="1.4">140%</option>
+			<option value="1.5">150%</option>
+			<option value="1.6">160%</option>
+		</select> 
+		)
+    </div>
+<br/>
+<div>결과 2: <span id="result2Value"></span></div>
+<br/>
+    <button type="button" id="calculateBtn">계산하기</button>
+</form>
+
+ 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var shareValue = document.getElementById('control_05').value;
+		var repayAmt = document.getElementById('repay_amt').value;
+		var bestLoan = document.getElementById('best_loan').value;
+
+		var shareInputs = document.querySelectorAll('input[name="share"]');
+		var smallDeposit = document.querySelectorAll('input[name="small_deposit"]');
+		var seniorLoan = document.querySelectorAll('input[name="senior_loan"]');
+		
+        shareInputs.forEach(function(input) {
+            input.value = addCommas(shareValue);
+        });
+		smallDeposit.forEach(function(input) {
+            input.value = addCommas(repayAmt);
+        });
+		seniorLoan.forEach(function(input) {
+			input.value = addCommas(bestLoan);
+        });
+    });
+
+    $(document).ready(function() {
+        // 계산 버튼 클릭 시
+        $('#calculateBtn').click(function() {
+            // 폼 데이터 수집
+			var price1 = removeCommas($("#price1").val()) || 0;
+			var price2 = removeCommas($("#price2").val()) || 0;
+			var share1 = $("#share1").val()/100 || 0;
+			var share2 = $("#share2").val()/100 || 0;
+			var ltv1 = $("#ltv1").val()/100 || 0;
+			var small_deposit1 = removeCommas($("#small_deposit1").val()) || 0;
+			var small_deposit2 = removeCommas($("#small_deposit2").val()) || 0;
+			var rental_deposit1 = removeCommas($("#rental_deposit1").val()) || 0;
+			var rental_deposit2 = removeCommas($("#rental_deposit2").val()) || 0;
+			var senior_loan1 = removeCommas($("#senior_loan1").val()) || 0;
+			var senior_loan2 = removeCommas($("#senior_loan2").val()) || 0;
+
+
+			var deposit1 = Math.max(rental_deposit1, small_deposit1);
+			var deposit2 = Math.max(rental_deposit2, small_deposit2);
+
+            var result1 = ((price1 * share1) * ltv1) - (deposit1 * share1) - (senior_loan1 * share1);
+            var result2 = (price2 * share2) - (deposit2 * share2) - (senior_loan2 * share2);
+
+            // 결과 표시
+            $('#result1Value').text(addCommas(result1) + " 원");
+            $('#result2Value').text(addCommas(result2) + " 원");
+        });
+
+		$('#senior_loan_multi1').change(function() {
+			var multiplier = parseFloat($(this).val());
+			var updatedLoan = document.getElementById('best_loan').value * multiplier;
+
+			$('#senior_loan1').val(updatedLoan.toLocaleString());
+		});
+
+		$('#senior_loan_multi2').change(function() {
+			var multiplier = parseFloat($(this).val());
+			var updatedLoan = document.getElementById('best_loan').value * multiplier;
+
+			$('#senior_loan2').val(updatedLoan.toLocaleString());
+		});
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
 .ui-widget {
     font-family: font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -62,6 +429,7 @@ if($w == 'u') {
 	color: red;
 	text-decoration: line-through;
 }
+
 </style>
 
 <!-- CONTENT START -->
