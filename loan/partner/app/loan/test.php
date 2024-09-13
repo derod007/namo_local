@@ -33,6 +33,10 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	$endSearch0  = '대지권의';
 	$startPos0 = strpos($text, $startSearch0);
 	$endPos0 = strpos($text, $endSearch0, $startPos0);
+	if(!$endPos0){
+		$endSearch0 = '( 소유권에 관한 사항';
+		$endPos0 = strpos($text, $endSearch0, $startPos0);
+	}
 	$text0 = '';
 	$area = [];
 	if ($startPos0 !== false && $endPos0 !== false) {
@@ -58,13 +62,33 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$owner = trim($owner);
 	}
 
+	// park 소유율
+	if (preg_match('/(\d+)분의 (\d+)/', $owner, $matches)) {
+		$denominator = (int)$matches[1];
+		$numerator = (int)$matches[2];
+		$owner_percent = (string)round(($numerator / $denominator) * 100);
+	} elseif (strpos($owner_percent, '단독소유') !== false) {
+		$owner_percent = "100";
+	}
+	
+
 	// park 제목 요약
 	preg_match_all('/([\p{L}]+) \((공유자|소유자)\)/u', $owner, $matches);
 	$auto_sub = implode(' , ', $matches[1]);
 
+	// park 토지구분
+	$firstDashPos = strpos($text, '-');
+	$secondDashPos = strpos($text, '-', $firstDashPos + 1);
+
+	if ($firstDashPos !== false && $secondDashPos !== false) {
+		$land = trim(substr($text, $firstDashPos + 1, $secondDashPos - $firstDashPos - 1));
+	} else {
+		echo "해당하는 값이 없습니다.";
+	}
+
 	// park 담보 구분 및 제목 요약
 	$cate = 'E'; // 기본값으로 'E'(기타) 설정
-	if (strpos($text, '아파트') !== false) {
+	if ((strpos($text, '아파트') !== false) && $land!="토지") {
 		$cate = 'A';
 		$auto_sub .= ' / 아파트';
 	} elseif (strpos($text, '빌라') !== false) {
@@ -74,10 +98,10 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$auto_sub .= ' / 기타';
 	}
 
-	// 기본 면적이 없고, 기타(토지)인 경우 1층 면적으로 계산
-	if(!$area[0] && $cate == 'E'){
-		$startSearch0  = '1층';
-		$endSearch0  = '2층';
+	// park 토지 면적
+	if($land=="토지"){
+		$startSearch0  = '토지의 표시 )';
+		$endSearch0  = '소유권에';
 		$startPos0 = strpos($text, $startSearch0);
 		$endPos0 = strpos($text, $endSearch0, $startPos0);
 		$text0 = '';
@@ -93,6 +117,29 @@ if(!empty($filteredFiles) && $new_post=='1'){
 			}
 		}
 	}
+
+
+	// 기본 면적이 없고, 기타(토지)인 경우 1층 면적으로 계산
+	// if(!$area[0] && $cate == 'E'){
+	// 	$startSearch0  = '1층';
+	// 	$endSearch0  = '2층';
+	// 	$startPos0 = strpos($text, $startSearch0);
+	// 	$endPos0 = strpos($text, $endSearch0, $startPos0);
+	// 	$text0 = '';
+	// 	$area = [];
+	// 	if ($startPos0 !== false && $endPos0 !== false) {
+	// 		$startPos0 += strlen($startSearch0);
+	// 		$text0 = substr($text, $startPos0, $endPos0 - $startPos0);
+	// 		$text0= trim($text0);
+	// 		// 제곱미터 앞에 숫자 추출
+	// 		preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
+	// 		if (!empty($matches[0])) {
+	// 			$area = $matches[0];
+	// 		}else{
+
+	// 		}
+	// 	}
+	// }
 
 	// park 근저당권 및 전세권 등
 	$startSearch2 = '전세권 등 ( 을구 )';
@@ -360,13 +407,15 @@ if($w == 'u') {
 			</div>
 			<div class="row"><label class="col-sm-2 control-label">지분여부</label>
 			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A' || strpos($owner, '단독소유'))?"checked":"";?>>
+				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A' || $owner_percent == '100' || !$owner_percent)?"checked":"";?> onclick="clear_button_7(100)">
 				  <label for="control_04">단독소유 &nbsp;</label>
-				  <input type="radio" id="control_05" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
+				  <input type="radio" id="control_05" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P' || $owner_percent == '50')?"checked":"";?> onclick="clear_button_7(50)">
 				  <label for="control_05">지분소유(50%) &nbsp;</label>
-				  <input type="radio" id="control_06" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE')?"checked":"";?>>
+				  <input type="radio" id="control_06" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE' || ($owner_percent !='100' && $owner_percent !='50' && $owner_percent))?"checked":"";?>>
 				  <label for="control_06">지분소유(기타) &nbsp;</label>
-				  <input type="number" id="control_07" name="wr_part_percent" value="<?php echo $row['wr_part_percent'];?>" min="0" max="100" placeholder="30" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
+				  <input type="number" id="control_07" name="wr_part_percent" 
+					value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
+					min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
 				   (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요)
 			  </div>
 			</div>
@@ -419,6 +468,9 @@ if($w == 'u') {
 			</style>
 
 			<script>
+				function clear_button_7(i){
+					document.getElementById('control_07').value = i;
+				}
 				function copyAddress(){
 					var addressInput = document.getElementById("address1");
 
