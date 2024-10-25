@@ -291,6 +291,17 @@ $filecnt = number_format($pjfile['count']);
 </div>
 
 <script>
+document.getElementById("fwrite").onsubmit = function(event) {
+	var address1 = document.getElementById("address1").value.trim();
+
+	if (!address1) {
+		alert("주소를 입력해주세요.");
+		document.getElementById("address1").focus(); // 주소 입력 필드로 포커스 이동
+		event.preventDefault(); // 폼 제출 방지
+		return false;
+	}
+};
+
 $(function () {
 	commonjs.selectNav("navbar", "loaninfo");
 	

@@ -1,0 +1,21 @@
+
+[2024-08-28 15:02:11]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52399
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 1000
+    [jd_interest] => 13.5
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+

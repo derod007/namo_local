@@ -1,0 +1,384 @@
+
+[2024-10-15 16:12:37]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52507
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 이기태 , 임은정 / 아파트
+    [wr_cont1] => 
+    [address1] => 대전 중구 중촌동 16-1
+    [address3] => 외 1필지 현대아파트 제105동 제11층 제1105호
+    [wr_m2] => 79.27
+    [wr_cont4] => 이기태 (공유자) 660828-******* 2분의 1 대전광역시 중구 목중로26번길 29, 105동 3
+1105호(중촌동,현대아파트)
+임은정 (공유자) 691029-******* 2분의 1 대전광역시 대덕구 대덕대로1458번길 3-12, 4
+1층동(목상동)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 30000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:12:45]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52507
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 이기태 , 임은정 / 아파트
+    [wr_cont1] => 
+    [address1] => 대전 중구 중촌동 16-1
+    [address3] => 외 1필지 현대아파트 제105동 제11층 제1105호
+    [wr_m2] => 79.27
+    [wr_cont4] => 이기태 (공유자) 660828-******* 2분의 1 대전광역시 중구 목중로26번길 29, 105동 3
+1105호(중촌동,현대아파트)
+임은정 (공유자) 691029-******* 2분의 1 대전광역시 대덕구 대덕대로1458번길 3-12, 4
+1층동(목상동)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 30000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:21:28]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52510
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이형준 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 용인시 수지구 신봉동 873
+    [address3] => 신봉마을엘지자이1차아파트 제110동 제12	층 제1202호
+    [wr_m2] => 122.882
+    [wr_cont4] => 이형준 (소유자) 760815-******* 단독소유 경기도 화성시 노작로3길 21-1(반송동) 5
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 1000000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:38:13]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52509
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이백우 / 아파트
+    [wr_cont1] => 
+    [address1] => 광주광역시 광산구 산월동 884-1
+    [address3] => 첨단3-2차호반리젠시빌 제305동 제3층 제306호
+    [wr_m2] => 84.3979
+    [wr_cont4] => 이백우 (소유자) 601112-******* 단독소유 광주광역시 광산구 신창로35번길 20, 1206동 1104호 9
+(신가동,신창6차부영사랑으로)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 10000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:38:39]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52509
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이백우 / 아파트
+    [wr_cont1] => 
+    [address1] => 광주광역시 광산구 산월동 884-1
+    [address3] => 첨단3-2차호반리젠시빌 제305동 제3층 제306호
+    [wr_m2] => 84.3979
+    [wr_cont4] => 이백우 (소유자) 601112-******* 단독소유 광주광역시 광산구 신창로35번길 20, 1206동 1104호 9
+(신가동,신창6차부영사랑으로)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:39:02]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52507
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 이기태 , 임은정 / 아파트
+    [wr_cont1] => 
+    [address1] => 대전 중구 중촌동 16-1
+    [address3] => 외 1필지 현대아파트 제105동 제11층 제1105호
+    [wr_m2] => 79.27
+    [wr_cont4] => 이기태 (공유자) 660828-******* 2분의 1 대전광역시 중구 목중로26번길 29, 105동 3
+1105호(중촌동,현대아파트)
+임은정 (공유자) 691029-******* 2분의 1 대전광역시 대덕구 대덕대로1458번길 3-12, 4
+1층동(목상동)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 20000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:41:00]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52502
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 김문현 , 임계향 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 남양주시 진접읍 진벌리 657
+    [address3] => 신창비바패밀리 제103동 제10층 제1002호
+    [wr_m2] => 84.986
+    [wr_cont4] => 김문현 (공유자) 711114-******* 2분의 1 경기도 남양주시 진접읍 진벌로 85-2, 103동 2
+1002호(신창비바패밀리아파트)
+임계향 (공유자) 721001-******* 2분의 1 경기도 남양주시 진접읍 진벌로 85-2, 103동 2
+1002호(신창비바패밀리아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 16:42:47]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52502
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 김문현 , 임계향 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 남양주시 진접읍 진벌리 657
+    [address3] => 신창비바패밀리 제103동 제10층 제1002호
+    [wr_m2] => 84.986
+    [wr_cont4] => 김문현 (공유자) 711114-******* 2분의 1 경기도 남양주시 진접읍 진벌로 85-2, 103동 2
+1002호(신창비바패밀리아파트)
+임계향 (공유자) 721001-******* 2분의 1 경기도 남양주시 진접읍 진벌로 85-2, 103동 2
+1002호(신창비바패밀리아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 17:11:33]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52518
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 김태균 , 천현주 / 아파트
+    [wr_cont1] => 
+    [address1] => 부산 해운대구 재송동 1196
+    [address3] => 더샾센텀스타 제에이동 제14층 제1401호
+    [wr_m2] => 135.65
+    [wr_cont4] => 김태균 (공유자) 741001-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+천현주 (공유자) 781108-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 1266670000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 17:11:59]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52518
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 김태균 , 천현주 / 아파트
+    [wr_cont1] => 
+    [address1] => 부산 해운대구 재송동 1196
+    [address3] => 더샾센텀스타 제에이동 제14층 제1401호
+    [wr_m2] => 135.65
+    [wr_cont4] => 김태균 (공유자) 741001-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+천현주 (공유자) 781108-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 192668000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 17:26:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52526
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 박상금 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 미추홀구 주안동 1614
+    [address3] => 외 5필지 주안더월드스테이트 제114동 제1	0층 제1003호
+    [wr_m2] => 84.975
+    [wr_cont4] => 박상금 (소유자) 490921-******* 단독소유 인천광역시 미추홀구 염창로 35, 1413호	(주안동, 7
+베스티움)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 500000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-15 17:33:37]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52531
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이병문 / 아파트
+    [wr_cont1] => 
+    [address1] => 대구 남구 봉덕동 1329-2
+    [address3] => 대덕맨션 제105동 제15층 제1506호
+    [wr_m2] => 84.87
+    [wr_cont4] => 이병문 (소유자) 660316-******* 단독소유 대구광역시 남구 봉덕동 1329-2 1차대덕맨션 105-1506 3
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 1200000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

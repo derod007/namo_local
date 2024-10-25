@@ -1,0 +1,95 @@
+
+[2024-10-16 09:10:08]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52503
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 오지영 / 아파트
+    [wr_cont1] => 
+    [address1] => 대구 수성구 만촌동 1356-3
+    [address3] => 메트로팔레스 제106동 제7층 제701호
+    [wr_m2] => 166.2800
+    [wr_cont4] => 오지영 (소유자) 520910-******* 단독소유 대구광역시 수성구 동원로 110, 308동 2
+1303호(만촌동,메트로팔레스)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 500000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-16 09:23:19]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52518
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 김태균 , 천현주 / 아파트
+    [wr_cont1] => 
+    [address1] => 부산 해운대구 재송동 1196
+    [address3] => 더샾센텀스타 제에이동 제14층 제1401호
+    [wr_m2] => 135.65
+    [wr_cont4] => 김태균 (공유자) 741001-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+천현주 (공유자) 781108-******* 2분의 1 부산광역시 해운대구  센텀동로 123, 에	이동 1401호 5
+(재송동, 더샵센텀스타아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 192668000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-16 10:18:58]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52540
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 김명숙 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 연수구 송도동 150
+    [address3] => 롯데캐슬 제101동 제9층 제901호
+    [wr_m2] => 84.9966
+    [wr_cont4] => 김명숙 (소유자) 560405-******* 단독소유 경기도 용인시 기흥구 예현로 15, 105동 806호 2
+(서천동, 서그내마을에스케이아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

@@ -32,47 +32,6 @@ if($w == 'u') {
 	$row["wr_link1_subj"] = "KB시세조회";
 }
 
-// 시세 테스트
-?>
-<form name="fnewwin_real" id="fnewwin_real" method="GET">
-<input type="hidden" name="addr1" value="<?php echo $row['wr_addr1'];?>">
-<input type="hidden" name="py" value="<?php echo $row["wr_m2"];?>">
-</form>
-
-<script>
-function addCommas(number) {
-	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function removeCommas(number) {
-	if (typeof number === 'string' && number !== "0") {
-		return number.replace(/,/g, "");
-	}else{
-		return 0;
-	}
-}
-
-$(function () {
-		var params = $("#fnewwin_real").serialize();
-		$.ajax({
-			url: '/app/real/get_realprice4.php',
-			type: "post",
-			data: params,
-			contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
-			dataType: "text",
-			success: function (data) {
-				// 그래프 데이터
-				let json = $.parseJSON(data);
-				if(json.data.ave_price){
-					var real_price = addCommas(json.data.ave_price * 10000);
-					$("input[name='price']").val(real_price);
-				}
-			}
-		});
-});
-</script>
-
-<?php
 // park 소액임차보증금
 $large_regions = [
     "서울특별시", "인천광역시", "세종특별자치시", "경기도", "부산광역시",
@@ -84,7 +43,8 @@ $large_regions = [
 $address = $row["wr_addr1"];
 $region_mapping = [
     "서울" => "서울특별시", "인천" => "인천광역시", "경기" => "경기도", "제주" => "제주특별자치도", "강원" => "강원특별자치도", 
-	"전북" => "전북특별자치도", "부산" => "부산광역시", "대구" => "대구광역시", "대전" => "대전광역시", "경남" => "경상남도"
+	"전북" => "전라북도", "전남" => "전라남도", "부산" => "부산광역시", "울산" => "울산광역시", "대구" => "대구광역시", "대전" => "대전광역시",
+	"경남" => "경상남도","충남" => "충청남도", "광주" => "광주광역시", "세종" => "세종특별자치시"
 ];
 
 foreach ($region_mapping as $abb => $full_name) {
@@ -152,8 +112,7 @@ $add2 = array_unique($add2);
 $address_condition = implode(' ', $add2);
 if(!$add2) $address_condition = $address;
 
-	$sql1 = "SELECT rp_repay_amt FROM region_preferential WHERE rp_rcity = '{$address_condition}'";
-
+	$sql1 = "SELECT rp_repay_amt FROM region_preferential2 WHERE rp_rcity = '{$address_condition}'";
 	$result1 = sql_query($sql1);
     $row1 = sql_fetch_array($result1);
     if ($row1) {
@@ -170,7 +129,7 @@ if(!$add2) $address_condition = $address;
 		if($sub_conditions){
 			$sub_condition_sql = implode(' OR ', $sub_conditions);
 
-			$sql2 = "SELECT rp_repay_amt FROM region_preferential WHERE {$sub_condition_sql}";
+			$sql2 = "SELECT rp_repay_amt FROM region_preferential2 WHERE {$sub_condition_sql}";
 
 			$result2 = sql_query($sql2);
 			if ($result2) {
@@ -184,7 +143,7 @@ if(!$add2) $address_condition = $address;
 
 // rp_rcity에 맞는 값이 없을 경우 add1을 기준으로 값을 가져옵니다.
 if (!isset($repay_amt)) {
-    $sql3 = "SELECT rp_repay_amt FROM region_preferential WHERE rp_rname = '{$add1}'";
+    $sql3 = "SELECT rp_repay_amt FROM region_preferential2 WHERE rp_rname = '{$add1}'";
     $result3 = sql_query($sql3);
     if ($result3) {
         $row3 = sql_fetch_array($result3);
@@ -195,6 +154,54 @@ if (!isset($repay_amt)) {
 }
 // echo "소액임차보증금 : ".$repay_amt." / 주소 : ".$address;
 ?>
+<!-- 아파트 실거래가 시세 -->
+<form name="fnewwin_real" id="fnewwin_real" method="GET">
+	<input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>">
+	<input type="hidden" name="py" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>">
+</form>
+
+<script>
+function addCommas(number) {
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function removeCommas(number) {
+	if (typeof number === 'string' && number !== "0") {
+		return number.replace(/,/g, "");
+	}else{
+		return 0;
+	}
+}
+
+$(function () {
+		// var params = $("#fnewwin_real").serialize();
+		var addr1 = $("input[name='addr1']").val();
+		var py = $("input[name='py']").val();
+		// console.log(addr1);
+		$.ajax({
+			url: '/app/real/get_realprice4.php',
+			type: "post",
+			// data: params,
+			data: {
+				addr1: addr1,
+				py: py
+			},
+			contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+			dataType: "text",
+			success: function (data) {
+				// 그래프 데이터
+				
+				let json = $.parseJSON(data);
+				console.log(json);
+				if(json.data.ave_price){
+					var real_price = addCommas(json.data.ave_price * 10000);
+					$("input[name='price']").val(real_price);
+					$("#span_price").html(real_price);
+				}
+			}
+		});
+});
+</script>
 
 <?php
 // park 선순위 최고액 산출
@@ -239,29 +246,28 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 <!-- park 산식계산 -->
 
 <form id="formulaForm">
+	<div class="formula-result">
+		<div>
+			<strong>기존 금액</strong><br/>
+			( ( <span id="span_price"></span> * <span id="span_share"></span> ) * <span id="span_ltv">80</span> ) - 
+			( ( <span id="span_small_deposit"></span> or <span id="span_rental_deposit"></span> ) * <span id="span_share2"></span>) -
+			( <span id="span_senior_loan"></span> * <span id="span_share3"></span> )
+		</div>
+
+		</div>
+		<br/>
     <div class="formula-result">
         <div><strong>선순위 차주 상이물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
-		( (&emsp;&emsp;&emsp;시세 &emsp;&emsp;&emsp;&ensp;*&emsp;지분율 &ensp;) *&emsp;&ensp;LTV&emsp; ) - (&emsp;&emsp;소액보증금 &emsp;&emsp;or&emsp;임대차보증금&emsp;&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp;선순위 최고액&emsp;&ensp;*&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;지분율&emsp;)</div>
+		( (&emsp;&emsp;&emsp;시세 &emsp;&emsp;&emsp;&ensp;*&emsp;지분율 &ensp;) *&emsp;&ensp;LTV&emsp; ) - (&emsp;&emsp;소액보증금 &emsp;&emsp;or&emsp;임대차보증금&emsp;&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp;선순위 최고액&emsp;&ensp;*&emsp;지분율&emsp;)</div>
     </div>
     <div>
         ( ( <input type="text" id="price1" name="price" required style="width: 100px;"> * 
         <input type="text" id="share1" name="share" required style="width: 50px;"> ) * 
-        <input type="text" id="ltv1" name="ltv" value="85" required style="width: 50px;"> ) - 
+        <input type="text" id="ltv1" name="ltv" value="80" required style="width: 50px;"> ) - 
         ( <input type="text" id="small_deposit1" name="small_deposit" required style="width: 100px;"> or 
-        <input type="number" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
+        <input type="text" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
         <input type="text"  name="share" required style="width: 50px;"> ) - 
-        ( <input type="text" id="senior_loan1" name="senior_loan" required style="width: 100px;" readonly>
-		<select id="senior_loan_multi1" name="senior_loan_multi1" style="height:25px;">
-			<option value="0.8">80%</option>
-			<option value="0.9">90%</option>
-			<option value="1" selected>100%</option>
-			<option value="1.1">110%</option>
-			<option value="1.2">120%</option>
-			<option value="1.3">130%</option>
-			<option value="1.4">140%</option>
-			<option value="1.5">150%</option>
-			<option value="1.6">160%</option>
-		</select> 
+        ( <input type="text" id="senior_loan1" name="senior_loan" required style="width: 100px;" >
 		* 
         <input type="text" name="share" required style="width: 50px;"> )
     </div>
@@ -278,19 +284,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
         ( <input type="text" id="small_deposit2" name="small_deposit" required style="width: 100px;"> or 
         <input type="text" id="rental_deposit2" name="rental_deposit" required style="width: 100px;"> * 
         <input type="text" name="share" required style="width: 50px;"> ) - 
-        ( <input type="text" id="senior_loan2" name="senior_loan" required style="width: 100px;" readonly> 
-		<select id="senior_loan_multi2" name="senior_loan_multi2" style="height:25px;">
-			<option value="0.8">80%</option>
-			<option value="0.9">90%</option>
-			<option value="1" selected>100%</option>
-			<option value="1.1">110%</option>
-			<option value="1.2">120%</option>
-			<option value="1.3">130%</option>
-			<option value="1.4">140%</option>
-			<option value="1.5">150%</option>
-			<option value="1.6">160%</option>
-		</select> 
-		)
+        ( <input type="text" id="senior_loan2" name="senior_loan" required style="width: 100px;" >&ensp;)
     </div>
 <br/>
 <div>결과 2: <span id="result2Value"></span></div>
@@ -305,20 +299,43 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
         var shareValue = document.getElementById('control_05').value;
 		var repayAmt = document.getElementById('repay_amt').value;
 		var bestLoan = document.getElementById('best_loan').value;
+		var wrLease = document.getElementById('wr_lease').value;
 
 		var shareInputs = document.querySelectorAll('input[name="share"]');
 		var smallDeposit = document.querySelectorAll('input[name="small_deposit"]');
+		var rentalDeposit = document.querySelectorAll('input[name="rental_deposit"]');
 		var seniorLoan = document.querySelectorAll('input[name="senior_loan"]');
 		
+
+		var spanShare = document.getElementById('span_share');
+		var spanShare2 = document.getElementById('span_share2');
+		var spanShare3 = document.getElementById('span_share3');
+		var spanSmallDeposit = document.getElementById('span_small_deposit');
+		var spanRentalDeposit = document.getElementById('span_rental_deposit');
+		var spanSeniorLoan = document.getElementById('span_senior_loan');
+
         shareInputs.forEach(function(input) {
             input.value = addCommas(shareValue);
         });
 		smallDeposit.forEach(function(input) {
             input.value = addCommas(repayAmt);
         });
+		rentalDeposit.forEach(function(input) {
+			input.value = addCommas(wrLease);
+        });
 		seniorLoan.forEach(function(input) {
 			input.value = addCommas(bestLoan);
         });
+
+		spanShare.textContent = addCommas(shareValue);
+		spanShare2.textContent = addCommas(shareValue);
+		spanShare3.textContent = addCommas(shareValue);
+		// spanSmallDeposit.textContent = addCommas(repayAmt);
+		// spanRentalDeposit.textContent = addCommas(wrLease);
+		spanSmallDeposit.textContent = repayAmt == '' ? "0" : addCommas(repayAmt);
+		spanRentalDeposit.textContent = wrLease == '' ? "0" : addCommas(wrLease);
+
+		spanSeniorLoan.textContent = addCommas(bestLoan);
     });
 
     $(document).ready(function() {
@@ -345,24 +362,39 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
             var result2 = (price2 * share2) - (deposit2 * share2) - (senior_loan2 * share2);
 
             // 결과 표시
-            $('#result1Value').text(addCommas(result1) + " 원");
-            $('#result2Value').text(addCommas(result2) + " 원");
+            $('#result1Value').text(addCommas(result1) + " 원 ( " + numberToKorean(result1) + "원 )");
+            $('#result2Value').text(addCommas(result2) + " 원 ( " + numberToKorean(result2) + "원 )");
         });
 
-		$('#senior_loan_multi1').change(function() {
-			var multiplier = parseFloat($(this).val());
-			var updatedLoan = document.getElementById('best_loan').value * multiplier;
-
-			$('#senior_loan1').val(updatedLoan.toLocaleString());
-		});
-
-		$('#senior_loan_multi2').change(function() {
-			var multiplier = parseFloat($(this).val());
-			var updatedLoan = document.getElementById('best_loan').value * multiplier;
-
-			$('#senior_loan2').val(updatedLoan.toLocaleString());
-		});
+		setTimeout(function(){
+			$('#calculateBtn').trigger('click');
+		},200);
     });
+
+	function numberToKorean(number){
+		var inputNumber  = number < 0 ? false : number;
+		var unitWords    = ['', '만', '억', '조', '경'];
+		var splitUnit    = 10000;
+		var splitCount   = unitWords.length;
+		var resultArray  = [];
+		var resultString = '';
+
+		for (var i = 0; i < splitCount; i++){
+			var unitResult = (inputNumber % Math.pow(splitUnit, i + 1)) / Math.pow(splitUnit, i);
+			unitResult = Math.floor(unitResult);
+			if (unitResult > 0){
+				resultArray[i] = unitResult;
+			}
+		}
+
+		for (var i = 0; i < resultArray.length; i++){
+			if(!resultArray[i]) continue;
+			resultString = String(resultArray[i]) + unitWords[i] + resultString;
+		}
+
+		return resultString;
+	}
+
 </script>
 
 
@@ -508,12 +540,20 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 			  <div class="col-sm-10 bs-padding10">
 				  <input type="radio" id="control_02" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A')?"checked":"";?>>
 				  <label for="control_02">단독소유 &nbsp;</label>
-				  <input type="radio" id="control_03" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
-				  <label for="control_03">지분소유(50%) &nbsp;</label>
+				  <!-- <input type="radio" id="control_03" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P')?"checked":"";?>>
+				  <label for="control_03">지분소유(50%) &nbsp;</label> -->
 				  <input type="radio" id="control_04" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE')?"checked":"";?>>
 				  <label for="control_04">지분소유(기타) &nbsp;</label>
 				  <input type="number" id="control_05" name="wr_part_percent" value="<?php echo $row['wr_part_percent'];?>" placeholder="30" style="width:50px;">%
-				   (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요)
+				   <!-- (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요) -->
+			  </div>
+			</div>
+			<div class="row"><label class="col-sm-2 control-label">대출종류</label>
+			  <div class="col-sm-10 bs-padding10">
+				  <input type="radio" id="wr_type_01" name="wr_type" value="A" required <?php echo ($row['wr_type']!='B')?"checked":"";?>>
+				  <label for="wr_type_01">일반 &nbsp;</label>
+				  <input type="radio" id="wr_type_02" name="wr_type" value="B" required <?php echo ($row['wr_type']=='B')?"checked":"";?>>
+				  <label for="wr_type_02">매매/경매 (선택시 일부 정보는 등록되지 않습니다) &nbsp;</label>
 			  </div>
 			</div>
 		  
@@ -532,6 +572,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 					<!-- <input type="text" name="address2" id="address2" value="<?php echo $row["wr_addr2"]; ?>" class="form-control" readonly="readonly" style="display:none"> -->
 					<input type="text" name="address3" id="address3" value="<?php echo $row["wr_addr3"]; ?>" class="form-control" placeholder="상세주소(동/호,건물명)">
 					<!-- <input type="text" name="address_ext" id="address_ext" value="<?php echo $row["wr_addr_ext1"]; ?>" class="form-control" placeholder="추가정보(세대수/층)"> -->
+					<a href="#" onclick="copyAddress()">주소 복사</a>
 				</div>
 			</div>
 			<div class="row"><label class="col-sm-2 control-label">전용면적 &nbsp; <span id="win_real" class="winreal"><i class="fas fa-chart-bar"></i></span></label>
@@ -539,7 +580,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 			</div>
 			
 			<div class="row"><label class="col-sm-2 control-label">소유지분현황</label>
-				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:140px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
+				<div class="col-sm-10"><textarea id="wr_cont4" name="wr_cont4" class="form-control" style="height:140px;" placeholder="자유양식 작성"><?php echo $row["wr_cont4"]; ?></textarea></div>
 			</div>
 			
 			<div class="row"><label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
@@ -577,9 +618,23 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 				</div>
 			</div>
 
+			<!-- park 임시 담보정보 (추후 삭제 예정) -->
+			<div class="row"><label class="col-sm-2 control-label">기타 담보 정보</label>
+				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
+			</div>
+
+			<!-- park 임대차보증금 -->
+			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
+				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
+			</div>
+
+
 
 			<div class="row"><label class="col-sm-2 control-label">희망금액</label>
-				<div class="col-sm-10"><input type="text" id="wr_amount" name="wr_amount" value="<?php echo $row["wr_amount"]; ?>" class="form-control"></div>
+				<div class="col-sm-10">
+					<input type="text" id="wr_amount" name="wr_amount" style="display:inline-block; width:200px;" value="<?php echo $row["wr_amount"]; ?>" class="form-control">
+					<input type="checkbox" id="maximum" name="maximum" value="1" style="display:inline-block; width:30px;" <?php if (strpos($row['wr_amount'], '최대요청') !== false) echo 'checked'; ?>><label for="maximum">최대 요청</label>
+				</div>
 			</div>
 			
 			<div class="row"><hr/></div>
@@ -820,9 +875,18 @@ $(document).ready(function () {
 		var url = '/app/real/newwin_real.php?addr1=' + addr1 + '&py=' + py;
 		window.open(url, 'newwin_real', 'scrollbars=yes,width=650,height=600,top=10,left=100');
     });
-	
 });
 
+function copyAddress(){
+		var addressInput = document.getElementById("address1");
+
+		addressInput.select();
+		addressInput.setSelectionRange(0, 99999); // For mobile devices
+
+		document.execCommand("copy");
+
+		alert("주소가 복사되었습니다.");
+	}
 
 function judge_save() {
 	var f = document.fjudge;
@@ -868,7 +932,6 @@ function judge2_deny() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-				console.log(data);
                 // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var roadAddr = data.roadAddress; // 도로명 주소 변수

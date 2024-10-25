@@ -43,29 +43,54 @@ if(count($where) > 0) {
 	$where_sql .= " and ".implode(" and ",$where)."";
 }
 
-if($sortName ?? '') {
-	if($sortName == 'no') $orderby = " order by wr_id ";
-	else $orderby = " order by ".$sortName." ";
+// if($sortName ?? '') {
+// 	if($sortName == 'no') $orderby = " order by wr_id ";
+// 	else $orderby = " order by ".$sortName." ";
 	
-	if($sortASC == 'false') {
-		$orderby .= " desc ";
-	} else {
-		$orderby .= " asc ";
-	}
+// 	if($sortASC == 'false') {
+// 		$orderby .= " desc ";
+// 	} else {
+// 		$orderby .= " asc ";
+// 	}
 	
+// } else {
+// 	$orderby = " order by wr_id desc ";
+// }
+
+$orderby = " order by wr_id desc ";
+$join_sql = "";
+if ($member['mb_id'] == 'testuser') {
+	$join_sql = " LEFT JOIN ( SELECT wr_id, MAX(reg_date) AS latest_reg_date FROM log_judge GROUP BY wr_id ) AS log_judge ON {$loan_table}.wr_id = log_judge.wr_id ";
+    $orderby = " ORDER BY IFNULL(log_judge.latest_reg_date, {$loan_table}.wr_datetime) DESC ";
 } else {
-	$orderby = " order by wr_id desc ";
+    // 기존 정렬 방식
+    if ($sortName ?? '') {
+        if ($sortName == 'no') $orderby = " order by wr_id ";
+        else $orderby = " order by " . $sortName . " ";
+        
+        if ($sortASC == 'false') {
+            $orderby .= " desc ";
+        } else {
+            $orderby .= " asc ";
+        }
+    }
 }
 
-$sql = " select count(*) as cnt from {$loan_table} {$where_sql} ";
+$sql = " select count(*) as cnt from {$loan_table} {$join_sql} {$where_sql} ";
+// echo $sql;
 $row = sql_fetch($sql);
 $total_count = ($row['cnt'])?$row['cnt']:0;
 
 if(!isset($start)) $start = 0;
 if(!isset($length)) $length = $config['rows'];
+// $sql = " select * from {$loan_table} {$join_sql} {$where_sql} {$orderby} limit {$start}, {$length} ";
+if($join_sql){
+	$sql = " SELECT {$loan_table}.*, log_judge.latest_reg_date FROM {$loan_table} {$join_sql} {$where_sql} {$orderby} LIMIT {$start}, {$length} ";
+}else{
+	$sql = " select * from {$loan_table} {$where_sql} {$orderby} limit {$start}, {$length} ";
+}
 
-$sql = " select * from {$loan_table} {$where_sql} {$orderby} limit {$start}, {$length} ";
-//echo "<div>".$sql."</div>";
+// echo "<div>".$sql."</div>";
 $result = sql_query($sql);
 $data = array();
 $i = 0;
@@ -95,7 +120,7 @@ while($row=sql_fetch_array($result)){
 	$no--;
 }
 
-$res['draw'] = intval($draw);
+// $res['draw'] = intval($draw);
 //$res['success'] = true;
 $res['recordsTotal'] = intval($total_count);
 $res['recordsFiltered'] = intval($total_count);

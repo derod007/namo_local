@@ -1,0 +1,882 @@
+
+[2024-10-24 08:55:35]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52563
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_type] => A
+    [wr_subject] => 강수연 , 이승훈 / 아파트
+    [wr_cont1] => 
+    [address1] => 서울 관악구 봉천동 1730
+    [address3] => 이편한세상서울대입구1단지 제102동 제15층 제1503호
+    [wr_m2] => 84.93
+    [wr_cont4] => 강수연 (공유자) 880202-******* 2분의 1 서울특별시 관악구 청룡10길 45, 102동 1503호 2
+(봉천동, 이편한세상서울대입구)
+이승훈 (공유자) 820531-******* 2분의 1 서울특별시 관악구 청룡10길 45, 102동 1503호 2
+(봉천동, 이편한세상서울대입구)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 최대요청 : 445832000
+    [maximum] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 08:59:08]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52565
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_type] => A
+    [wr_subject] => 조용석 , 최주영 / 아파트
+    [wr_cont1] => 
+    [address1] => 서울 동작구 흑석동 335
+    [address3] => 흑석한강센트레빌 제104동 제16층 제1602호
+    [wr_m2] => 114.83
+    [wr_cont4] => 조용석 (공유자) 570915-******* 2분의 1 서울특별시 강남구 도곡로78길 22, 103동 301호 2
+(대치동,대치삼성아파트)
+최주영 (공유자) 621124-******* 2분의 1 경기도 고양시 덕양구 삼송로 222, 102동 2
+602호(삼송동,삼송역 현대 헤리엇)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 최대요청 : 510668001
+    [maximum] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 08:59:14]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52565
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_type] => A
+    [wr_subject] => 조용석 , 최주영 / 아파트
+    [wr_cont1] => 
+    [address1] => 서울 동작구 흑석동 335
+    [address3] => 흑석한강센트레빌 제104동 제16층 제1602호
+    [wr_m2] => 114.83
+    [wr_cont4] => 조용석 (공유자) 570915-******* 2분의 1 서울특별시 강남구 도곡로78길 22, 103동 301호 2
+(대치동,대치삼성아파트)
+최주영 (공유자) 621124-******* 2분의 1 경기도 고양시 덕양구 삼송로 222, 102동 2
+602호(삼송동,삼송역 현대 헤리엇)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 최대요청 : 510668000
+    [maximum] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 10:29:42]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52494
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 10:29:43]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+)
+[MESSAGE] : 
+
+
+[2024-10-24 10:49:19]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52528
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:05:13]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:07:05]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:07:15]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:07:20]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:09:35]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:14:25]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 13.5~14
+    [jd_condition] => ㅂㅈㄷㄱ
+    [jd_memo] => ㅂㅈㄷㄱ
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:14:31]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52528
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:18]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 13.5~14
+    [jd_condition] => ㅂㅈㄷㄱ
+    [jd_memo] => ㅂㅈㄷㄱ
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:25]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52570
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 매수인 : 권용호
+    [wr_cont1] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호
+    [address1] => 경기도 광명시 광명동 244-19
+    [address3] => 제1동 제4층 제402호
+    [wr_m2] => 42.16
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호 
+
+경기도 광명시 광명동 244-19 주건축물 제1동 제4층 제402호
+전용 42.16 ㎡ / 8세대 / 6층 중 4층
+
+▶ KB 하 시세없음 / 일 시세없음 (일)
+
+- 하우스머치 중위시세 34,700 만 
+
+* 실거래: 33,500만(21.10.19)
+* 대지권: 있음
+
+- 낙찰간 23,000 / 잔금일 10월 31일 
+
+* 직장인
+* 선순위 한도 최대 요청 
+
+KB시세 조회 주소: https://kbland.kr/c/105844
+    [wr_lease] => 
+    [wr_amount] => * 선순위 한도 최대 요청
+    [wr_link1] => https://kbland.kr/c/105844
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:27]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 13.5~14
+    [jd_condition] => ㅂㅈㄷㄱ
+    [jd_memo] => ㅂㅈㄷㄱ
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:33]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52570
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 매수인 : 권용호
+    [wr_cont1] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호
+    [address1] => 경기도도 광명시 광명동 244-19
+    [address3] => 제1동 제4층 제402호
+    [wr_m2] => 42.16
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호 
+
+경기도 광명시 광명동 244-19 주건축물 제1동 제4층 제402호
+전용 42.16 ㎡ / 8세대 / 6층 중 4층
+
+▶ KB 하 시세없음 / 일 시세없음 (일)
+
+- 하우스머치 중위시세 34,700 만 
+
+* 실거래: 33,500만(21.10.19)
+* 대지권: 있음
+
+- 낙찰간 23,000 / 잔금일 10월 31일 
+
+* 직장인
+* 선순위 한도 최대 요청 
+
+KB시세 조회 주소: https://kbland.kr/c/105844
+    [wr_lease] => 
+    [wr_amount] => * 선순위 한도 최대 요청
+    [wr_link1] => https://kbland.kr/c/105844
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:37]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 13.5~14
+    [jd_condition] => ㅂㅈㄷㄱ
+    [jd_memo] => ㅂㅈㄷㄱ
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52570
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 매수인 : 권용호
+    [wr_cont1] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호
+    [address1] => 경기 광명시 광명동 244-19
+    [address3] => 제1동 제4층 제402호
+    [wr_m2] => 42.16
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호 
+
+경기도 광명시 광명동 244-19 주건축물 제1동 제4층 제402호
+전용 42.16 ㎡ / 8세대 / 6층 중 4층
+
+▶ KB 하 시세없음 / 일 시세없음 (일)
+
+- 하우스머치 중위시세 34,700 만 
+
+* 실거래: 33,500만(21.10.19)
+* 대지권: 있음
+
+- 낙찰간 23,000 / 잔금일 10월 31일 
+
+* 직장인
+* 선순위 한도 최대 요청 
+
+KB시세 조회 주소: https://kbland.kr/c/105844
+    [wr_lease] => 
+    [wr_amount] => * 선순위 한도 최대 요청
+    [wr_link1] => https://kbland.kr/c/105844
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:46]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 13.5~14
+    [jd_condition] => ㅂㅈㄷㄱ
+    [jd_memo] => ㅂㅈㄷㄱ
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:54]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:17:58]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:01]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:07]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52570
+    [prev_status] => 10
+    [wr_ca] => B
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 매수인 : 권용호
+    [wr_cont1] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호
+    [address1] => 경기도 광명시 광명동 244-19
+    [address3] => 제1동 제4층 제402호
+    [wr_m2] => 42.16
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => [빌라연립다세대 / 경락잔금 / 1순위]
+매수인 : 권용호 
+
+경기도 광명시 광명동 244-19 주건축물 제1동 제4층 제402호
+전용 42.16 ㎡ / 8세대 / 6층 중 4층
+
+▶ KB 하 시세없음 / 일 시세없음 (일)
+
+- 하우스머치 중위시세 34,700 만 
+
+* 실거래: 33,500만(21.10.19)
+* 대지권: 있음
+
+- 낙찰간 23,000 / 잔금일 10월 31일 
+
+* 직장인
+* 선순위 한도 최대 요청 
+
+KB시세 조회 주소: https://kbland.kr/c/105844
+    [wr_lease] => 
+    [wr_amount] => * 선순위 한도 최대 요청
+    [wr_link1] => https://kbland.kr/c/105844
+    [wr_link1_subj] => KB시세조회
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:10]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:12]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:17]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:22]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 1
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 14:18:27]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52570
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 12
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:12:19]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52565
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:12:40]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52564
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:12:54]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52565
+    [prev_status] => 1
+    [next_status] => 20
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:13:13]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52565
+    [prev_status] => 20
+    [next_status] => 10
+    [jd_amount] => 123
+    [jd_interest] => 11
+    [jd_condition] => 111
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:13:34]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52556
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 123
+    [jd_interest] => 1123
+    [jd_condition] => 123
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-24 17:13:43]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52556
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 123
+    [jd_interest] => 1123
+    [jd_condition] => 123
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+

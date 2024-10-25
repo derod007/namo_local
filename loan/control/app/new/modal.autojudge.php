@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors", 0);
 include_once($_SERVER['DOCUMENT_ROOT'].'/inc/common.php');
 
 $jd_id 	= trim($_REQUEST['jd_id']);

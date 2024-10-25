@@ -2,7 +2,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/inc/common.php');
 
 //error_reporting( E_ALL );
-//ini_set( "display_errors", 1 );
+ini_set( "display_errors", 0 );
 
 $w 	= trim($_POST['w']);
 $wr_id 	= trim($_POST['wr_id']);
@@ -30,7 +30,7 @@ if(!$wr_id) {
 				wr_agent = '{$_SERVER['HTTP_USER_AGENT']}',
 				jd_autoid = '$jd_autoid' 
 	";
-	echo $sql;
+	
 	$result = sql_query($sql, FALSE);
 
 	$wr_id = mysqli_insert_id($jsb['connect_db']);
@@ -221,6 +221,8 @@ if($w == 'file') {
 		];
 	}
 
+	// 이부분 걸림!!! 지워야함
+	alert('등록되었습니다.', './loan-file.php?wr_id='.$wr_id);
 	// JSON 응답 설정
 	header('Content-Type: application/json; charset=utf-8');
 	echo json_encode($result);

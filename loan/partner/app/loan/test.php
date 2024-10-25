@@ -63,14 +63,19 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	}
 
 	// park 소유율
-	if (preg_match('/(\d+)분의 (\d+)/', $owner, $matches)) {
-		$denominator = (int)$matches[1];
-		$numerator = (int)$matches[2];
-		$owner_percent = (string)round(($numerator / $denominator) * 100);
-	} elseif (strpos($owner_percent, '단독소유') !== false) {
+	if (preg_match_all('/(\S+)\s*\(공유자\)\s*\d{6}-\*{7}\s*(\d+)분의\s*(\d+)/', $owner, $matches)) {
+		$result = [];
+		foreach ($matches[0] as $index => $match) {
+			$name = $matches[1][$index];
+			$denominator = (int)$matches[2][$index];
+			$numerator = (int)$matches[3][$index];
+			$owner_percent = round(($numerator / $denominator) * 100);
+			$result[] = "$name, {$owner_percent}";
+		}
+		$owner_percent = implode(' / ', $result); // 결과값을 원하는 형식으로 합침
+	} elseif (strpos($owner, '단독소유') !== false) {
 		$owner_percent = "100";
 	}
-	
 
 	// park 제목 요약
 	preg_match_all('/([\p{L}]+) \((공유자|소유자)\)/u', $owner, $matches);
@@ -257,6 +262,165 @@ if($w == 'u') {
 	$row["wr_link1_subj"] = "KB시세조회";
 }
 
+// park 소액임차보증금
+$large_regions = [
+    "서울특별시", "인천광역시", "세종특별자치시", "경기도", "부산광역시",
+    "대구광역시", "광주광역시", "대전광역시", "울산광역시", "강원도",
+    "충청북도", "충청남도", "전라북도", "전라남도", "경상북도",
+    "경상남도", "제주특별자치도"
+];
+
+if($row["wr_addr1"]){
+	$address = $row["wr_addr1"];
+}else{
+	$address = $new_addr1;
+}
+
+$region_mapping = [
+    "서울" => "서울특별시", "인천" => "인천광역시", "경기" => "경기도", "제주" => "제주특별자치도", "강원" => "강원특별자치도", 
+	"전북" => "전북특별자치도", "부산" => "부산광역시", "울산" => "울산광역시", "대구" => "대구광역시", "대전" => "대전광역시",
+	"경남" => "경상남도","충남" => "충청남도", "광주" => "광주광역시", "세종" => "세종특별자치시"
+];
+
+foreach ($region_mapping as $abb => $full_name) {
+    if (strpos($address, $abb) !== false) {
+        $address = str_replace($abb, $full_name, $address);
+        break;
+    }
+}
+
+
+$add1 = '';
+foreach ($region_mapping as $full_name) {
+    if (strpos($address, $full_name) !== false) {
+        //시,도
+		$add1 = $full_name;
+        break;
+    }
+}
+
+$detail_address = str_replace($add1, '', $address);
+
+$add2 = [];
+
+// 추가로 동, 구를 찾기 위한 보다 세부적인 패턴 추가
+$sub_patterns = [
+    '/(\b[가-힣]{2,}시\b)(?!.*\b[가-힣]{2,}시\b)/u',    // 마지막 시
+    '/(\b[가-힣]{2,}동\b)(?!.*\b[가-힣]{2,}동\b)/u',  // 마지막 동
+    '/(\b[가-힣]{2,}구\b)(?!.*\b[가-힣]{2,}구\b)/u',  // 마지막 구
+    '/(\b[가-힣]{2,}면\b)(?!.*\b[가-힣]{2,}면\b)/u'  // 마지막 면
+];
+
+$stop_search = false;
+
+foreach ($sub_patterns as $pattern) {
+    if ($stop_search) {
+        break;
+    }
+    
+    // 현재 패턴에 대해 검색
+    if (preg_match_all($pattern, $detail_address, $matches)) {
+        foreach ($matches[0] as $match) {
+            $add2[] = $match; // 모든 매칭된 값을 배열에 추가
+        }
+    }
+    
+    // 현재 패턴이 '동'일 경우, '구', '면' 패턴 검색 중지
+    if ($pattern === '/(\b[가-힣]{2,}동\b)(?!.*\b[가-힣]{2,}동\b)/u') {
+        $stop_search = true; // '동'이 발견된 경우, 나머지 패턴 검색 중지
+    }
+}
+
+// $add2 = array_unique($add2);
+// $add2 = implode(' ', $add2);
+
+
+// 가장 구체적인 조건으로 검색
+$add2 = array_unique($add2);
+$address_condition = implode(' ', $add2);
+if(!$add2) $address_condition = $address;
+
+	$sql1 = "SELECT rp_repay_amt FROM region_preferential2 WHERE rp_rcity = '{$address_condition}'";
+
+	$result1 = sql_query($sql1);
+    $row1 = sql_fetch_array($result1);
+    if ($row1) {
+        $repay_amt = $row1['rp_repay_amt'];
+    } else {
+        // 정확히 일치하는 값이 없는 경우, 부분 일치 검색
+        // 주소의 각 부분을 포함하는 조건을 생성합니다.
+        $sub_conditions = [];
+		
+        foreach ($add2 as $part) {
+            $sub_conditions[] = "rp_rcity LIKE '%{$part}%'";
+        }
+		
+		if($sub_conditions){
+			$sub_condition_sql = implode(' OR ', $sub_conditions);
+
+			$sql2 = "SELECT rp_repay_amt FROM region_preferential2 WHERE {$sub_condition_sql}";
+
+			$result2 = sql_query($sql2);
+			if ($result2) {
+				$row2 = sql_fetch_array($result2);
+				if ($row2) {
+					$repay_amt = $row2['rp_repay_amt'];
+				}
+			}
+		}
+    }
+
+// rp_rcity에 맞는 값이 없을 경우 add1을 기준으로 값을 가져옵니다.
+if (!isset($repay_amt)) {
+    $sql3 = "SELECT rp_repay_amt FROM region_preferential2 WHERE rp_rname = '{$add1}'";
+	
+    $result3 = sql_query($sql3);
+    if ($result3) {
+        $row3 = sql_fetch_array($result3);
+        if ($row3) {
+            $repay_amt = $row3['rp_repay_amt'];
+        }
+    }
+}
+
+
+// park 선순위 최고액 산출
+
+$wr_cont3_lines = explode("\n", $row['wr_cont3']);
+
+$best_entry = null;
+foreach ($wr_cont3_lines as $wr_cont3_line) {
+
+	if (strpos($wr_cont3_line, '대환됨') !== false) {
+        continue;
+    }
+
+    $parts = explode(' / ', trim($wr_cont3_line));
+
+    if (count($parts) < 3) {
+        continue;
+    }
+
+    preg_match('/(\d{4})년(\d{1,2})월(\d{1,2})일/', $parts[1], $matches);
+    if ($matches) {
+        $year = $matches[1];
+        $month = str_pad($matches[2], 2, '0', STR_PAD_LEFT);
+        $day = str_pad($matches[3], 2, '0', STR_PAD_LEFT);
+        $date = $year . $month . $day;
+
+        $amount = intval(str_replace(',', '', $parts[2]));
+
+        // 가장 이른 날짜이거나, 같은 날짜면 금액이 더 높은 것을 선택
+        if ($best_entry === null || $date < $best_entry['date'] || ($date === $best_entry['date'] && $amount > $best_entry['amount'])) {
+            $best_entry = [
+                'date' => $date,
+                'amount' => $amount
+            ];
+        }
+
+    }
+
+}
 ?>
 
 <div class="btn-div">
@@ -394,6 +558,14 @@ if($w == 'u') {
 			<div class="row"><label class="col-sm-2 control-label">대출자정보</label>
 				<div class="col-sm-10"><textarea id="wr_cont1" name="wr_cont1" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont1"]; ?></textarea></div>
 			</div>
+			<div class="row"><label class="col-sm-2 control-label">대출종류</label>
+			  <div class="col-sm-10 bs-padding10">
+				  <input type="radio" id="wr_type_01" name="wr_type" value="A" required <?php echo ($row['wr_type']!='B')?"checked":"";?>>
+				  <label for="wr_type_01">일반 &nbsp;</label>
+				  <input type="radio" id="wr_type_02" name="wr_type" value="B" required <?php echo ($row['wr_type']=='B')?"checked":"";?>>
+				  <label for="wr_type_02">매매/경매 (선택시 일부 정보는 등록되지 않습니다) &nbsp;</label>
+			  </div>
+			</div>
 
 			<div class="row"><label class="col-sm-2 control-label">담보구분</label>
 			  <div class="col-sm-10 bs-padding10">
@@ -405,7 +577,7 @@ if($w == 'u') {
 				  <label for="control_03">기타 &nbsp;</label>
 			  </div>
 			</div>
-			<div class="row"><label class="col-sm-2 control-label">지분여부</label>
+			<!-- <div class="row"><label class="col-sm-2 control-label">지분여부</label>
 			  <div class="col-sm-10 bs-padding10">
 				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A' || $owner_percent == '100' || !$owner_percent)?"checked":"";?> onclick="clear_button_7(100)">
 				  <label for="control_04">단독소유 &nbsp;</label>
@@ -418,7 +590,34 @@ if($w == 'u') {
 					min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
 				   (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요)
 			  </div>
+			</div> -->
+			<div class="row">
+				<label class="col-sm-2 control-label">지분여부</label>
+				<div class="col-sm-10 bs-padding10">
+					<input type="radio" id="control_04" name="wr_part" value="A" required 
+					<?php echo ($row['wr_part'] == 'A' || $owner_percent=='100') ? "checked" : "";?> onclick="clear_button_7(100)">
+					<label for="control_04">단독소유 &nbsp;</label>
+					
+					<?php
+						foreach ($result as $owner_info) {
+							list($owner_name, $percent) = explode(', ', $owner_info);
+
+							// 출력
+							echo '<input type="radio" id="owner_' . $owner_name . '" name="wr_part" value="PE" onclick="setPercent(' . $percent . ')">';
+							echo '<label for="owner_' . $owner_name . '">&ensp;' . $owner_name . ' (' . $percent . '%) &nbsp;</label>';
+						}
+					?>
+					
+					<input type="radio" id="control_06" name="wr_part" value="PE" required 
+					<?php echo ($row['wr_part'] == 'PE') ? "checked" : "";?> onclick="setPercent()">
+					<label for="control_06">지분소유(기타) &nbsp;</label>
+					<input type="number" id="control_07" name="wr_part_percent" 
+						value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
+						min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
+					<!-- (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요) -->
+				</div>
 			</div>
+
 		  
 			
             <!-- park 신규주소-->
@@ -427,7 +626,6 @@ if($w == 'u') {
 					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
 					<input type="text" id="address1" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
 					<input type="text" name="address3" value="<?php echo isset($row["wr_addr3"]) && !empty($row["wr_addr3"]) ? htmlspecialchars(trim($row["wr_addr3"])) : htmlspecialchars(trim($new_addr3)); ?>" class="form-control">
-					<a href="#" onclick="copyAddress()">주소 복사</a>
 				</div>
 			</div>
 			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
@@ -455,7 +653,8 @@ if($w == 'u') {
             <div class="row">
                 <label class="col-sm-2 control-label">소유지분현황</label>
                 <div class="col-sm-10">
-                    <textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont2"]) && !empty($row["wr_cont2"]) ? htmlspecialchars(trim($row["wr_cont2"])) : htmlspecialchars(trim($owner)); ?></textarea>
+                    <!-- <textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont2"]) && !empty($row["wr_cont2"]) ? htmlspecialchars(trim($row["wr_cont2"])) : htmlspecialchars(trim($owner)); ?></textarea> -->
+					<textarea id="wr_cont4" name="wr_cont4" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont4"]) && !empty($row["wr_cont4"]) ? htmlspecialchars(trim($row["wr_cont4"])) : htmlspecialchars(trim($owner)); ?></textarea>
                 </div>
             </div>
 
@@ -468,20 +667,13 @@ if($w == 'u') {
 			</style>
 
 			<script>
+				function setPercent(value) {
+					// 지분 값을 설정, 지분소유(기타) 선택 시 빈 값으로 둠
+					document.getElementById('control_07').value = value || '';
+				}
 				function clear_button_7(i){
 					document.getElementById('control_07').value = i;
 				}
-				function copyAddress(){
-					var addressInput = document.getElementById("address1");
-
-					addressInput.select();
-					addressInput.setSelectionRange(0, 99999); // For mobile devices
-
-					document.execCommand("copy");
-
-					alert("주소가 복사되었습니다.");
-				}
-
 				function highlightRow(rowId) {
 					var row = document.getElementById('row_' + rowId);
 					var button = row.querySelector('button');
@@ -557,6 +749,43 @@ if($w == 'u') {
 				});
 			</script>
 
+		<!-- 아파트 실거래가 시세 / 희망금액 비교-->
+		<input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>">
+		<input type="hidden" name="py" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>">
+		
+		<input type="hidden" id="auto_real_price" name="auto_real_price">
+		<input type="hidden" id="auto_ltv" name="auto_ltv" value="80">
+		<input type="hidden" id="auto_small_deposit" name="auto_small_deposit" value="<?php echo $repay_amt; ?>">
+		<input type="hidden" id="auto_senior_loan" name="auto_senior_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
+		<script>
+			$(function () {
+				// var params = $("#fnewwin_real").serialize();
+				var addr1 = $("input[name='addr1']").val();
+				var py = $("input[name='py']").val();
+				
+				$.ajax({
+					url: '/app/real/get_realprice4.php',
+					type: "post",
+					// data: params,
+					data: {
+						addr1: addr1,
+						py: py
+					},
+					contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+					dataType: "text",
+					success: function (data) {
+						// 그래프 데이터
+						let json = $.parseJSON(data);
+						console.log(json);
+						if(json.data.ave_price){
+							var real_price = json.data.ave_price * 10000;
+							$("#auto_real_price").val(real_price);
+						}
+					}
+				});
+			});
+		</script>
+	   
 <div class="row">
     <label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
     <div class="col-sm-10 output-container" style="border:1px solid #ccc; width:81%; margin: 5px 0px 5px 15px;">
@@ -597,8 +826,15 @@ if($w == 'u') {
         ?>
     </div>
 </div>
+			<!-- park 임시 담보정보 (추후 삭제 예정) -->
+			<div class="row"><label class="col-sm-2 control-label">기타 담보 정보</label>
+				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
+			</div>
 
-
+			<!-- park 임대차보증금 -->
+			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
+				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
+			</div>
 
 			<!-- park 기타메모 임시 삭제 -->
 			<!-- <div class="row"><label class="col-sm-2 control-label">기타메모</label>
@@ -606,7 +842,10 @@ if($w == 'u') {
 			</div> -->
 			 
 			<div class="row"><label class="col-sm-2 control-label">희망금액</label>
-				<div class="col-sm-10"><input type="text" id="wr_amount" name="wr_amount" value="<?php echo $row["wr_amount"]; ?>" class="form-control"></div>
+				<div class="col-sm-10">
+					<input type="text" id="wr_amount" name="wr_amount" style="display:inline-block; width:200px;" value="<?php echo $row["wr_amount"]; ?>" class="form-control"> 원
+					<input type="checkbox" id="maximum" name="maximum" value="1" style="display:inline-block; width:30px;" <?php if (strpos($row['wr_amount'], '최대요청') !== false) echo 'checked'; ?>><label for="maximum">최대 요청</label>
+				</div>
 			</div>
 			
 			<div class="row"><hr/></div>
@@ -857,7 +1096,7 @@ $filecnt = number_format($pjfile['count']);
 
     xhr.onload = function () {
         if (xhr.status === 200) {
-			console.log(xhr.responseText);
+			// console.log(xhr.responseText);
 
 			var files = JSON.parse(xhr.responseText);
 			
@@ -976,7 +1215,7 @@ $(function () {
 	
 	$("input[name='wr_ca']").on('change', function() {
 		var wr_ca = $("input[name='wr_ca']:checked").val();
-		console.log(wr_ca);
+		// console.log(wr_ca);
 		if(wr_ca != 'E') {
 			$('#address1').attr("readonly", "readonly");
 		} else {
@@ -1018,7 +1257,7 @@ function fsubmit(f) {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-				console.log(data);
+				// console.log(data);
                 // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var roadAddr = data.roadAddress; // 도로명 주소 변수

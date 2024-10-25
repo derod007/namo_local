@@ -1,0 +1,33 @@
+
+[2024-10-14 14:39:53]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52507
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 이기태 , 임은정 / 아파트
+    [wr_cont1] => 
+    [address1] => 대전 중구 중촌동 16-1
+    [address3] => 외 1필지 현대아파트 제105동 제11층 제1105호
+    [wr_m2] => 79.27
+    [wr_cont4] => 이기태 (공유자) 660828-******* 2분의 1 대전광역시 중구 목중로26번길 29, 105동 3
+1105호(중촌동,현대아파트)
+임은정 (공유자) 691029-******* 2분의 1 대전광역시 대덕구 대덕대로1458번길 3-12, 4
+1층동(목상동)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 30000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

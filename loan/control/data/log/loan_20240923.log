@@ -1,0 +1,1113 @@
+
+[2024-09-23 13:37:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52457
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 13:38:17]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52454
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 1
+    [jd_interest] => 10
+    [jd_condition] => 10
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 13:38:38]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52454
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 1
+    [jd_interest] => 10
+    [jd_condition] => 10
+    [jd_memo] => 111
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 14:07:54]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52452
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 14:32:14]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52452
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 14:34:11]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52452
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 14:51:07]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52274
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 11
+    [jd_interest] => 11
+    [jd_condition] => 11
+    [jd_memo] => 11
+    [rf_first3] => 11
+    [rf_first1] => 11
+    [rf_first2] => 11
+)
+[MESSAGE] : 
+
+
+[2024-09-23 14:51:44]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52457
+    [prev_status] => 30
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:27:12]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 123
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:27:22]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 1234
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:43:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 123411
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:43:58]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 12341123
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:44:15]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 1234112333333
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:44:31]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 1234112333333123
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:44:47]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 1
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:47:24]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 1567
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:48:18]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 2
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:49:46]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 3
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:49:59]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 344
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:50:14]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32000
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 2순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => 344
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:50:36]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => 344
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:51:06]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => 34443
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:51:23]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => 344432
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:51:58]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:52:53]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:56:43]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 320012
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 15:57:30]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 320012
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:05:40]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 320012
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:05:45]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200122
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:06:06]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200122
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:06:12]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001223
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:06:24]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001223
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ3
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:06:31]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001223
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ34
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:06:50]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂ34
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:07:04]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:07:44]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:07:50]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:07:59]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁㅇ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:08:52]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁㅇ1
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:10:04]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁㅇ17
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:10:20]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅁㅇ17ㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:10:32]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구1
+    [jd_memo] => ㅂㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:10:52]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구2
+    [jd_memo] => ㅂㅂ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:11:07]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구23
+    [jd_memo] => ㅂㅂㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:11:20]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구23
+    [jd_memo] => ㅂㅂㅁㅁㅁㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:11:44]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구23
+    [jd_memo] => 1234
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:14:10]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32001
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구23
+    [jd_memo] => 1234ㅁㅁㅁㅁ
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:14:26]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.99
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구23
+    [jd_memo] => 1
+    [rf_first3] => 1
+    [rf_first1] => 1
+    [rf_first2] => 1
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:14:43]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 2
+    [rf_first3] => 2
+    [rf_first1] => 2
+    [rf_first2] => 2
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:17:02]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 3200
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 26
+    [rf_first3] => 2
+    [rf_first1] => 2
+    [rf_first2] => 2
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:17:11]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32007
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 267
+    [rf_first3] => 2
+    [rf_first1] => 2
+    [rf_first2] => 2
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:17:24]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32007
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 26777
+    [rf_first3] => 2
+    [rf_first1] => 2
+    [rf_first2] => 2
+)
+[MESSAGE] : 
+
+
+[2024-09-23 16:17:36]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52458
+    [prev_status] => 10
+    [next_status] => 
+    [jd_amount] => 32007
+    [jd_interest] =>  13.5~13.9
+    [jd_condition] => 22순위 조건/현장시세조사/임대차 확인서 징구
+    [jd_memo] => 26777777
+    [rf_first3] => 2
+    [rf_first1] => 2
+    [rf_first2] => 2
+)
+[MESSAGE] : 
+

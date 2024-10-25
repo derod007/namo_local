@@ -1,0 +1,192 @@
+
+[2024-10-25 10:08:08]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52575
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 남기순 / 아파트
+    [wr_cont1] => 
+    [address1] => 대구 중구 삼덕동3가 383
+    [address3] => 삼덕청아람리슈빌 제106동 제12층 제1205호
+    [wr_m2] => 84.7978
+    [wr_cont4] => 남기순 (소유자) 590201-******* 단독소유 대구광역시 서구 평리로 236, 103동 713호 2
+(내당동,삼익뉴타운)
+    [wr_cont3] => 
+    [wr_cont2] => 기대출 : 전세 300,000,000
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-25 10:16:29]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52575
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 남기순 / 아파트
+    [wr_cont1] => 
+    [address1] => 대구 중구 삼덕동3가 383
+    [address3] => 삼덕청아람리슈빌 제106동 제12층 제1205호
+    [wr_m2] => 84.7978
+    [wr_cont4] => 남기순 (소유자) 590201-******* 단독소유 대구광역시 서구 평리로 236, 103동 713호 2
+(내당동,삼익뉴타운)
+    [wr_cont3] => 
+    [wr_cont2] => 기대출 : 전세 300,000,000
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-25 10:49:46]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52572
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 김명수 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 남동구 만수동 1115-1
+    [address3] => 포레시안 제128동 제5층 제502호
+    [wr_m2] => 46.89
+    [wr_cont4] => 김명수 (소유자) 620311-******* 단독소유 인천광역시 남동구 만수서로 55, 128동 502호 2
+(만수동,향촌휴먼시아1단지아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-25 10:49:58]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52572
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 김명수 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 남동구 만수동 1115-1
+    [address3] => 포레시안 제128동 제5층 제502호
+    [wr_m2] => 46.89
+    [wr_cont4] => 김명수 (소유자) 620311-******* 단독소유 인천광역시 남동구 만수서로 55, 128동 502호 2
+(만수동,향촌휴먼시아1단지아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-25 10:53:02]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52572
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 김명수 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 남동구 만수동 1115-1
+    [address3] => 포레시안 제128동 제5층 제502호
+    [wr_m2] => 46.89
+    [wr_cont4] => 김명수 (소유자) 620311-******* 단독소유 인천광역시 남동구 만수서로 55, 128동 502호 2
+(만수동,향촌휴먼시아1단지아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 180000000
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-25 10:53:14]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52572
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 김명수 / 아파트
+    [wr_cont1] => 
+    [address1] => 인천 남동구 만수동 1115-1
+    [address3] => 포레시안 제128동 제5층 제502호
+    [wr_m2] => 46.89
+    [wr_cont4] => 김명수 (소유자) 620311-******* 단독소유 인천광역시 남동구 만수서로 55, 128동 502호 2
+(만수동,향촌휴먼시아1단지아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

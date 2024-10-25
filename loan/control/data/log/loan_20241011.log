@@ -1,0 +1,132 @@
+
+[2024-10-11 13:58:57]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52506
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 윤해영 , 전소영 / 아파트
+    [wr_cont1] => 
+    [address1] => 울산광역시 북구 중산동 1317-3
+    [address3] => 유-스타시티일동미라주더스타2단지 제203동 제8층 제801호
+    [wr_m2] => 104.9972
+    [wr_cont4] => 윤해영 (공유자) 771027-******* 2분의 1 울산광역시 북구 중산로 2
+47,203동801호(중산동,스타시티일동미라주더스타2단지
+)
+전소영 (공유자) 800728-******* 2분의 1 울산광역시 북구 중산로 2
+47,203동801호(중산동,스타시티일동미라주더스타2단지
+)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 30000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-11 13:59:05]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52506
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 50
+    [wr_subject] => 윤해영 , 전소영 / 아파트
+    [wr_cont1] => 
+    [address1] => 울산광역시 북구 중산동 1317-3
+    [address3] => 유-스타시티일동미라주더스타2단지 제203동 제8층 제801호
+    [wr_m2] => 104.9972
+    [wr_cont4] => 윤해영 (공유자) 771027-******* 2분의 1 울산광역시 북구 중산로 2
+47,203동801호(중산동,스타시티일동미라주더스타2단지
+)
+전소영 (공유자) 800728-******* 2분의 1 울산광역시 북구 중산로 2
+47,203동801호(중산동,스타시티일동미라주더스타2단지
+)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 30000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-11 15:55:24]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52508
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이백우 / 아파트
+    [wr_cont1] => 
+    [address1] => 광주광역시 광산구 산월동 884-1
+    [address3] => 첨단3-2차호반리젠시빌 제305동 제3층 제306호
+    [wr_m2] => 84.3979
+    [wr_cont4] => 이백우 (소유자) 601112-******* 단독소유 광주광역시 광산구 신창로35번길 20, 1206동 1104호 9
+(신가동,신창6차부영사랑으로)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-11 15:55:52]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52508
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이백우 / 아파트
+    [wr_cont1] => 
+    [address1] => 광주광역시 광산구 산월동 884-1
+    [address3] => 첨단3-2차호반리젠시빌 제305동 제3층 제306호
+    [wr_m2] => 84.3979
+    [wr_cont4] => 이백우 (소유자) 601112-******* 단독소유 광주광역시 광산구 신창로35번길 20, 1206동 1104호 9
+(신가동,신창6차부영사랑으로)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

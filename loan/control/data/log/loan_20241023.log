@@ -1,0 +1,368 @@
+
+[2024-10-23 14:26:18]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52503
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 오지영 / 아파트
+    [wr_cont1] => 
+    [address1] => 대구 수성구 만촌동 1356-3
+    [address3] => 메트로팔레스 제106동 제7층 제701호
+    [wr_m2] => 166.2800
+    [wr_cont4] => 오지영 (소유자) 520910-******* 단독소유 대구광역시 수성구 동원로 110, 308동 2
+1303호(만촌동,메트로팔레스)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 500000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:26:26]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52503
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:41:42]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52505
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:44:12]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52506
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:44:32]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52507
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:44:43]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52507
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:50:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52531
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:51:55]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52529
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 14:58:40]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52528
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:05:39]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52527
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:08:37]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52526
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:12:13]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52521
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:22:19]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52518
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:43:40]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52517
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:47:05]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52516
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 15:47:28]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52516
+    [prev_status] => 10
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-10-23 16:28:49]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52499
+    [prev_status] => 1
+    [next_status] => 10
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+

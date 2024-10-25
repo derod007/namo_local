@@ -1,0 +1,31 @@
+
+[2024-10-07 10:39:41]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52488
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 전선옥 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 안산시 단원구 원곡동 1002
+    [address3] => 이편한세상초지역센트럴포레 제110동 제29층 제2905호
+    [wr_m2] => 84.996
+    [wr_cont4] => 전선옥 (소유자) 591129-******* 단독소유 경기도 안산시 단원구 라성로 16, 110동 2905호 1
+(원곡동,이편한세상초지역센트럴포레)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

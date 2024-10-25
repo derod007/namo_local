@@ -1,0 +1,31 @@
+
+[2024-10-08 11:29:37]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52489
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 김의교 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 남양주시 금곡동 159-59
+    [address3] => 서울아파트 제4동 제2층 제206호
+    [wr_m2] => 48.98
+    [wr_cont4] => 김의교 (소유자) 831115-******* 단독소유 경기도 남양주시 사릉로34번길 21, 4동 2
+206호(금곡동,서울아파트)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 100000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

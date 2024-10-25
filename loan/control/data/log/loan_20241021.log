@@ -1,0 +1,32 @@
+
+[2024-10-21 16:51:17]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52552
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => B
+    [wr_subject] => 김대곤매매 / 기타
+    [wr_cont1] => 
+    [address1] => 부산 북구 구포동 1060-495
+    [address3] => 파크블루 제8층 제801호
+    [wr_m2] => 40.33
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 최대요청 : 175600000
+    [maximum] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

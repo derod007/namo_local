@@ -238,7 +238,7 @@ $(function () {
                 className : 'align-center',
 				orderable: false
             },
-            {
+			{
                 data: 'wr_subject',
                 title: '제목',
 				orderable: false,
@@ -259,6 +259,73 @@ $(function () {
 					$(cell).append(btn);
 				}
             },
+            // {
+            //     data: 'wr_subject',
+            //     title: '제목',
+			// 	orderable: false,
+			// 	"render": function (data, type, row, meta) {
+			// 		return '';
+			// 	},
+			// 	createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
+            //         if (rowData.wr_subject == '') {
+            //             rowData.wr_subject = "임시 저장 파일입니다";
+            //         }
+
+            //         var mb_id = "<?php echo $member['mb_id']?>"
+
+            //         $.ajax({
+            //             url: '/app/real/get_realprice4.php',
+            //             type: "post",
+            //             data: {
+            //                 addr1: rowData.address,
+            //                 py: rowData.wr_m2
+            //             },
+            //             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            //             dataType: "text",
+            //             success: function (data) {
+            //                 let json = $.parseJSON(data);
+            //                 let admit = '';
+			// 				// console.log(rowData);
+
+            //                 if (json.data.ave_price) {
+            //                     var ave_price = json.data.ave_price * 10000;
+								
+			// 					// wr_amount = 희망금액, wr_auto_price = 자동한도금액
+			// 					// ave_price = 평균시세
+			// 					// var wr_amount = parseFloat(rowData.wr_amount) || 0;
+            //                     // var wr_auto_price = parseFloat(rowData.wr_auto_price) || 0;
+			// 					var wr_amount = rowData.wr_amount;
+            //                     var wr_auto_price = rowData.wr_auto_price;
+								
+			// 					if (wr_amount && ave_price) {
+			// 						if (wr_amount <= wr_auto_price || (typeof wr_auto_price === 'string' && wr_amount.includes('최대요청'))) {
+			// 							admit = "<span style='color:blue'> 임시 승인</span>";
+			// 						} else {
+			// 							admit = "<span style='color:blue'> 임시 승인 (금액차)</span>";
+			// 						}
+			// 						if(wr_auto_price < 0 ){
+			// 							admit = "<del style='color:red'> 부결</span>";
+			// 						}
+			// 					}else{
+			// 						admit = "<span style='color:red'> 계산 불가</span>";
+			// 					}
+            //                 }else{
+			// 					admit = "<span style='color:red'> 계산 불가</span>";
+			// 				}
+
+            //                 // 최종 버튼 만들기
+            //                 var btn;
+            //                 if (mb_id == 'testuser') {
+            //                     btn = $("<a href='./test.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>" + admit);
+            //                 } else {
+            //                     btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
+            //                 }
+
+            //                 $(cell).append(btn);
+            //             }
+            //         });
+            //     }
+            // },
             {
                 data: 'duppop',
                 title: '중복',

@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors", 0);
 header("Content-Type: application/json; charset=utf-8");
 ini_set("default charset","utf8");
 
@@ -59,7 +60,7 @@ if(!isset($length)) $length = $config['rows'];
 $sql = " select a.*, (select dong from {$jsb['regioncode_table']} where code=regioncode limit 1) as dong, 
 				(select count(*) from kbland_danzi_py where kbno=a.kbno) as pycnt 
 				from kbland_danzi as a {$where_sql} {$orderby} limit {$start}, {$length} ";
-//echo $sql;
+// echo $sql;
 $result = sql_query($sql);
 $data = array();
 

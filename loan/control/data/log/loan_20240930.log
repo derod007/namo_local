@@ -1,0 +1,395 @@
+
+[2024-09-30 13:38:13]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52475
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 산신탁 / 아파트
+    [wr_cont1] => 
+    [address1] => 경상남도 거제시 상동 1120
+    [address3] => 더샵거제디클리브 제110동 제10층 제1001호
+    [wr_m2] => 84.9988
+    [wr_cont4] => 주식회사하나자 110111-1714818 단독소유 서울특별시 강남구 테헤란로 127, 15층 1
+산신탁 (소유자) (역삼동,하나금융그룹강남사옥)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 13:38:23]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52475
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 산신탁 / 아파트
+    [wr_cont1] => 
+    [address1] => 경상남도 거제시 상동동 1120
+    [address3] => 더샵거제디클리브 제110동 제10층 제1001호
+    [wr_m2] => 84.9988
+    [wr_cont4] => 주식회사하나자 110111-1714818 단독소유 서울특별시 강남구 테헤란로 127, 15층 1
+산신탁 (소유자) (역삼동,하나금융그룹강남사옥)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:15:57]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52485
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_subject] => 이봉구 , 차명주 / 아파트
+    [wr_cont1] => 
+    [address1] => 경기 
+    [address3] => 상록수현대아파트 제307동 제7층 제701호
+    [wr_m2] => 120.390
+    [wr_cont4] => 이봉구 (공유자) 630119-******* 2분의 1 경기도 안산시 단원구 원고잔로 5
+6,1129호(고잔동,리베로오피스텔)
+차명주 (공유자) 621003-******* 2분의 1 경기도 안산시 상록구 이화5길 16(사동) 5
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:17:28]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 제주 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:17:38]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:17:59]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => pr
+    [wr_id] => 52483
+    [prev_status] => 1
+    [next_status] => 
+    [jd_amount] => 
+    [jd_interest] => 
+    [jd_condition] => 
+    [jd_memo] => 
+    [rf_first3] => 
+    [rf_first1] => 
+    [rf_first2] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:18:09]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원특별자치도 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:18:18]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:32:04]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원도 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:32:21]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원도도 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:32:33]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강왼도 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+
+
+[2024-09-30 16:33:44]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52483
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => PE
+    [wr_part_percent] => 67
+    [wr_subject] => 박건희 , 박나영 , 박나영 / 아파트
+    [wr_cont1] => 
+    [address1] => 강원 원주시 무실동 1640
+    [address3] => 요진보네르카운티 제108동 제6층 제603호
+    [wr_m2] => 117.38
+    [wr_cont4] => 박건희 (공유자) 680914-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 1 강원도 원주시 흥업면 북원로 1600, 103동 302호 3
+(남원주 두산위브아파트)
+박나영 (공유자) 710814-******* 6분의 4 강원특별자치도 원주시 시청로 64, 108동 603호 4
+(무실동,요진보네르카운티)
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 180000000
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

@@ -1,0 +1,32 @@
+
+[2024-10-22 08:58:31]
+127.0.0.1 : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+C:\Users\최우성\Desktop\0819_namo\loan\control/app/new/loan-act.php
+[_POST] : 
+Array
+(
+    [w] => u
+    [wr_id] => 52551
+    [prev_status] => 1
+    [wr_ca] => A
+    [wr_part] => A
+    [wr_part_percent] => 100
+    [wr_type] => A
+    [wr_subject] => 김경 / 아파트
+    [wr_cont1] => 
+    [address1] => 서울 강서구 마곡동 1170
+    [address3] => 한림리첸빌 제102동 제10층 제1001호
+    [wr_m2] => 84.42
+    [wr_cont4] => 
+    [wr_cont3] => 
+    [wr_cont2] => 
+    [wr_lease] => 
+    [wr_amount] => 최대요청 : -55000000
+    [maximum] => 1
+    [wr_link1] => 
+    [wr_link1_subj] => 
+    [wr_link2] => 
+    [wr_link2_subj] => 
+)
+[MESSAGE] : 
+

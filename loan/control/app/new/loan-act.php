@@ -21,6 +21,7 @@ $wr_addr3 	= safe_request_string(trim($_POST['address3']));
 $wr_addr_ext1 	= safe_request_string(trim($_POST['address_ext']));
 $wr_m2 	= safe_request_string(trim($_POST['wr_m2']));
 $wr_cont2 	= safe_request_string(trim($_POST['wr_cont2']));
+$wr_lease	= safe_request_string(trim($_POST['wr_lease']));
 $wr_amount 	= safe_request_string(trim($_POST['wr_amount']));
 $wr_link1 	= safe_request_string(trim($_POST['wr_link1']));
 $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
@@ -124,7 +125,8 @@ if(!$w) {
 					wr_link2   = '{$wr_link2}',
 					wr_link3_subj = '{$wr_link3_subj}',
 					wr_link3   = '{$wr_link3}',
-					wr_amount   = '{$wr_amount}'
+					wr_amount   = '{$wr_amount}',
+					wr_lease	= '{$wr_lease}'
 			  where wr_id   = '{$wr_id}' ";
 	//echo "<pre>".$sql."</pre>";
 	sql_query($sql);
@@ -139,7 +141,7 @@ if(!$w) {
 	if(!empty($next_status)) {
 		$status_sql = " wr_status = '{$next_status}',";
 	}
-	
+
 	$sql = " update `loan_write`
 				set {$status_sql}
 					jd_amount  = '{$jd_amount}',
@@ -149,13 +151,50 @@ if(!$w) {
 					rf_first1 = '{$rf_first1}',
 					rf_first2 = '{$rf_first2}',
 					rf_first3 = '{$rf_first3}'
-			  where wr_id   = '{$wr_id}' ";
-	//echo "<pre>".$sql."</pre>";
+			where wr_id   = '{$wr_id}' ";
 	sql_query($sql);
 
 	log_write($wr_id, '', $member['mb_id'], $prev_status, $next_status );
-	jdlog_write($wr_id, $member['mb_id'], $_POST );
-	
+    jdlog_write($wr_id, $member['mb_id'], $_POST );
+	// // 기존 값 가져오기
+	// $existing_data = sql_fetch("SELECT jd_amount, jd_interest, jd_condition, jd_memo, rf_first1, rf_first2, rf_first3 FROM loan_write WHERE wr_id = '{$wr_id}'");
+
+	// // 값 비교
+	// $memo_changed = ($existing_data['jd_memo'] != $jd_memo);
+	// $other_fields_changed = "0";
+	// $other_fields_changed = (
+	// 	$existing_data['jd_amount'] != $jd_amount ||
+	// 	$existing_data['jd_interest'] != $jd_interest ||
+	// 	$existing_data['jd_condition'] != $jd_condition ||
+	// 	$existing_data['rf_first1'] != $rf_first1 ||
+	// 	$existing_data['rf_first2'] != $rf_first2 ||
+	// 	$existing_data['rf_first3'] != $rf_first3
+	// );
+
+	// // 업데이트 쿼리 실행
+	// $sql = "UPDATE `loan_write`
+	// 		SET {$status_sql}
+	// 			jd_amount = '{$jd_amount}',
+	// 			jd_interest = '{$jd_interest}',
+	// 			jd_condition = '{$jd_condition}',
+	// 			jd_memo = '{$jd_memo}',
+	// 			rf_first1 = '{$rf_first1}',
+	// 			rf_first2 = '{$rf_first2}',
+	// 			rf_first3 = '{$rf_first3}'
+	// 		WHERE wr_id = '{$wr_id}'";
+
+	// sql_query($sql);
+
+	// // 로그 기록
+	// log_write($wr_id, '', $member['mb_id'], $prev_status, $next_status);
+
+	// // jd_memo가 변경되었고 다른 필드도 변경된 경우에만 jdlog_write 호출
+	// if ($other_fields_changed || ($memo_changed && $other_fields_changed)) {
+	// 	jdlog_write($wr_id, $member['mb_id'], $_POST);
+	// }
+
+	// echo "<script>alert('저장되었습니다.');history.go(-2);</script>";
+	// die();
 	alert('저장되었습니다.', './loan-list.php');
 	
 } else {
