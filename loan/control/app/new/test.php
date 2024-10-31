@@ -192,9 +192,9 @@ $(function () {
 				// 그래프 데이터
 				
 				let json = $.parseJSON(data);
-				console.log(json);
+				// console.log(json);
 				if(json.data.ave_price){
-					var real_price = addCommas(json.data.ave_price * 10000);
+					var real_price = addCommas(json.data.ave_price);
 					$("input[name='price']").val(real_price);
 					$("#span_price").html(real_price);
 				}
@@ -238,8 +238,11 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
             ];
         }
     }
-
 }
+if (!empty($best_entry['amount'])) {
+    $best_entry['amount'] = substr($best_entry['amount'], 0, -4);
+}
+
 ?>
 <input type="hidden" id="repay_amt" value="<?php echo htmlspecialchars($repay_amt, ENT_QUOTES, 'UTF-8'); ?>">
 <input type="hidden" id="best_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
@@ -248,7 +251,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 <form id="formulaForm">
 	<div class="formula-result">
 		<div>
-			<strong>기존 금액</strong><br/>
+			<strong>기존 금액 ( 만원 )</strong><br/>
 			( ( <span id="span_price"></span> * <span id="span_share"></span> ) * <span id="span_ltv">80</span> ) - 
 			( ( <span id="span_small_deposit"></span> or <span id="span_rental_deposit"></span> ) * <span id="span_share2"></span>) -
 			( <span id="span_senior_loan"></span> * <span id="span_share3"></span> )
@@ -274,7 +277,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 
 	<br/>
 	<div>결과 1: <span id="result1Value"></span></div>
-    <br/>
+    <!-- <br/>
 
     <div><strong>선순위 차주 동일물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
 	(&emsp;&emsp;&emsp;시세&emsp;&emsp;&emsp;&ensp; *&emsp;지분율&ensp; ) - (&emsp;&emsp;&ensp;소액보증금&emsp;&ensp; or&emsp;&emsp;임대차보증금&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp; 선순위 최고액&emsp;&ensp;)</div>
@@ -287,12 +290,14 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
         ( <input type="text" id="senior_loan2" name="senior_loan" required style="width: 100px;" >&ensp;)
     </div>
 <br/>
-<div>결과 2: <span id="result2Value"></span></div>
+<div>결과 2: <span id="result2Value"></span></div> -->
 <br/>
     <button type="button" id="calculateBtn">계산하기</button>
 </form>
 
+<div id="calculate_log" value="<?php echo $row['price_log'];?>"></div>
  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -339,6 +344,39 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
     });
 
     $(document).ready(function() {
+		let calculate_log_data = $('#calculate_log_data').val();
+
+		// 계산식 라디오버튼 추가해서 표기
+		if (calculate_log_data) {
+			const entries = calculate_log_data.split('\n').map((entry, index) => {
+				const isChecked = entry.startsWith('****');
+				const uniqueId = 'logRadio_' + index;
+				const cleanedEntry = isChecked ? entry.replace('**** ', '') : entry;
+
+				const resultMatch = cleanedEntry.match(/= ([\d,]+) 원/);
+        		const resultValue = resultMatch ? resultMatch[1].replace(/,/g, '') : 0;
+
+				return `
+					<div class="log-entry">
+						<input type="radio" id="${uniqueId}" name="logSelection" class="log-radio" 
+							data-value="${resultValue}" ${isChecked ? 'checked' : ''}>
+						<label for="${uniqueId}">${cleanedEntry}</label>
+					</div>
+				`;
+			}).join('');
+			
+			$('#calculate_log').html(entries);
+		}
+
+		// 계산식 엔터 허용
+		$('#formulaForm').on('keydown', function (e) {
+			if (e.key === 'Enter') {
+				e.preventDefault();  // 엔터 키로 폼이 제출되는 것을 막음
+				$('#calculateBtn').click();  // 계산하기 버튼 클릭
+			}
+		});
+
+
         // 계산 버튼 클릭 시
         $('#calculateBtn').click(function() {
             // 폼 데이터 수집
@@ -358,18 +396,68 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 			var deposit1 = Math.max(rental_deposit1, small_deposit1);
 			var deposit2 = Math.max(rental_deposit2, small_deposit2);
 
-            var result1 = ((price1 * share1) * ltv1) - (deposit1 * share1) - (senior_loan1 * share1);
-            var result2 = (price2 * share2) - (deposit2 * share2) - (senior_loan2 * share2);
+            var result1 = (((price1 * share1) * ltv1) - (deposit1 * share1) - (senior_loan1 * share1)) * 10000;
+            var result2 = ((price2 * share2) - (deposit2 * share2) - (senior_loan2 * share2)) * 10000;
 
             // 결과 표시
             $('#result1Value').text(addCommas(result1) + " 원 ( " + numberToKorean(result1) + "원 )");
             $('#result2Value').text(addCommas(result2) + " 원 ( " + numberToKorean(result2) + "원 )");
+
+			// $('#calculate_log').append( "( ( " + addCommas(price1) + " * " + addCommas(share1) + " ) * " + addCommas(ltv1) + " ) - ( " + addCommas(deposit1) + " * " + addCommas(share1) + " ) - ( " + addCommas(senior_loan1) + " * " + addCommas(share1) + " ) =" +
+			// 	addCommas(result1) + " 원 ( " + numberToKorean(result1) + "원 )<br/>"
+			// );
+			var uniqueId = 'logRadio_' + Math.random().toString(36).substring(7);
+
+			// 로그 내용 추가 (라디오 버튼 포함)
+			$('#calculate_log').append(`
+				<div class="log-entry">
+					<input type="radio" id="${uniqueId}" name="logSelection" class="log-radio" data-value="${result1}">
+					<label for="${uniqueId}">
+						( ( ${addCommas(price1)} * ${addCommas(share1)} ) * ${addCommas(ltv1)} ) - ( ${addCommas(deposit1)} * ${addCommas(share1)} ) - ( ${addCommas(senior_loan1)} * ${addCommas(share1)} ) = ${addCommas(result1)} 원 ( ${numberToKorean(result1)} 원 )
+					</label>
+				</div>
+			`);
+
+			updateLogData();
         });
 
+		// 자동 계산 실행
 		setTimeout(function(){
 			$('#calculateBtn').trigger('click');
-		},200);
+		},500);
+
+		// 자동 콤마
+		$('#price1, #small_deposit1, #rental_deposit1, #senior_loan1').on('input', function() {
+            let value = $(this).val();
+            value = value.replace(/[^0-9]/g, '');
+            if (value) {
+                value = Number(value).toLocaleString();
+            }
+            $(this).val(value);
+        });
     });
+
+	$(document).on('change', '.log-radio', function() {
+        let selectedValue = ($(this).data('value')/10000);
+		
+		selectedValue = Math.floor(selectedValue).toString().replace(/(\d{3})$/, '000');
+        $('#jd_amount').val(selectedValue);
+    });
+
+	$(document).on('change', 'input[type="radio"].log-radio', function() {
+		updateLogData();
+	});
+
+
+    function updateLogData() {
+        const logEntries = $('.log-entry').map(function() {
+            const radioButton = $(this).find('input[type="radio"]');
+            const label = $(this).find('label').text().trim();
+            return radioButton.is(':checked') ? `**** ${label}` : label;
+        }).get().join('\n');
+
+        $('#calculate_log_data').val(logEntries);
+    }
 
 	function numberToKorean(number){
 		var inputNumber  = number < 0 ? false : number;
@@ -396,41 +484,6 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 	}
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style>
 .ui-widget {
@@ -625,7 +678,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 
 			<!-- park 임대차보증금 -->
 			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
-				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
+				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
 			</div>
 
 
@@ -737,6 +790,8 @@ $filecnt = number_format($pjfile['count']);
 			 <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
 		 	 <input type="hidden" name="prev_status" value="<?php echo $row['wr_status']; ?>">
 			 <input type="hidden" name="next_status" value="">
+			 <input type="hidden" name="calculate_log_data" id="calculate_log_data" value="<?php echo $row['wr_price_log'];?>">
+
 	   
 			<h3>심사의견<?php if($row['jd_autoid']) { ?> (<a href='javascript:autojudgeModalPopup(<?php echo $row['jd_autoid']; ?>);' data-jdid='<?php echo $row['jd_autoid']; ?>'><i class='fas fa-balance-scale'></i>자동한도</a>)<?php } ?></h3><hr/>
 			

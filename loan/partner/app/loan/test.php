@@ -419,7 +419,9 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
         }
 
     }
-
+}
+if (!empty($best_entry['amount'])) {
+    $best_entry['amount'] = substr($best_entry['amount'], 0, -4);
 }
 ?>
 
@@ -833,7 +835,7 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 
 			<!-- park 임대차보증금 -->
 			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
-				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
+				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
 			</div>
 
 			<!-- park 기타메모 임시 삭제 -->

@@ -28,6 +28,8 @@ $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
 $wr_link2 	= safe_request_string(trim($_POST['wr_link2']));
 $wr_link2_subj	= safe_request_string(trim($_POST['wr_link2_subj']));
 
+$calculate_log_data = safe_request_string(trim($_POST['calculate_log_data']));
+
 $wr_part_percent = (int)$wr_part_percent;
 if(!$wr_part_percent) $wr_part_percent = 0;
 
@@ -144,6 +146,7 @@ if(!$w) {
 
 	$sql = " update `loan_write`
 				set {$status_sql}
+					wr_price_log = '{$calculate_log_data}',
 					jd_amount  = '{$jd_amount}',
 					jd_interest  = '{$jd_interest}',
 					jd_condition  = '{$jd_condition}',

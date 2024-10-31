@@ -47,8 +47,9 @@ $auto_price = 0;
 $auto_price = (($auto_real_price * ($wr_part_percent/100)) * ($auto_ltv/100)) - ($auto_deposit * ($wr_part_percent/100)) - ($auto_senior_loan * ($wr_part_percent/100));
 
 if($maximum){
-	if($auto_price>0) $wr_amount = "최대요청 : ".$auto_price;
-	else $wr_amount = "최대요청";
+	// if($auto_price>0) $wr_amount = "최대요청 : ".$auto_price;
+	// else $wr_amount = "최대요청";
+	$wr_amount = "최대요청";
 }
 
 if($wr_type == "B"){
