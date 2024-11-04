@@ -266,7 +266,19 @@ if (!empty($best_entry['amount'])) {
     <div>
         ( ( <input type="text" id="price1" name="price" required style="width: 100px;"> * 
         <input type="text" id="share1" name="share" required style="width: 50px;"> ) * 
-        <input type="text" id="ltv1" name="ltv" value="80" required style="width: 50px;"> ) - 
+        <select id="ltv1" name="ltv" required style="width: 60px; height: 25px">
+			<option value="60">50</option>
+			<option value="60">55</option>
+			<option value="60">60</option>
+			<option value="65">65</option>
+			<option value="70">70</option>
+			<option value="75">75</option>
+			<option value="80" selected>80</option>
+			<option value="85">85</option>
+			<option value="90">90</option>
+			<option value="95">95</option>
+			<option value="100">100</option>
+		</select> - 
         ( <input type="text" id="small_deposit1" name="small_deposit" required style="width: 100px;"> or 
         <input type="text" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
         <input type="text"  name="share" required style="width: 50px;"> ) - 
