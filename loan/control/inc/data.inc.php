@@ -110,7 +110,12 @@ function check_duplicate($addr, $addr2, $wr_id='')
 	//global $jsb;
     $str = "<div class='info_window' id='win-".$winsn."'>";
 	$str .= "<p><b>".$addr." ".$addr2." :: ".$wr_subject."</b></p><hr/>";
-    $sql = " select * from loan_write where wr_addr1 like '%{$addr_s}%' and wr_id != '{$wr_id}' and wr_status!='90' order by wr_id desc limit 6 ";	// 중복체크된건 제외
+    // $sql = " select * from loan_write where wr_addr1 like '%{$addr_s}%' and wr_id != '{$wr_id}' and wr_status!='90' order by wr_id desc limit 6 ";	// 중복체크된건 제외
+	//park 띄어쓰기 제외 검색
+	$sql = " SELECT * FROM loan_write WHERE REPLACE(wr_addr1, ' ', '') LIKE REPLACE('%{$addr_s}%', ' ', '') 
+      			AND wr_id != '{$wr_id}' AND wr_status != '90' ORDER BY wr_id DESC LIMIT 6;
+			";
+
     $result = sql_query($sql);
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         if ($wr_id == $row['wr_id']) continue;
