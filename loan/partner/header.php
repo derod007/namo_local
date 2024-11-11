@@ -41,6 +41,8 @@ if(!$member['mb_id'] && $pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/iamks-basic.css">
     <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo JS_VERSION; ?>">
+
+    <link rel="stylesheet" href="/assets/css/test.css?v=<?php echo JS_VERSION; ?>">
 	
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

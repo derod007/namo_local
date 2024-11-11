@@ -92,13 +92,38 @@ if(!empty($filteredFiles) && $new_post=='1'){
 	}
 
 	// park 담보 구분 및 제목 요약
+	$startSearch_cate = '( 1동의';
+	$endSearch_cate = '( 소유권에';
+	$startPos_cate = strpos($text, $startSearch_cate);
+	$endPos_cate = strpos($text, $endSearch_cate, $startPos_cate);
+	$cate_range = '';
+	if ($startPos_cate !== false && $endPos_cate !== false) {
+		$startPos_cate += strlen($startSearch_cate);
+		$cate_range = substr($text, $startPos_cate, $endPos_cate - $startPos_cate);
+		$cate_range = trim($cate_range);
+	}
+
 	$cate = 'E'; // 기본값으로 'E'(기타) 설정
-	if ((strpos($text, '아파트') !== false) && $land!="토지") {
+	if ((strpos($cate_range, '아파트') !== false) && $land!="토지") {
 		$cate = 'A';
 		$auto_sub .= ' / 아파트';
-	} elseif (strpos($text, '빌라') !== false) {
+	} elseif ((strpos($cate_range, '빌라') !== false) || (strpos($cate_range, '다세대') !== false) || (strpos($cate_range, '연립') !== false) || (strpos($cate_range, '공동주택') !== false) || (strpos($cate_range, '도시형') !== false) || (strpos($cate_range, '근린') !== false)) {
 		$cate = 'B';
-		$auto_sub .= ' / 빌라';
+		$mapping = [
+			'다세대' => ' (다세대주택)',
+			'연립' => ' (연립주택)',
+			'공동주택' => ' (공동주택)',
+			'도시형' => ' (도시형생활주택)',
+			'근린' => ' (근린생활시설)'
+		];
+
+		$auto_sub .= '/ 빌라';
+		foreach ($mapping as $key => $suffix) {
+			if (strpos($cate_range, $key) !== false) {
+				$auto_sub .= $suffix;
+				break;
+			}
+		}
 	}else{
 		$auto_sub .= ' / 기타';
 	}
@@ -123,29 +148,6 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		}
 	}
 
-
-	// 기본 면적이 없고, 기타(토지)인 경우 1층 면적으로 계산
-	// if(!$area[0] && $cate == 'E'){
-	// 	$startSearch0  = '1층';
-	// 	$endSearch0  = '2층';
-	// 	$startPos0 = strpos($text, $startSearch0);
-	// 	$endPos0 = strpos($text, $endSearch0, $startPos0);
-	// 	$text0 = '';
-	// 	$area = [];
-	// 	if ($startPos0 !== false && $endPos0 !== false) {
-	// 		$startPos0 += strlen($startSearch0);
-	// 		$text0 = substr($text, $startPos0, $endPos0 - $startPos0);
-	// 		$text0= trim($text0);
-	// 		// 제곱미터 앞에 숫자 추출
-	// 		preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
-	// 		if (!empty($matches[0])) {
-	// 			$area = $matches[0];
-	// 		}else{
-
-	// 		}
-	// 	}
-	// }
-
 	// park 근저당권 및 전세권 등
 	$startSearch2 = '전세권 등 ( 을구 )';
 	$endSearch2 = '[ 참';
@@ -159,12 +161,8 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		$mortgage = trim($mortgage);
 	}
 
-	// 테스트중!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	preg_match_all('/(전세권|근저당권설정|근저당권변경|질권|근질권|압류|가압류)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
 
-	// 	// 임의 계산
-	// 	echo preg_replace("/[^\d]/","",$t3[$key])*1.5."<br/>";
-	// }
 
 	// 행을 생성하여 표시
 	$output = "";
@@ -178,7 +176,7 @@ if(!empty($filteredFiles) && $new_post=='1'){
 		// 각 행을 HTML로 출력
 		$output .= "<div class='row' id='row_$i' style='width:100%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
 		$output .= "<span class='line-text'>$t1 / $t2 / $t3 / $t4 $t5 </span>";
-		$output .= "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>대환</button>";
+		$output .= "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>말소</button>";
 		$output .= "</div>";
 	}
 
@@ -331,10 +329,6 @@ foreach ($sub_patterns as $pattern) {
     }
 }
 
-// $add2 = array_unique($add2);
-// $add2 = implode(' ', $add2);
-
-
 // 가장 구체적인 조건으로 검색
 $add2 = array_unique($add2);
 $address_condition = implode(' ', $add2);
@@ -391,7 +385,7 @@ $wr_cont3_lines = explode("\n", $row['wr_cont3']);
 $best_entry = null;
 foreach ($wr_cont3_lines as $wr_cont3_line) {
 
-	if (strpos($wr_cont3_line, '대환됨') !== false) {
+	if (strpos($wr_cont3_line, '유지') !== false) {
         continue;
     }
 
@@ -425,47 +419,33 @@ if (!empty($best_entry['amount'])) {
 }
 ?>
 
-<div class="btn-div">
-	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
-	<h2>등기부 우선 등록</h2>
-    <p>우선 등록시 일부 정보가 자동 기입 됩니다.</p>
-	<span style="color:red">
-		이미 입력 된 상태에서 신규 등록할 경우 정보가 변경됩니다.<br/>
-		임시저장된 게시글일 경우 자동 기입은 진행하지 않습니다.
-	</span>
+<div class="upload-section">
+    <form name="fpfilereg2" id="fpfilereg2" method="post" enctype="multipart/form-data" action="./loan-upload.php" class="upload-form">
+        <input type="hidden" name="w" value="first_file">
+        <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
+        <input type="hidden" name="category[]" value="등기부등본">
+        
+        <?php if(empty($filteredFiles)) { ?>
+            <div class="upload-box" id="upload-box">
+                <div class="upload-content">
+                    <label for="uploadfile">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>등기부를 업로드 해주세요</p>
+                        <small>* 우선 등록시 일부 정보가 자동 기입 됩니다.<br>
+                               * 이미 입력된 상태에서 신규 등록할 경우 정보가 변경됩니다.<br>
+                               * 임시저장된 게시글일 경우 자동 기입은 진행하지 않습니다.</small>
+                    </label>
+                </div>
+                <input type="file" id="uploadfile" name="uploadfile[]" class="file-input" multiple required style="display:none;" onchange="displayFileName()">
+                <span id="file-name-display" style="display: none; margin-top: 10px; font-size: 14px; color: #4a5a6a;"></span>
+            </div>
+            <button class="upload-button" type="submit">등기부<br/>등록</button>
+        <?php } else { ?>
+            <p>이미 등록된 등기부등본이 있습니다.</p>
+        <?php } ?>
+    </form>
 </div>
-
-<form name="fpfilereg2" id="fpfilereg2" method="post" enctype="multipart/form-data" action="./loan-upload.php"
-    class="form-inline">
-    <input type="hidden" name="w" value="first_file">
-    <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
-    
-	<?php
-		if(empty($filteredFiles)){
-	?>
-	    <select id="category" name="category[]" class="form-control">
-			<option value="등기부등본">등기부등본</option>
-		</select>
-		<input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control">
-		<button class="btn btn-success" type="submit">파일등록</button>
-	<?php
-		}else{
-	?>
-		<p>이미 등록된 등기부등본이 있습니다.
-	<?php }?>
-</form>
 <br/><br/>
-<!-- CONTENT START -->
-
-<div class="page-header">
-<div class="btn-div">
-	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
-	<!-- a class="btn btn-success btn-sm" href="">등록</a --></div>
-	<h1>대출신청<?php if(!$wr_id) { echo "(빌라/토지/수동등록)"; } ?> <?php echo $btntxt; ?></h1>
-</div>
-
-<!-- CONTENT START -->
-
 <div style="padding:15px;margin:auto;">
 	<form id="fwrite" name="fwrite" action="/app/loan/loan-act.php" method="post" class="jsb-form">
 	 <input type="hidden" name="w" value="<?php echo $w; ?>">
@@ -552,472 +532,278 @@ if (!empty($best_entry['amount'])) {
 			</div>
 			<?php } ?>
 			
-			<div class="row"><label class="col-sm-2 control-label">제목</label>
-				<div class="col-sm-10"><input type="text" id="wr_subject" name="wr_subject" value="<?php if($row["wr_subject"]){ echo $row["wr_subject"]; }else if(!$row["wr_subject"] && $new_post=='1') {echo $auto_sub;} ?>"
-					required class="form-control required" placeholder="홍길동 / 담보종류 / 자금용도 (확인된 사항만 기재)">
-				</div>
-			</div>
-			<div class="row"><label class="col-sm-2 control-label">대출자정보</label>
-				<div class="col-sm-10"><textarea id="wr_cont1" name="wr_cont1" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont1"]; ?></textarea></div>
-			</div>
-			<div class="row"><label class="col-sm-2 control-label">대출종류</label>
-			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="wr_type_01" name="wr_type" value="A" required <?php echo ($row['wr_type']!='B')?"checked":"";?>>
-				  <label for="wr_type_01">일반 &nbsp;</label>
-				  <input type="radio" id="wr_type_02" name="wr_type" value="B" required <?php echo ($row['wr_type']=='B')?"checked":"";?>>
-				  <label for="wr_type_02">매매/경매 (선택시 일부 정보는 등록되지 않습니다) &nbsp;</label>
-			  </div>
-			</div>
-
-			<div class="row"><label class="col-sm-2 control-label">담보구분</label>
-			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_01" name="wr_ca" value="A" required <?php echo ($row['wr_ca']=='A' || $cate=='A')?"checked":"";?>>
-				  <label for="control_01">아파트 &nbsp;</label>
-				  <input type="radio" id="control_02" name="wr_ca" value="B" required <?php echo ($row['wr_ca']=='B' || $cate=='B')?"checked":"";?>>
-				  <label for="control_02">빌라 &nbsp;</label>
-				  <input type="radio" id="control_03" name="wr_ca" value="E" required <?php echo ($row['wr_ca']=='E' || $cate=='E')?"checked":"";?>>
-				  <label for="control_03">기타 &nbsp;</label>
-			  </div>
-			</div>
-			<!-- <div class="row"><label class="col-sm-2 control-label">지분여부</label>
-			  <div class="col-sm-10 bs-padding10">
-				  <input type="radio" id="control_04" name="wr_part" value="A" required <?php echo ($row['wr_part']=='A' || $owner_percent == '100' || !$owner_percent)?"checked":"";?> onclick="clear_button_7(100)">
-				  <label for="control_04">단독소유 &nbsp;</label>
-				  <input type="radio" id="control_05" name="wr_part" value="P" required <?php echo ($row['wr_part']=='P' || $owner_percent == '50')?"checked":"";?> onclick="clear_button_7(50)">
-				  <label for="control_05">지분소유(50%) &nbsp;</label>
-				  <input type="radio" id="control_06" name="wr_part" value="PE" required <?php echo ($row['wr_part']=='PE' || ($owner_percent !='100' && $owner_percent !='50' && $owner_percent))?"checked":"";?>>
-				  <label for="control_06">지분소유(기타) &nbsp;</label>
-				  <input type="number" id="control_07" name="wr_part_percent" 
-					value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
-					min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
-				   (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요)
-			  </div>
-			</div> -->
-			<div class="row">
-				<label class="col-sm-2 control-label">지분여부</label>
-				<div class="col-sm-10 bs-padding10">
-					<input type="radio" id="control_04" name="wr_part" value="A" required 
-					<?php echo ($row['wr_part'] == 'A' || $owner_percent=='100') ? "checked" : "";?> onclick="clear_button_7(100)">
-					<label for="control_04">단독소유 &nbsp;</label>
-					
-					<?php
-						foreach ($result as $owner_info) {
-							list($owner_name, $percent) = explode(', ', $owner_info);
-
-							// 출력
-							echo '<input type="radio" id="owner_' . $owner_name . '" name="wr_part" value="PE" onclick="setPercent(' . $percent . ')">';
-							echo '<label for="owner_' . $owner_name . '">&ensp;' . $owner_name . ' (' . $percent . '%) &nbsp;</label>';
-						}
-					?>
-					
-					<input type="radio" id="control_06" name="wr_part" value="PE" required 
-					<?php echo ($row['wr_part'] == 'PE') ? "checked" : "";?> onclick="setPercent()">
-					<label for="control_06">지분소유(기타) &nbsp;</label>
-					<input type="number" id="control_07" name="wr_part_percent" 
-						value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
-						min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
-					<!-- (보유지분이 50%가 아닌 경우 보유지분율을 입력하세요) -->
-				</div>
-			</div>
-
-		  
-			
-            <!-- park 신규주소-->
-            <div class="row"><label class="col-sm-2 control-label">담보주소</label>
-				<div class="col-sm-10">
-					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
-					<input type="text" id="address1" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
-					<input type="text" name="address3" value="<?php echo isset($row["wr_addr3"]) && !empty($row["wr_addr3"]) ? htmlspecialchars(trim($row["wr_addr3"])) : htmlspecialchars(trim($new_addr3)); ?>" class="form-control">
-				</div>
-			</div>
-			<!-- <div class="row"><label class="col-sm-2 control-label">담보주소</label>
-				<div class="col-sm-10">
-					<label><a onclick="execDaumPostcode();">☞주소검색</a></label>
-					<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
-					<input type="text" name="address1" id="address1" value="<?php echo $row["wr_addr1"]; ?>" class="form-control" placeholder="기본주소(시/군/구/동) - 주소검색시 자동입력">
-					<span id="guide" style="color:#999;display:block"></span>
-					<input type="text" name="address2" id="address2" value="<?php echo $row["wr_addr2"]; ?>" class="form-control" readonly="readonly" style="display:none">
-					<input type="text" name="address3" id="address3" value="<?php echo $row["wr_addr3"]; ?>" class="form-control" placeholder="상세주소(동/호,건물명)">
-					<input type="text" name="address_ext" id="address_ext" value="<?php echo $row["wr_addr_ext1"]; ?>" class="form-control" placeholder="추가정보(세대수/층)">
-				</div>
-			</div> -->
-            
-            <!-- park 전용면적 신규 -->
-			<div class="row"><label class="col-sm-2 control-label">전용면적</label>
-				<div class="col-sm-10"><input type="text" name="wr_m2" id="wr_m2" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>" class="form-control" style="display:inline-block; width:100px;" placeholder="000.00"> ㎡ (제곱미터)</div>
-			</div>
-			<!-- <div class="row"><label class="col-sm-2 control-label">전용면적</label>
-				<div class="col-sm-10"><input type="text" name="wr_m2" id="wr_m2" value="<?php echo ($row["wr_m2"]) ?>" class="form-control" style="display:inline-block; width:100px;" placeholder="000.00"> ㎡ (제곱미터)</div>
-			</div> -->
-
-
-
-            <div class="row">
-                <label class="col-sm-2 control-label">소유지분현황</label>
-                <div class="col-sm-10">
-                    <!-- <textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont2"]) && !empty($row["wr_cont2"]) ? htmlspecialchars(trim($row["wr_cont2"])) : htmlspecialchars(trim($owner)); ?></textarea> -->
-					<textarea id="wr_cont4" name="wr_cont4" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont4"]) && !empty($row["wr_cont4"]) ? htmlspecialchars(trim($row["wr_cont4"])) : htmlspecialchars(trim($owner)); ?></textarea>
-                </div>
-            </div>
-
-			<!-- park 대환기능 / 기준 날짜 이전은 텍스트에어리어, 이후는 대환 기능 추가된 -->
-			<style>
-				.highlighted {
-					color: red;
-					text-decoration: line-through;
-				}
-			</style>
-
-			<script>
-				function setPercent(value) {
-					// 지분 값을 설정, 지분소유(기타) 선택 시 빈 값으로 둠
-					document.getElementById('control_07').value = value || '';
-				}
-				function clear_button_7(i){
-					document.getElementById('control_07').value = i;
-				}
-				function highlightRow(rowId) {
-					var row = document.getElementById('row_' + rowId);
-					var button = row.querySelector('button');
-					var span = row.querySelector('.line-text'); // 각 행의 텍스트를 담고 있는 span 요소 선택
-					
-					// 버튼 텍스트 변경 및 스타일 적용
-					if (button.textContent === '대환') {
-						button.textContent = '대환됨';
-						span.textContent = span.textContent.replace(/대환/, '대환됨'); // 텍스트 변경
-						row.classList.add('highlighted');
-					} else {
-						button.textContent = '대환';
-						span.textContent = span.textContent.replace(/대환됨/, '대환'); // 텍스트 변경
-						row.classList.remove('highlighted');
-					}
-
-					if (!(span.textContent.includes('대환') || span.textContent.includes('대환됨'))) {
-						span.textContent += "대환됨";
-					}
-				}
-
-				function saveOutputToTextarea() {
-					var rows = document.querySelectorAll('.output-container .row');
-					var combinedText = '';
-
-					rows.forEach(function(row) {
-						var span = row.querySelector('.line-text'); // 각 행의 텍스트를 포함한 span 요소
-						var rowText = span.textContent.trim(); // span 요소 내의 텍스트를 가져옴
-
-							// 마지막 세 글자를 확인
-						var lastThreeChars = rowText.slice(-3);
-
-						if (lastThreeChars === '대환') {
-							rowText = rowText.slice(0, -3) + '  대환됨';
-						} else if (lastThreeChars === '환됨') {
-							rowText = rowText.slice(0, -3) + ' 대환';
-						} else {
-							rowText += ' 대환';
-						}
-
-						if (combinedText !== '') {
-							combinedText += '\n';
-						}
-
-						rowText = rowText.slice(0,-3);
-						rowText = rowText.replace(/[\r\n]+/g, '');
-
-
-						combinedText += rowText;
-					});
-
-					var textarea = document.getElementById('wr_cont3');
-					if (!textarea) {
-						textarea = document.createElement('textarea');
-						textarea.id = 'wr_cont3';
-						textarea.name = 'wr_cont3';
-						textarea.style.display = 'none';
-						document.body.appendChild(textarea);
-					}
-
-					// 최종 텍스트를 textarea에 업데이트
-					if (textarea.value !== combinedText) {
-						textarea.value = combinedText;
-					}
-				}
-
-
-				document.addEventListener('DOMContentLoaded', function() {
-					var form = document.getElementById('fwrite');
-					form.onsubmit = function() {
-						saveOutputToTextarea();
-					};
-				});
-			</script>
-
-		<!-- 아파트 실거래가 시세 / 희망금액 비교-->
-		<input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>">
-		<input type="hidden" name="py" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>">
-		
-		<input type="hidden" id="auto_real_price" name="auto_real_price">
-		<input type="hidden" id="auto_ltv" name="auto_ltv" value="80">
-		<input type="hidden" id="auto_small_deposit" name="auto_small_deposit" value="<?php echo $repay_amt; ?>">
-		<input type="hidden" id="auto_senior_loan" name="auto_senior_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
-		<script>
-			$(function () {
-				// var params = $("#fnewwin_real").serialize();
-				var addr1 = $("input[name='addr1']").val();
-				var py = $("input[name='py']").val();
-				
-				$.ajax({
-					url: '/app/real/get_realprice4.php',
-					type: "post",
-					// data: params,
-					data: {
-						addr1: addr1,
-						py: py
-					},
-					contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
-					dataType: "text",
-					success: function (data) {
-						// 그래프 데이터
-						let json = $.parseJSON(data);
-						console.log(json);
-						if(json.data.ave_price){
-							var real_price = json.data.ave_price * 10000;
-							$("#auto_real_price").val(real_price);
-						}
-					}
-				});
-			});
-		</script>
-	   
-<div class="row">
-    <label class="col-sm-2 control-label">(근)저당권 및 전세권 등</label>
-    <div class="col-sm-10 output-container" style="border:1px solid #ccc; width:81%; margin: 5px 0px 5px 15px;">
-        <?php
-        if ($row["wr_datetime"] < '2024-08-21 00:00:00') {
-        ?>
-            <textarea id="wr_cont3" name="wr_cont3" class="form-control" style="height:100px;" placeholder="자유양식 작성">
-                <?php echo isset($row["wr_cont3"]) && !empty($row["wr_cont3"]) ? htmlspecialchars(trim($row["wr_cont3"])) : htmlspecialchars(trim($mortgage)); ?>
-            </textarea>
-        <?php
-        } else {
-            if (!$row["wr_cont3"]) {
-                // 등록 시
-                echo $output;
-                echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
-            } else {
-                $lines = explode("\n", $row['wr_cont3']);
-                foreach ($lines as $i => $line) {
-                    $line = htmlspecialchars($line);
-                    $lastTwoChars = mb_substr($line, -4);
-                    if (strpos($lastTwoChars, '대환됨') !== false) {
-                        $buttonText = "대환됨";
-                        $class = "highlighted";
-                    } else {
-                        $buttonText = "대환";
-						$line = str_replace('대환','',$line);
-                        $class = "";
-                    }
-
-                    echo "<div class='row $class' id='row_$i' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
-                    echo "<span class='line-text'>".$line."</span>";
-                    echo "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>$buttonText</button>";
-                    echo "</div>";
-                }
-                echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
-            }
-        }
-        ?>
-    </div>
-</div>
-			<!-- park 임시 담보정보 (추후 삭제 예정) -->
-			<div class="row"><label class="col-sm-2 control-label">기타 담보 정보</label>
-				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
-			</div>
-
-			<!-- park 임대차보증금 -->
-			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
-				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
-			</div>
-
-			<!-- park 기타메모 임시 삭제 -->
-			<!-- <div class="row"><label class="col-sm-2 control-label">기타메모</label>
-				<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:50px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
-			</div> -->
-			 
-			<div class="row"><label class="col-sm-2 control-label">희망금액</label>
-				<div class="col-sm-10">
-					<input type="text" id="wr_amount" name="wr_amount" style="display:inline-block; width:200px;" value="<?php echo $row["wr_amount"]; ?>" class="form-control"> 원
-					<input type="checkbox" id="maximum" name="maximum" value="1" style="display:inline-block; width:30px;" <?php if (strpos($row['wr_amount'], '최대요청') !== false) echo 'checked'; ?>><label for="maximum">최대 요청</label>
-				</div>
-			</div>
-			
-			<div class="row"><hr/></div>
-			
-			<div class="row"><label class="col-sm-2 control-label">참고링크#1<br/>(KB시세 URL)</label>
-				<div class="col-sm-10">
-					<input type="text" id="wr_link1" name="wr_link1" value="<?php echo $row["wr_link1"]; ?>" class="form-control" placeholder="https://링크URL">
-					<input type="text" id="wr_link1_subj" name="wr_link1_subj" value="<?php echo $row["wr_link1_subj"]; ?>" class="form-control" placeholder="링크제목">
-<?php
-if(!empty($row["wr_link1"])) {
-	if(!empty(trim($row["wr_link1_subj"]))) {
-		echo "<div><a href='{$row['wr_link1']}' target='_blank'>".$row["wr_link1_subj"]."</a></div>";
-	} else {
-		echo "<div><a href='{$row['wr_link1']}' target='_blank'>새창링크</a></div>";
-	}	
-}
-?>
-				</div>
-			</div>
-			<div class="row"><label class="col-sm-2 control-label">참고링크#2<br/>(추가정보 URL)</label>
-				<div class="col-sm-10">
-					<input type="text" id="wr_link2" name="wr_link2" value="<?php echo $row["wr_link2"]; ?>" class="form-control" placeholder="https://링크URL">
-					<input type="text" id="wr_link2_subj" name="wr_link2_subj" value="<?php echo $row["wr_link2_subj"]; ?>" class="form-control" placeholder="링크제목">
-					<?php
-					if(!empty($row["wr_link2"])) {
-						if(!empty(trim($row["wr_link2_subj"]))) {
-							echo "<div><a href='{$row['wr_link2']}' target='_blank'>".$row["wr_link2_subj"]."</a></div>";
-						} else {
-							echo "<div><a href='{$row['wr_link2']}' target='_blank'>새창링크</a></div>";
-						}	
-					}
-					?>					
-				</div>
-			</div>
-			
-<?php
-$pjfile = get_writefile($wr_id);
-$filecnt = number_format($pjfile['count']);
-?>
-
-		<?php
-		/* 기존 첨부파일
-			$cnt = $pjfile['count'];
-			if ($cnt) {
-				?>
-				<!-- 첨부파일 시작 { -->
-				<div id="project_v_file">
-					<table class="table">
-					<?php // 가변 파일
-						//print_r2($pjfile);
-					foreach ($pjfile as $i => $file) {
-						if (isset($file['source']) && $file['source']) {
-					?>
-						<tr style="border-bottom: 1px solid #ddd">
-							<td style="padding-left: 10px;padding-right:10px;">
-								<?php echo "[" . $file['category'] . "] "; ?>
-							</td>
-							<td style="padding-left: 10px;padding-right:10px;">
-								<a href="<?php echo $file['href']; ?>" class="view_file_download">
-									<strong>
-										<?php echo $file['source']; ?></strong>
-									( <?php echo $file['size']; ?> ) <i class="fa fa-download" aria-hidden="true"></i></a>
-									<?php echo $file['memo']; ?>	</td>
-							<td style="padding-left: 10px;padding-right:10px;"><span class="project_v_file_date">
-									<?php echo substr($file['datetime'], 0, 16); ?></span></td>
-						</tr>
-					<?php
-						}
-					}
-					?>
-					</table>
-				</div>
-				<!-- } 첨부파일 끝 -->
-		<?php 
-			} else {
-				echo "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
-			}
-		*/
-		?>
-				</div>
-
-			<div class="row"><hr/></div>
-
-	<div style="display: flex; flex-direction: column;">
-			<!-- 여기 들어가야함 폼 -->
-			<div class="row" style="order:2; display: flex; justify-content: center;">
-				<?php if($row['wr_status'] <= 1) { ?><div class="col-sm-4"><button class="btn <?php echo $btnclass; ?> btn-block col-sm-4" type="submit"><?php echo $btntxt; ?></button></div><?php } ?>
-				<!-- <?php if($wr_id) { ?><div class="col-sm-4"><button class="btn btn-info btn-block col-sm-4" type="button" onclick="document.location.href='./loan-file.php?wr_id=<?php echo $wr_id;?>';">첨부파일<?php echo "(".$filecnt .")";?></button></div><?php } ?> -->
-				<div class="col-sm-4"><button class="btn btn-default btn-block col-sm-4" type="button" onclick="document.location.href='./loan-list.php';">목록으로</button></div>
-			</div>
-		</form>
-		
-	<!-- park 추가 개발 시작 -->
-	<?php if($wr_id){ ?>
-	<div class="row"  style="order:1;"><label class="col-sm-2 control-label">첨부파일 <?php echo "(".$filecnt .")";?><br/><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>">관리 &gt;&gt;</a></label>
-		<div class="col-sm-10">
-			<div >
-				<table class="table table-bordered bs-xs-table ">
-					<tr>
-						<td>
-							<div style="display: flex;">
-								<form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php" class="form-inline">
-									<input type="hidden" name="w" value="file">
-									<input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
-									<select id="category" name="category[]" class="form-control" style="width:150px;">
-										<option value="">선택</option>
-										<option value="등기부등본">등기부등본</option>
-										<option value="건축물/토지대장">건축물/토지대장</option>
-										<option value="일반">일반</option>
-									</select>
-									&emsp;
-									<input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control" style="width: 300px;">
-									&emsp;
-									<button class="btn btn-success" type="submit">파일등록</button>
-								</form>
+			<!-- css 작업 시작 -->
+		<div class="main-container">
+			<div class="top-sections">
+				<div class="section collateral-info">
+					<h2>담보 정보</h2>
+					<div class="form-content">
+						<div class="row"><label class="col-sm-2 control-label">제목</label>
+							<div class="col-sm-10"><input type="text" id="wr_subject" name="wr_subject" value="<?php if($row["wr_subject"]){ echo $row["wr_subject"]; }else if(!$row["wr_subject"] && $new_post=='1') {echo $auto_sub;} ?>"
+								required class="form-control required" placeholder="홍길동 / 담보종류 / 자금용도 (확인된 사항만 기재)">
 							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<?php
-							$cnt = $pjfile['count'];
-							if ($cnt) {
-								?>
-								<!-- 첨부파일 시작 { -->
-								<div id="project_v_file">
-									<table class="table">
-									<?php // 가변 파일
-										//print_r2($pjfile);
-									foreach ($pjfile as $i => $file) {
-										if (isset($file['source']) && $file['source']) {
-									?>
-										<tr style="border-bottom: 1px solid #ddd">
-											<td style="padding-left: 10px;padding-right:10px;">
-												<?php echo "[" . $file['category'] . "] "; ?>
-											</td>
-											<td style="padding-left: 10px;padding-right:10px;">
-												<a href="<?php echo $file['href']; ?>" class="view_file_download">
-													<strong>
-														<?php echo $file['source']; ?></strong>
-													( <?php echo $file['size']; ?> ) <i class="fa fa-download" aria-hidden="true"></i></a>
-													<?php echo $file['memo']; ?>	</td>
-											<td style="padding-left: 10px;padding-right:10px;"><span class="project_v_file_date">
-													<?php echo substr($file['datetime'], 0, 16); ?></span></td>
-											<?php if($row['wr_status'] <= 1) { ?><td><span class="btn btn-danger btn-xs project_file_del" data-file-no='<?php echo $i; ?>' data-pid='<?php echo $wr_id; ?>'>삭제</span></td><?php } ?>
-										</tr>
-									<?php
-										}
-									}
-									?>
-									</table>
-								</div>
-								<!-- } 첨부파일 끝 -->
-						<?php 
-							} else {
-								echo "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
-							}
-						?>
-						</td>
-					</tr>
-				</table>
+						</div>
+						<div class="row"><label class="col-sm-2 control-label">대출종류</label>
+							<div class="col-sm-10 bs-padding10">
+								<input type="radio" id="wr_type_01" name="wr_type" value="A" required <?php echo ($row['wr_type']!='B')?"checked":"";?>>
+								<label for="wr_type_01">일반 &nbsp;</label>
+								<input type="radio" id="wr_type_02" name="wr_type" value="B" required <?php echo ($row['wr_type']=='B')?"checked":"";?>>
+								<label for="wr_type_02">매매/경매 (선택시 일부 정보는 등록되지 않습니다) &nbsp;</label>
+							</div>
+						</div>
+						<!-- park 신규주소-->
+						<div class="row"><label class="col-sm-2 control-label">담보주소</label>
+							<div class="col-sm-10">
+								<input type="hidden" id="schpost_chk" name="schpost_chk" value="">
+								<input type="text" id="address1" name="address1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>" class="form-control">
+								<input type="text" name="address3" value="<?php echo isset($row["wr_addr3"]) && !empty($row["wr_addr3"]) ? htmlspecialchars(trim($row["wr_addr3"])) : htmlspecialchars(trim($new_addr3)); ?>" class="form-control">
+							</div>
+						</div>
+						<!-- 담보구분 -->
+						<div class="row"><label class="col-sm-2 control-label">담보구분</label>
+							<div class="col-sm-10 bs-padding10">
+								<input type="radio" id="control_01" name="wr_ca" value="A" required <?php echo ($row['wr_ca']=='A' || $cate=='A')?"checked":"";?>>
+								<label for="control_01">아파트 &nbsp;</label>
+								<input type="radio" id="control_02" name="wr_ca" value="B" required <?php echo ($row['wr_ca']=='B' || $cate=='B')?"checked":"";?>>
+								<label for="control_02">빌라 &nbsp;</label>
+								<input type="radio" id="control_03" name="wr_ca" value="E" required <?php echo ($row['wr_ca']=='E' || $cate=='E')?"checked":"";?>>
+								<label for="control_03">기타 &nbsp;</label>
+							</div>
+						</div>
+						<!-- 지분여부 -->
+						<div class="row">
+							<label class="col-sm-2 control-label">지분여부</label>
+							<div class="col-sm-10 bs-padding10">
+								<input type="radio" id="control_04" name="wr_part" value="A" required 
+								<?php echo ($row['wr_part'] == 'A' || $owner_percent=='100') ? "checked" : "";?> onclick="clear_button_7(100)">
+								<label for="control_04">단독소유 &nbsp;</label>
+								
+								<?php
+									foreach ($result as $owner_info) {
+										list($owner_name, $percent) = explode(', ', $owner_info);
 
-						<br class="clear"/>
+										// 출력
+										echo '<input type="radio" id="owner_' . $owner_name . '" name="wr_part" value="PE" onclick="setPercent(' . $percent . ')">';
+										echo '<label for="owner_' . $owner_name . '">&ensp;' . $owner_name . ' (' . $percent . '%) &nbsp;</label>';
+									}
+								?>
+								
+								<input type="radio" id="control_06" name="wr_part" value="PE" required 
+								<?php echo ($row['wr_part'] == 'PE') ? "checked" : "";?> onclick="setPercent()">
+								<label for="control_06">지분소유(기타) &nbsp;</label>
+								<input type="number" id="control_07" name="wr_part_percent" 
+									value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
+									min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
+							</div>
+						</div>
+						<!-- park 전용면적 신규 -->
+						<div class="row"><label class="col-sm-2 control-label">전용면적</label>
+							<div class="col-sm-10"><input type="text" name="wr_m2" id="wr_m2" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>" class="form-control" style="display:inline-block; width:100px;" placeholder="000.00"> ㎡ (제곱미터)</div>
+						</div>				
+					</div>
 				</div>
-			<?php }else{ ?>
-				<div class="col-sm-12 blue"> ※ 글 최초 등록 혹은 등기부등본 등록 후 첨부파일 등록/삭제가 가능합니다.</div>
-			<?php } ?>
-		</div>
-	</div>
+
+				
+				<div class="section application-info">
+					<h2>신청 정보</h2>
+					<div class="form-content">
+						<!-- 희망금액 -->
+						<div class="row"><label class="col-sm-2 control-label">희망금액</label>
+							<div class="col-sm-10">
+								<input type="text" id="wr_amount" name="wr_amount" style="display:inline-block; width:200px;" value="<?php echo $row["wr_amount"]; ?>" class="form-control"> 원
+								<input type="checkbox" id="maximum" name="maximum" value="1" style="display:inline-block; width:30px;" <?php if (strpos($row['wr_amount'], '최대요청') !== false) echo 'checked'; ?>><label for="maximum">최대 요청</label>
+							</div>
+						</div>
+						<!-- 기타정보 -->
+						<!-- park 임시 담보정보 (기타정보로??) -->
+						<div class="row"><label class="col-sm-2 control-label">기타 담보 정보</label>
+							<div class="col-sm-10"><textarea id="wr_cont2" name="wr_cont2" class="form-control" style="height:80px;" placeholder="자유양식 작성"><?php echo $row["wr_cont2"]; ?></textarea></div>
+						</div>
+						<!-- 참고링크1 -->
+						<div class="row"><label class="col-sm-2 control-label">참고링크#1<br/>(KB시세 URL)</label>
+							<div class="col-sm-10">
+								<input type="text" id="wr_link1" name="wr_link1" value="<?php echo $row["wr_link1"]; ?>" class="form-control" placeholder="https://링크URL">
+								<input type="text" id="wr_link1_subj" name="wr_link1_subj" value="<?php echo $row["wr_link1_subj"]; ?>" class="form-control" placeholder="링크제목">
+								<?php
+								if(!empty($row["wr_link1"])) {
+									if(!empty(trim($row["wr_link1_subj"]))) {
+										echo "<div><a href='{$row['wr_link1']}' target='_blank'>".$row["wr_link1_subj"]."</a></div>";
+									} else {
+										echo "<div><a href='{$row['wr_link1']}' target='_blank'>새창링크</a></div>";
+									}	
+								}
+								?>
+							</div>
+						</div>
+						<!-- 첨부파일 있었으면 하는 위치 -->
+					</div>
+				</div>
+				<!-- 신청정보 끝 -->
+			</div>
+			<!-- 탑섹션 끝 -->
+				
+			<!-- 채권 정보 섹션, 상단 두 섹션 아래에 배치 -->
+			<div class="bond-section">
+					<h3>채권 정보</h3>
+					<div class="bond-row">
+						<label class="control-label">소유지분현황</label>						
+						<textarea id="wr_cont4" name="wr_cont4" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont4"]) && !empty($row["wr_cont4"]) ? htmlspecialchars(trim($row["wr_cont4"])) : htmlspecialchars(trim($owner)); ?></textarea>
+						
+					</div>
+
+					<div class="bond-row output-container">
+						<label class="control-label">(근)저당권 및 전세권 등</label>
+							<div class="form-control" style="height:100%">
+							<?php
+							if ($row["wr_datetime"] < '2024-08-21 00:00:00') {
+							?>
+								<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="height:100px;" placeholder="자유양식 작성"><?php echo isset($row["wr_cont3"]) && !empty($row["wr_cont3"]) ? htmlspecialchars(trim($row["wr_cont3"])) : htmlspecialchars(trim($mortgage)); ?></textarea>
+							<?php
+							} else {
+								if (!$row["wr_cont3"]) {
+									// 등록 시
+									echo $output;
+									echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
+								} else {
+									$lines = explode("\n", $row['wr_cont3']);
+									foreach ($lines as $i => $line) {
+										$line = htmlspecialchars($line);
+										$lastTwoChars = mb_substr($line, -3);
+										
+										if (strpos($lastTwoChars, '유지') !== false) {
+											$buttonText = "유지";
+											$class = "highlighted";
+										} else {
+											$buttonText = "말소";
+											// $line = str_replace('말소','',$line);
+											$class = "";
+										}
+										$view_line = str_replace(['유지', '말소'], '', $line); // '유지' 또는 '말소' 제거
+
+										echo "<div class='row $class' id='row_$i' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
+										echo "<span class='line-text' style='display:none'>" . $line . "</span>"; // 숨겨진 상태로 $line을 유지
+										echo "<span>" . $view_line . "</span>"; // $view_line은 화면에 표시
+										echo "<button type='button' onclick='highlightRow($i)' style='float:right;' class='btn-warning'>$buttonText</button>";
+										echo "</div>";
+										
+									}
+									echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
+								}
+							}
+							?>
+						</div>
+					</div>
+
+					<div class="bond-actions">
+						<!-- <button class="action-button" type="button">파일등록</button>
+						<button class="action-button secondary" type="button">목록으로</button> -->
+						<?php if($row['wr_status'] <= 1) { ?><div class="col-sm-4"><button class="btn <?php echo $btnclass; ?> btn-block col-sm-4" type="submit"><?php echo $btntxt; ?></button></div><?php } ?>
+						<div class="col-sm-4"><button class="btn btn-default btn-block col-sm-4" type="button" onclick="document.location.href='./loan-list.php';">목록으로</button></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 아파트 실거래가 시세 / 희망금액 비교-->
+			<input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>">
+			<input type="hidden" name="py" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>">
+
+			<input type="hidden" id="auto_real_price" name="auto_real_price">
+			<input type="hidden" id="auto_ltv" name="auto_ltv" value="80">
+			<input type="hidden" id="auto_small_deposit" name="auto_small_deposit" value="<?php echo $repay_amt; ?>">
+			<input type="hidden" id="auto_senior_loan" name="auto_senior_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
+
+			<!-- css 작업 끝 -->
+
+
+			<?php
+			$pjfile = get_writefile($wr_id);
+			$filecnt = number_format($pjfile['count']);
+			?>
+			</div>
+
+			<!-- <div class="row"><hr/></div> -->
+
+				
+		</form>
 </div>
+
+<!-- 첨부파일1111 -->
+<?php if($wr_id){ ?>
+						<div class="row"  style="order:1;"><label class="col-sm-2 control-label">첨부파일 <?php echo "(".$filecnt .")";?><br/><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>">관리 &gt;&gt;</a></label>
+							<div class="col-sm-10">
+								<div >
+									<table class="table table-bordered bs-xs-table ">
+										<tr>
+											<td>
+												<div style="display: flex;">
+													<form name="fpfilereg" id="fpfilereg" method="post" enctype="multipart/form-data" action="./loan-upload.php" class="form-inline">
+														<input type="hidden" name="w" value="file">
+														<input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
+														<input type="hidden" name="category[]" value="일반">
+														<!-- <select id="category" name="category[]" class="form-control" style="width:150px;">
+															<option value="">선택</option>
+															<option value="등기부등본">등기부등본</option>
+															<option value="건축물/토지대장">건축물/토지대장</option>
+															<option value="일반">일반</option>
+														</select> -->
+														&emsp;
+														<input type="file" id="uploadfile" name="uploadfile[]" value="" required class="form-control" style="width: 300px;">
+														&emsp;
+														<button class="btn btn-success" type="submit">파일등록</button>
+													</form>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											<?php
+												$cnt = $pjfile['count'];
+												if ($cnt) {
+													?>
+													<!-- 첨부파일 시작 { -->
+													<div id="project_v_file">
+														<table class="table">
+														<?php // 가변 파일
+															//print_r2($pjfile);
+														foreach ($pjfile as $i => $file) {
+															if (isset($file['source']) && $file['source']) {
+														?>
+															<tr style="border-bottom: 1px solid #ddd">
+
+																<td style="padding-left: 10px;padding-right:10px;">
+																	<a href="<?php echo $file['href']; ?>" class="view_file_download">
+																		<strong>
+																			<?php echo $file['source']; ?></strong>
+																		( <?php echo $file['size']; ?> ) <i class="fa fa-download" aria-hidden="true"></i></a>
+																		<?php echo $file['memo']; ?>	</td>
+																<td style="padding-left: 10px;padding-right:10px;"><span class="project_v_file_date">
+																		<?php echo substr($file['datetime'], 0, 16); ?></span></td>
+																<?php if($row['wr_status'] <= 1) { ?><td><span class="btn btn-danger btn-xs project_file_del" data-file-no='<?php echo $i; ?>' data-pid='<?php echo $wr_id; ?>'>삭제</span></td><?php } ?>
+															</tr>
+														<?php
+															}
+														}
+														?>
+														</table>
+													</div>
+													<!-- } 첨부파일 끝 -->
+											<?php 
+												} else {
+													echo "<span style='color:gray'>등록된 첨부파일이 없습니다.</span>";
+												}
+											?>
+											</td>
+										</tr>
+									</table>
+
+											<br class="clear"/>
+									</div>
+								<?php }else{ ?>
+									<div class="col-sm-12 blue"> ※ 글 최초 등록 혹은 등기부등본 등록 후 첨부파일 등록/삭제가 가능합니다.</div>
+								<?php } ?>
+							</div>
+						</div>
+						<!-- 첨부파일 끝 -->
 	<!-- 추가 개발 마무리 -->
 
 		
@@ -1033,60 +819,152 @@ $filecnt = number_format($pjfile['count']);
 
 </div>
 
-<!-- 파싱한 주소를 이용해 위도 경도 계산 -->
-<!-- <script type="text/javascript">
-	var new_addr = "<?php echo $new_addr; ?>";
-	var gps = '';
-	
-	$(document).ready(function() {
-		$.ajax({
-			url: "https://api.vworld.kr/req/address?",
-			type: "GET",
-			dataType: "jsonp",
-			data: {
-				service: "address",
-				request: "GetCoord",
-				version: "2.0",
-				crs: "EPSG:4326",
-				type: "ROAD",
-				address: new_addr,
-				format: "json",
-				errorformat: "json",
-				key: "BF663BFA-4217-3D64-94BE-466B998EE83F"
-			},success: function (ret) {
-				if(ret.response.result){
-					gps = ret.response.result.point;
-					console.log(gps);
-				}
-			}
-		})
-
-		$.ajax({
-			url: "https://api.vworld.kr/req/address?",
-			type: "GET",
-			dataType: "jsonp",
-			data: {
-				service: "address",
-				request: "GetCoord",
-				version: "2.0",
-				crs: "EPSG:4326",
-				type: "PARCEL",
-				address: new_addr,
-				format: "json",
-				errorformat: "json",
-				key: "BF663BFA-4217-3D64-94BE-466B998EE83F"
-			},success: function (ret) {
-				if(ret.response.result){
-					gps = ret.response.result.point;
-					console.log(gps);
-				}
-			}
-		})
-
-	});  
-</script> -->
-
 <script>
+	function setPercent(value) {
+		// 지분 값을 설정, 지분소유(기타) 선택 시 빈 값으로 둠
+		document.getElementById('control_07').value = value || '';
+	}
+	function clear_button_7(i){
+		document.getElementById('control_07').value = i;
+	}
+	function highlightRow(rowId) {
+		var row = document.getElementById('row_' + rowId);
+		var button = row.querySelector('button');
+		var span = row.querySelector('.line-text'); // 각 행의 텍스트를 담고 있는 span 요소 선택
+		
+		// 버튼 텍스트 변경 및 스타일 적용
+		if (button.textContent === '말소') {
+			button.textContent = '유지';
+			span.textContent = span.textContent.replace(/말소/, '유지'); // 텍스트 변경
+			row.classList.add('highlighted');
+		} else {
+			button.textContent = '말소';
+			span.textContent = span.textContent.replace(/유지/, '말소'); // 텍스트 변경
+			row.classList.remove('highlighted');
+		}
+
+		if (!(span.textContent.includes('말소') || span.textContent.includes('유지'))) {
+			span.textContent += "유지";
+		}
+	}
+
+	function saveOutputToTextarea() {
+		var rows = document.querySelectorAll('.output-container .row');
+		var combinedText = '';
+
+		rows.forEach(function(row) {
+			var span = row.querySelector('.line-text'); // 각 행의 텍스트를 포함한 span 요소
+			var rowText = span.textContent.trim(); // span 요소 내의 텍스트를 가져옴
+
+				// 마지막 세 글자를 확인
+			var lastThreeChars = rowText.slice(-3);
+
+			if (lastThreeChars === '말소') {
+				rowText = rowText.slice(0, -3) + '  유지';
+			} else if (lastThreeChars === '유지') {
+				rowText = rowText.slice(0, -3) + ' 말소';
+			} else {
+				rowText += ' 말소';
+			}
+
+			if (combinedText !== '') {
+				combinedText += '\n';
+			}
+
+			rowText = rowText.slice(0,-3);
+			rowText = rowText.replace(/[\r\n]+/g, '');
+
+
+			combinedText += rowText;
+		});
+
+		var textarea = document.getElementById('wr_cont3');
+		if (!textarea) {
+			textarea = document.createElement('textarea');
+			textarea.id = 'wr_cont3';
+			textarea.name = 'wr_cont3';
+			textarea.style.display = 'none';
+			document.body.appendChild(textarea);
+		}
+
+		// 최종 텍스트를 textarea에 업데이트
+		if (textarea.value !== combinedText) {
+			textarea.value = combinedText;
+		}
+	}
+
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var form = document.getElementById('fwrite');
+		form.onsubmit = function() {
+			saveOutputToTextarea();
+		};
+	});
+
+$(function () {
+	// var params = $("#fnewwin_real").serialize();
+	var addr1 = $("input[name='addr1']").val();
+	var py = $("input[name='py']").val();
+	
+	$.ajax({
+		url: '/app/real/get_realprice4.php',
+		type: "post",
+		// data: params,
+		data: {
+			addr1: addr1,
+			py: py
+		},
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+		dataType: "text",
+		success: function (data) {
+			// 그래프 데이터
+			let json = $.parseJSON(data);
+			console.log(json);
+			if(json.data.ave_price){
+				var real_price = json.data.ave_price * 10000;
+				$("#auto_real_price").val(real_price);
+			}
+		}
+	});
+});
+
+//파일 등록 이름
+function displayFileName() {
+    const fileInput = document.getElementById('uploadfile');
+    const fileNameDisplay = document.getElementById('file-name-display');
+
+    if (fileInput.files.length > 0) {
+        fileNameDisplay.style.display = 'block'; 
+        fileNameDisplay.textContent = Array.from(fileInput.files).map(file => file.name).join(', ');
+    } else {
+        fileNameDisplay.style.display = 'none';
+        fileNameDisplay.textContent = '';
+    }
+}
+
+
+// 파일 업로드 드래그앤드랍
+const uploadBox = document.getElementById("upload-box");
+const fileInput = document.getElementById("uploadfile");
+
+uploadBox.addEventListener("click", () => fileInput.click());
+
+uploadBox.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    uploadBox.style.backgroundColor = "#f0f0f0";
+});
+
+uploadBox.addEventListener("dragleave", () => {
+    uploadBox.style.backgroundColor = "white";
+});
+
+uploadBox.addEventListener("drop", (e) => {
+    e.preventDefault();
+    uploadBox.style.backgroundColor = "white";
+    fileInput.files = e.dataTransfer.files;
+});
+
+
 // 파일업로드 비동기
 	document.getElementById('fpfilereg').addEventListener('submit', function(e) {
     e.preventDefault(); // 기본 폼 제출 방지
@@ -1254,19 +1132,12 @@ function fsubmit(f) {
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-				// console.log(data);
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var roadAddr = data.roadAddress; // 도로명 주소 변수
                 var extraRoadAddr = ''; // 참고 항목 변수
 
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
                 if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
                     extraRoadAddr += data.bname;
                 }
