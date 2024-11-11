@@ -211,7 +211,7 @@ $wr_cont3_lines = explode("\n", $row['wr_cont3']);
 $best_entry = null;
 foreach ($wr_cont3_lines as $wr_cont3_line) {
 
-	if (strpos($wr_cont3_line, '대환됨') !== false) {
+	if (strpos($wr_cont3_line, '유지') !== false) {
         continue;
     }
 
@@ -243,6 +243,22 @@ if (!empty($best_entry['amount'])) {
     $best_entry['amount'] = substr($best_entry['amount'], 0, -4);
 }
 
+// LTV 기본 선택
+$selected_value = '75';
+
+if (strpos($row['wr_subject'], '토지') !== false) {
+    $selected_value = '45';
+} else if (strpos($row['wr_subject'], '공장') !== false || strpos($row['wr_subject'], '상가') !== false) {
+    $selected_value = '55';
+} else if (strpos($row['wr_subject'], '단독주택') !== false) {
+    $selected_value = '65';
+} else if (strpos($row['wr_subject'], '공동주택') !== false || strpos($row['wr_subject'], '근린생활시설') !== false || strpos($row['wr_subject'], '연립주택') !== false || strpos($row['wr_subject'], '다세대주택') !== false || strpos($row['wr_subject'], '도시형생활주택') !== false) {
+    $selected_value = '70';
+} else if (strpos($row['wr_subject'], '아파트') !== false) {
+    $selected_value = '75';
+}
+
+
 ?>
 <input type="hidden" id="repay_amt" value="<?php echo htmlspecialchars($repay_amt, ENT_QUOTES, 'UTF-8'); ?>">
 <input type="hidden" id="best_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
@@ -267,17 +283,17 @@ if (!empty($best_entry['amount'])) {
         ( ( <input type="text" id="price1" name="price" required style="width: 100px;"> * 
         <input type="text" id="share1" name="share" required style="width: 50px;"> ) * 
         <select id="ltv1" name="ltv" required style="width: 60px; height: 25px">
-			<option value="60">50</option>
-			<option value="60">55</option>
-			<option value="60">60</option>
-			<option value="65">65</option>
-			<option value="70">70</option>
-			<option value="75">75</option>
-			<option value="80" selected>80</option>
-			<option value="85">85</option>
-			<option value="90">90</option>
-			<option value="95">95</option>
-			<option value="100">100</option>
+			<option value="50" <?= $selected_value == '50' ? 'selected' : '' ?>>50</option>
+			<option value="55" <?= $selected_value == '55' ? 'selected' : '' ?>>55</option>
+			<option value="60" <?= $selected_value == '60' ? 'selected' : '' ?>>60</option>
+			<option value="65" <?= $selected_value == '65' ? 'selected' : '' ?>>65</option>
+			<option value="70" <?= $selected_value == '70' ? 'selected' : '' ?>>70</option>
+			<option value="75" <?= $selected_value == '75' ? 'selected' : '' ?>>75</option>
+			<option value="80" <?= $selected_value == '80' ? 'selected' : '' ?>>80</option>
+			<option value="85" <?= $selected_value == '85' ? 'selected' : '' ?>>85</option>
+			<option value="90" <?= $selected_value == '90' ? 'selected' : '' ?>>90</option>
+			<option value="95" <?= $selected_value == '95' ? 'selected' : '' ?>>95</option>
+			<option value="100" <?= $selected_value == '100' ? 'selected' : '' ?>>100</option>
 		</select> - 
         ( <input type="text" id="small_deposit1" name="small_deposit" required style="width: 100px;"> or 
         <input type="text" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
@@ -665,15 +681,17 @@ if (!empty($best_entry['amount'])) {
 							foreach ($lines as $i => $line) {
 								$line = htmlspecialchars($line);
 								$lastTwoChars = mb_substr($line, -4);
-								if (strpos($lastTwoChars, '대환됨') !== false) {
+								if (strpos($lastTwoChars, '유지') !== false) {
 									$class = "highlighted";
 								} else {
 									$class = "";
-									$line = str_replace('대환','',$line);
+									$line = str_replace('말소','',$line);
 								}
+								$view_line = str_replace(['유지', '말소'], '', $line); // '유지' 또는 '말소' 제거
 
 								echo "<div class='row $class' id='row_$i' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
-								echo "<span class='line-text'>".$line."</span>";
+								echo "<span class='line-text' style='display:none'>" . $line . "</span>";
+								echo "<span>" . $view_line . "</span>"; 
 								echo "</div>";
 							}
 							echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
@@ -951,8 +969,6 @@ function copyAddress(){
 		addressInput.setSelectionRange(0, 99999); // For mobile devices
 
 		document.execCommand("copy");
-
-		alert("주소가 복사되었습니다.");
 	}
 
 function judge_save() {
