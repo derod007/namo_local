@@ -42,6 +42,7 @@ $auto_ltv = safe_request_string(trim($_POST['auto_ltv'])) ?: 0;
 $auto_small_deposit = safe_request_string(trim($_POST['auto_small_deposit'])) ?: 0;
 $auto_senior_loan = safe_request_string(trim($_POST['auto_senior_loan'])) ?: 0;
 
+if(!$wr_rental_deposit) $wr_rental_deposit='0';
 $auto_deposit = max($auto_small_deposit, $wr_rental_deposit);
 $auto_price = 0;
 $auto_price = (($auto_real_price * ($wr_part_percent/100)) * ($auto_ltv/100)) - ($auto_deposit * ($wr_part_percent/100)) - ($auto_senior_loan * ($wr_part_percent/100));
