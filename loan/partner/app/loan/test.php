@@ -571,51 +571,28 @@ if (!empty($best_entry['amount'])) {
 							</div>
 						</div>
 						<!-- 지분여부 -->
-						<!-- <div class="row">
-							<label class="col-sm-2 control-label">지분여부</label>
-							<div class="col-sm-10 bs-padding10">
-								<input type="radio" id="control_04" name="wr_part" value="A" required 
-								<?php echo ($row['wr_part'] == 'A' || $owner_percent=='100') ? "checked" : "";?> onclick="clear_button_7(100)">
-								<label for="control_04">단독소유 &nbsp;</label>
-								
-								<?php
-									foreach ($result as $owner_info) {
-										list($owner_name, $percent) = explode(', ', $owner_info);
-
-										// 출력
-										echo '<input type="radio" id="owner_' . $owner_name . '" name="wr_part" value="PE" onclick="setPercent(' . $percent . ')">';
-										echo '<label for="owner_' . $owner_name . '">&ensp;' . $owner_name . ' (' . $percent . '%) &nbsp;</label>';
-									}
-								?>
-								
-								<input type="radio" id="control_06" name="wr_part" value="PE" required 
-								<?php echo ($row['wr_part'] == 'PE') ? "checked" : "";?> onclick="setPercent()">
-								<label for="control_06">지분소유(기타) &nbsp;</label>
-								<input type="number" id="control_07" name="wr_part_percent" 
-									value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
-									min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
-							</div>
-						</div> -->
 						<div class="row">
 							<label class="col-sm-2 control-label">지분여부</label>
 							<div class="col-sm-10 bs-padding10">
 								<select id="wr_part_select" name="wr_part" required onchange="updatePercentInput()">
 									<option value="X">선택하세요</option>
 									<option value="A" <?php echo ($row['wr_part'] == 'A' || $owner_percent == '100') ? 'selected' : ''; ?>>단독소유</option>
-
 									<?php
-									foreach ($result as $owner_info) {
-										list($owner_name, $percent) = explode(', ', $owner_info);
-										echo '<option value="PE_' . $percent . '" ' . ($row['wr_part'] == 'PE' && $row['wr_part_percent'] == $percent ? 'selected' : '') . '>' . $owner_name . ' (' . $percent . '%)</option>';
-									}
-									?>
+										if (is_array($result) && !empty($result)) {
+											foreach ($result as $owner_info) {
+												list($owner_name, $percent) = explode(', ', $owner_info);
+												$isSelected = ($row['wr_part'] == 'PE' && $row['wr_part_percent'] == $percent) || ($percent == 100 && $row['wr_part_percent'] != 100);
+												echo '<option value="PE" data-percent="' . $percent . '" ' . ($isSelected ? 'selected' : '') . '>' . $owner_name . ' (' . $percent . '%)</option>';										
+											}
+										}
+										$percent_values = is_array($result) ? array_column($result, 'percent') : [];
 
-									<option value="PE" <?php echo ($row['wr_part'] == 'PE' && !in_array($row['wr_part_percent'], array_column($result, 'percent'))) ? 'selected' : ''; ?>>지분소유(기타)</option>
+									?>
+									<option value="PE" data-percent="" <?php echo ($row['wr_part'] == 'PE' && !in_array($row['wr_part_percent'], $percent_values)) ? 'selected' : ''; ?>>지분소유(기타)</option>
+
 								</select>
 
-								<input type="number" id="control_07" name="wr_part_percent"
-									value="<?php echo $row['wr_part'] == 'PE' ? $row['wr_part_percent'] : ''; ?>"
-									min="0" max="100" style="width:50px;" <?php echo $row['wr_part'] != 'PE' ? 'style="display:none;"' : ''; ?>> %
+								<input type="number" id="control_07" name="wr_part_percent" value="<?php echo ($row['wr_part']=='A') ?  '100' : $row['wr_part_percent']; ?>" min="0" max="100" style="width:50px;"> %
 							</div>
 						</div>
 
@@ -849,19 +826,19 @@ if (!empty($best_entry['amount'])) {
 
 <script>
 	function updatePercentInput() {
-		const selectedValue = document.getElementById('wr_part_select').value;
+		const selectedOption = document.getElementById('wr_part_select').selectedOptions[0];
 		const percentInput = document.getElementById('control_07');
+		const selectedValue = selectedOption.value;
 
-		if (selectedValue.startsWith('PE_')) {
-			const percent = selectedValue.split('_')[1];
-			percentInput.value = percent;
-		} else if (selectedValue === 'PE') {
+		if (selectedValue === 'PE') {
+			const percent = selectedOption.getAttribute('data-percent');
+			percentInput.value = percent || ''; // 빈 값이면 기타 선택 시 입력 가능
+		} else if (selectedValue === 'X') {
 			percentInput.value = '';
-		} else if (selectedValue === 'X'){
-			percentInput.value = '';
-		}else {
-			percentInput.value = 100;
+		} else {
+			percentInput.value = 100; // 단독소유일 경우 100% 자동 입력
 		}
+
 	}
 
 	function setPercent(value) {
@@ -940,10 +917,22 @@ if (!empty($best_entry['amount'])) {
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var form = document.getElementById('fwrite');
+		
 		form.onsubmit = function() {
 			saveOutputToTextarea();
 		};
 	});
+
+	document.getElementById("fwrite").addEventListener("submit", function(event) {
+		const selectElement = document.getElementById("wr_part_select");
+
+		if (selectElement.value === "X") {
+			alert("지분 여부를 선택하세요.");
+			event.preventDefault(); // 폼 제출을 막음
+			selectElement.focus(); // 선택 박스에 포커스 이동
+		}
+	});
+
 
 $(function () {
 	// var params = $("#fnewwin_real").serialize();
