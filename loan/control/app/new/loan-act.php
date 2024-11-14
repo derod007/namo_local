@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors", 0);
 include_once($_SERVER['DOCUMENT_ROOT'].'/inc/common.php');
 
 //error_reporting( E_ALL );
@@ -12,7 +13,6 @@ if(!$jd_autoid) $jd_autoid = 0;
 
 $wr_ca   = safe_request_string(trim($_POST['wr_ca']));
 $wr_part   = safe_request_string(trim($_POST['wr_part']));
-
 $wr_subject 	= safe_request_string(trim($_POST['wr_subject']));
 $wr_cont1 	= safe_request_string(trim($_POST['wr_cont1']));
 $wr_addr1 	= safe_request_string(trim($_POST['address1']));
@@ -28,7 +28,6 @@ $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
 $wr_link2 	= safe_request_string(trim($_POST['wr_link2']));
 $wr_link2_subj	= safe_request_string(trim($_POST['wr_link2_subj']));
 
-$calculate_log_data = safe_request_string(trim($_POST['calculate_log_data']));
 
 $wr_part_percent = (int)$wr_part_percent;
 if(!$wr_part_percent) $wr_part_percent = 0;
@@ -43,8 +42,6 @@ if(!$member['mb_id']) {
     alert('접근권한이 없습니다.');
 }
 
-//print_r2($_POST);
-//die();
 
 $wr_ip = $_SERVER['REMOTE_ADDR'];
 $wr_agent = $_SERVER['HTTP_USER_AGENT'];
@@ -137,7 +134,55 @@ if(!$w) {
 	alert('수정되었습니다.', './loan-write.php?w=u&wr_id='.$wr_id);
 	die();
 } else if($w=='pr') {
-	
+
+	$selected_option = safe_request_string(trim($_POST['selected_option']));
+
+	if ($selected_option === 'auto' || $selected_option === 'manual') {
+		$prefix = $selected_option . '_';
+
+		$price = removeCommas(safe_request_string(trim($_POST[$prefix . 'price'])));
+		$part_percent = removeCommas(safe_request_string(trim($_POST[$prefix . 'part_percent'])));
+		$ltv = removeCommas(safe_request_string(trim($_POST[$prefix . 'ltv'])));
+		$small_deposit = removeCommas(safe_request_string(trim($_POST[$prefix . 'small_deposit'])));
+		$rental_deposit = removeCommas(safe_request_string(trim($_POST[$prefix . 'rental_deposit'])));
+		$senior_loan = removeCommas(safe_request_string(trim($_POST[$prefix . 'senior_loan'])));
+
+		if ($selected_option === 'manual') {
+			$sql_update_auto = "UPDATE loan_calcul SET lc_use = 0 WHERE wr_id='$wr_id' AND lc_type='auto'";
+			sql_query($sql_update_auto);
+		} elseif ($selected_option === 'auto') {
+			$sql_update_manual = "UPDATE loan_calcul SET lc_use = 0 WHERE wr_id='$wr_id' AND lc_type='manual'";
+			sql_query($sql_update_manual);
+		}
+			
+		$sql_calcul = "SELECT * FROM loan_calcul WHERE wr_id='$wr_id' AND lc_type='$selected_option'";
+		$row = sql_fetch($sql_calcul);
+
+		if ($row) {
+			$sql_update = " UPDATE loan_calcul SET 
+								lc_price = '$price',
+								lc_part_percent = '$part_percent',
+								lc_ltv = '$ltv',
+								lc_small_deposit = '$small_deposit',
+								lc_rental_deposit = '$rental_deposit',
+								lc_senior_loan = '$senior_loan',
+								lc_use = '1'
+							WHERE wr_id='$wr_id' AND lc_type='$selected_option'
+							";
+			sql_query($sql_update);
+		} else {
+			$sql_insert = "INSERT INTO loan_calcul (
+							wr_id, lc_type, lc_price, lc_part_percent, lc_ltv,
+							lc_small_deposit, lc_rental_deposit, lc_senior_loan, lc_use
+							) VALUES (
+								'$wr_id', '$selected_option', '$price', '$part_percent', '$ltv',
+								'$small_deposit', '$rental_deposit', '$senior_loan', '1'
+							)
+						";
+			sql_query($sql_insert);
+		}
+	}
+
 	$next_status   = safe_request_string(trim($_POST['next_status']));
 	$status_sql = "";
 	if(!empty($next_status)) {
@@ -146,7 +191,6 @@ if(!$w) {
 
 	$sql = " update `loan_write`
 				set {$status_sql}
-					wr_price_log = '{$calculate_log_data}',
 					jd_amount  = '{$jd_amount}',
 					jd_interest  = '{$jd_interest}',
 					jd_condition  = '{$jd_condition}',
@@ -159,6 +203,10 @@ if(!$w) {
 
 	log_write($wr_id, '', $member['mb_id'], $prev_status, $next_status );
     jdlog_write($wr_id, $member['mb_id'], $_POST );
+
+
+	
+
 	// // 기존 값 가져오기
 	// $existing_data = sql_fetch("SELECT jd_amount, jd_interest, jd_condition, jd_memo, rf_first1, rf_first2, rf_first3 FROM loan_write WHERE wr_id = '{$wr_id}'");
 

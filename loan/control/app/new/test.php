@@ -17,9 +17,14 @@ if($w == 'u') {
 	$sql = "select * from loan_write where wr_id = '{$wr_id}' limit 1";
 	$row = sql_fetch($sql);
 
-	$sql_calcul = "SELECT * FROM loan_calcul WHERE wr_id = '{$wr_id}' limit 1";
-	$row_calcul = sql_fetch($sql_calcul);
+	$sql_calcul_auto = "SELECT * FROM loan_calcul WHERE wr_id = '{$wr_id}' AND lc_type='auto' AND lc_use='1'";
+	$row_calcul_auto = sql_fetch($sql_calcul_auto);
 	
+	$sql_calcul_manual = "SELECT * FROM loan_calcul WHERE wr_id = '{$wr_id}' AND lc_type='manual' AND lc_use='1'";
+	$row_calcul_manual = sql_fetch($sql_calcul_manual);
+
+	echo $row_calcul_auto;
+
 	if(!$row['wr_id']) {
 		alert('해당되는 데이터가 없습니다');
 	}
@@ -108,7 +113,6 @@ foreach ($sub_patterns as $pattern) {
 
 // $add2 = array_unique($add2);
 // $add2 = implode(' ', $add2);
-
 
 // 가장 구체적인 조건으로 검색
 $add2 = array_unique($add2);
@@ -268,408 +272,13 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 ?>
 <input type="hidden" id="repay_amt" value="<?php echo htmlspecialchars($repay_amt, ENT_QUOTES, 'UTF-8'); ?>">
 <input type="hidden" id="best_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
-<!-- park 산식계산 -->
 
-<!-- 1112 작업시작 -->
 
-<form id="formulaForm">
-    <div class="calculation-section">
-        <!-- 자동 계산 섹션 -->
-        <div class="auto-calculation">
-            <h3>자동 계산</h3>
-			시세<input type="text" id="auto_price" placeholder="시세" readonly value="<?php echo isset($row_calcul['lc_price']) ? $row_calcul['lc_price'] : ''; ?>">
-            지분율<input type="text" id="auto_part_percent" placeholder="지분율" readonly value="<?php echo isset($row_calcul['lc_part_percent']) ? $row_calcul['lc_part_percent'] : $row['wr_part_percent']; ?>">
-            LTV<input type="text" id="auto_ltv" placeholder="LTV" readonly value="<?php echo $selected_value;?>">
-            소액보증금<input type="text" id="auto_small_deposit" placeholder="소액보증금" readonly value="<?php echo isset($row_calcul['lc_small_deposit']) ? number_format($row_calcul['lc_small_deposit']) : number_format($repay_amt); ?>">
-            임대차보증금<input type="text" id="auto_rental_deposit" placeholder="임대차보증금" readonly value="<?php echo isset($row_calcul['lc_rental_deposit']) ? number_format($row_calcul['lc_rental_deposit']) : number_format($row['wr_rental_deposit']); ?>">
-            선순위최고액<input type="text" id="auto_senior_loan" placeholder="선순위최고액" readonly value="<?php echo isset($row_calcul['lc_senior_loan']) ? number_format($row_calcul['lc_senior_loan']) : number_format($best_entry['amount']); ?>">
-            <div>한도(만원): <span id="auto_amount"></span></div>
-            <input type="radio" name="selected_option" value="auto" checked> 선택
-        </div>
-
-        <!-- 수동 계산 섹션 -->
-        <div class="manual-calculation">
-            <h3>수동 계산</h3>
-			시세<input type="text" id="manual_price" name="manual_price" placeholder="시세">
-            지분율<input type="text" id="manual_part_percent" name="manual_part_percent" placeholder="지분율">
-            LTV
-				<select id="manual_ltv" name="manual_ltv" required style="width: 60px; height: 25px">
-					<option value="50" <?= $selected_value == '50' ? 'selected' : '' ?>>50</option>
-					<option value="55" <?= $selected_value == '55' ? 'selected' : '' ?>>55</option>
-					<option value="60" <?= $selected_value == '60' ? 'selected' : '' ?>>60</option>
-					<option value="65" <?= $selected_value == '65' ? 'selected' : '' ?>>65</option>
-					<option value="70" <?= $selected_value == '70' ? 'selected' : '' ?>>70</option>
-					<option value="75" <?= $selected_value == '75' ? 'selected' : '' ?>>75</option>
-					<option value="80" <?= $selected_value == '80' ? 'selected' : '' ?>>80</option>
-					<option value="85" <?= $selected_value == '85' ? 'selected' : '' ?>>85</option>
-					<option value="90" <?= $selected_value == '90' ? 'selected' : '' ?>>90</option>
-					<option value="95" <?= $selected_value == '95' ? 'selected' : '' ?>>95</option>
-					<option value="100" <?= $selected_value == '100' ? 'selected' : '' ?>>100</option>
-				</select>
-            소액보증금<input type="text" id="manual_small_deposit" name="manual_small_deposit" placeholder="소액보증금">
-            임대차보증금<input type="text" id="manual_rental_deposit" name="manual_rental_deposit" placeholder="임대차보증금">
-            선순위최고액<input type="text" id="manual_senior_loan" name="manual_senior_loan" placeholder="선순위최고액">
-            <div>한도(만원): <span id="manual_amount"></span></div>
-            <input type="radio" name="selected_option" value="manual"> 선택
-        </div>
-    </div>
-
-    <button type="button" id="calculateBtn">계산하기</button>
-</form>
 
 <script>
-document.getElementById("calculateBtn").addEventListener("click", function() {
-    // 자동 계산된 값을 표시하는 부분
-    const autoAmount = calculateAmount(
-        document.getElementById("auto_price").value,
-        document.getElementById("auto_part_percent").value,
-        document.getElementById("auto_ltv").value,
-        document.getElementById("auto_small_deposit").value,
-        document.getElementById("auto_rental_deposit").value,
-        document.getElementById("auto_senior_loan").value
-    );
-    document.getElementById("auto_amount").textContent = autoAmount;
-
-    // 수동 계산된 값을 표시하는 부분
-    const manualAmount = calculateAmount(
-        document.getElementById("manual_price").value,
-        document.getElementById("manual_part_percent").value,
-        document.getElementById("manual_ltv").value,
-        document.getElementById("manual_small_deposit").value,
-        document.getElementById("manual_rental_deposit").value,
-        document.getElementById("manual_senior_loan").value
-    );
-    document.getElementById("manual_amount").textContent = manualAmount;
-
-});
-
-function calculateAmount(price, partPercent, ltv, smallDeposit, rentalDeposit, seniorLoan) {
-    const calculatedAmount = (removeCommas_s(price) * partPercent / 100) * ltv / 100 - removeCommas_s(Math.max(smallDeposit, rentalDeposit)) * partPercent / 100 - removeCommas_s(seniorLoan) * removeCommas_s(partPercent) / 100;
-    return addCommas(calculatedAmount.toFixed(0));
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-	setTimeout(function() {
-		document.getElementById("manual_price").value = document.getElementById("auto_price").value;
-		document.getElementById("manual_part_percent").value = document.getElementById("auto_part_percent").value;
-		document.getElementById("manual_ltv").value = document.getElementById("auto_ltv").value;
-		document.getElementById("manual_small_deposit").value = document.getElementById("auto_small_deposit").value;
-		document.getElementById("manual_rental_deposit").value = document.getElementById("auto_rental_deposit").value;
-		document.getElementById("manual_senior_loan").value = document.getElementById("auto_senior_loan").value;
-	},500);
-
-
-
-	// 자동계산 실행, 클릭이벤트와 안겹치도록
-	$('#calculateBtn').on('calculateOnly', function () {
-		const autoAmount = calculateAmount(
-			document.getElementById("auto_price").value,
-			document.getElementById("auto_part_percent").value,
-			document.getElementById("auto_ltv").value,
-			document.getElementById("auto_small_deposit").value,
-			document.getElementById("auto_rental_deposit").value,
-			document.getElementById("auto_senior_loan").value
-		);
-		document.getElementById("auto_amount").textContent = autoAmount;
-
-		const manualAmount = calculateAmount(
-			document.getElementById("manual_price").value,
-			document.getElementById("manual_part_percent").value,
-			document.getElementById("manual_ltv").value,
-			document.getElementById("manual_small_deposit").value,
-			document.getElementById("manual_rental_deposit").value,
-			document.getElementById("manual_senior_loan").value
-		);
-		document.getElementById("manual_amount").textContent = manualAmount;
-	});
-
-	setTimeout(function(){
-		$('#calculateBtn').trigger('calculateOnly');
-	}, 700);
-
-	// 계산 클릭시
-	$('#calculateBtn').on('click', function () {
-		$('#calculateBtn').trigger('calculateOnly');
-        let amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
-        $('#jd_amount').val(amount);
-        $('input[type="radio"][name="selected_option"][value="manual"]').prop('checked', true).focus();
-		
-		setTimeout(function() {
-			$('input[type="radio"][name="selected_option"][value="manual"]').blur();  // 포커스 해제
-		}, 100);
-	});
-
-	// 계산식 엔터 허용
-	$('#formulaForm').on('keydown', function (e) {
-		if (e.key === 'Enter') {
-			e.preventDefault();  // 엔터 키로 폼이 제출되는 것을 막음
-			$('#calculateBtn').click();
-		}
-	});
-
-	// 셀렉박스 클릭시
-	$('[name="selected_option"]').on('click', function() {
-		const selectedOption = $(this).val();
-		let amount;
-		if (selectedOption === 'auto') {
-			amount = removeCommas_s(('#auto_amount').text());  // 자동 계산 한도 값 가져오기
-		} else if (selectedOption === 'manual') {
-			amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
-		}
-		$('#jd_amount').val(amount);
-	});
-
-	// 자동 콤마
-	$('#auto_price, #auto_small_deposit, #auto_rental_deposit, #auto_senior_loan, #manual_price, #manual_small_deposit, #manual_rental_deposit, #manual_senior_loan').on('input', function() {
-		let value = $(this).val();
-		value = value.replace(/[^0-9]/g, '');
-		if (value) {
-			value = Number(value).toLocaleString();
-		}
-		$(this).val(value);
-	});
-});
-
 
 </script>
 
-<!-- 1112 작업끝 -->
-<!-- <form id="formulaForm">
-	<div class="formula-result">
-		<div>
-			<strong>기존 금액 ( 만원 )</strong><br/>
-			( ( <span id="span_price"></span> * <span id="span_share"></span> ) * <span id="span_ltv">80</span> ) - 
-			( ( <span id="span_small_deposit"></span> or <span id="span_rental_deposit"></span> ) * <span id="span_share2"></span>) -
-			( <span id="span_senior_loan"></span> * <span id="span_share3"></span> )
-		</div>
-
-		</div>
-		<br/>
-    <div class="formula-result">
-        <div><strong>선순위 차주 상이물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
-		( (&emsp;&emsp;&emsp;시세 &emsp;&emsp;&emsp;&ensp;*&emsp;지분율 &ensp;) *&emsp;&ensp;LTV&emsp; ) - (&emsp;&emsp;소액보증금 &emsp;&emsp;or&emsp;임대차보증금&emsp;&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp;선순위 최고액&emsp;&ensp;*&emsp;지분율&emsp;)</div>
-    </div>
-    <div>
-        ( ( <input type="text" id="price1" name="price" required style="width: 100px;"> * 
-        <input type="text" id="share1" name="share" required style="width: 50px;"> ) * 
-        <select id="ltv1" name="ltv" required style="width: 60px; height: 25px">
-			<option value="50" <?= $selected_value == '50' ? 'selected' : '' ?>>50</option>
-			<option value="55" <?= $selected_value == '55' ? 'selected' : '' ?>>55</option>
-			<option value="60" <?= $selected_value == '60' ? 'selected' : '' ?>>60</option>
-			<option value="65" <?= $selected_value == '65' ? 'selected' : '' ?>>65</option>
-			<option value="70" <?= $selected_value == '70' ? 'selected' : '' ?>>70</option>
-			<option value="75" <?= $selected_value == '75' ? 'selected' : '' ?>>75</option>
-			<option value="80" <?= $selected_value == '80' ? 'selected' : '' ?>>80</option>
-			<option value="85" <?= $selected_value == '85' ? 'selected' : '' ?>>85</option>
-			<option value="90" <?= $selected_value == '90' ? 'selected' : '' ?>>90</option>
-			<option value="95" <?= $selected_value == '95' ? 'selected' : '' ?>>95</option>
-			<option value="100" <?= $selected_value == '100' ? 'selected' : '' ?>>100</option>
-		</select> - 
-        ( <input type="text" id="small_deposit1" name="small_deposit" required style="width: 100px;"> or 
-        <input type="text" id="rental_deposit1" name="rental_deposit" required style="width: 100px;"> * 
-        <input type="text"  name="share" required style="width: 50px;"> ) - 
-        ( <input type="text" id="senior_loan1" name="senior_loan" required style="width: 100px;" >
-		* 
-        <input type="text" name="share" required style="width: 50px;"> )
-    </div>
-
-	<br/>
-	<div>결과 1: <span id="result1Value"></span></div>
-	<br/>
-    <button type="button" id="calculateBtn">계산하기</button>
-</form>
-
-<div id="calculate_log" value="<?php echo $row['price_log'];?>"></div> 
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var shareValue = document.getElementById('control_05').value;
-		var repayAmt = document.getElementById('repay_amt').value;
-		var bestLoan = document.getElementById('best_loan').value;
-		var wrLease = document.getElementById('wr_rental_deposit').value;
-
-		var shareInputs = document.querySelectorAll('input[name="share"]');
-		var smallDeposit = document.querySelectorAll('input[name="small_deposit"]');
-		var rentalDeposit = document.querySelectorAll('input[name="rental_deposit"]');
-		var seniorLoan = document.querySelectorAll('input[name="senior_loan"]');
-		
-
-		var spanShare = document.getElementById('span_share');
-		var spanShare2 = document.getElementById('span_share2');
-		var spanShare3 = document.getElementById('span_share3');
-		var spanSmallDeposit = document.getElementById('span_small_deposit');
-		var spanRentalDeposit = document.getElementById('span_rental_deposit');
-		var spanSeniorLoan = document.getElementById('span_senior_loan');
-
-        shareInputs.forEach(function(input) {
-            input.value = addCommas(shareValue);
-        });
-		smallDeposit.forEach(function(input) {
-            input.value = addCommas(repayAmt);
-        });
-		rentalDeposit.forEach(function(input) {
-			input.value = addCommas(wrLease);
-        });
-		seniorLoan.forEach(function(input) {
-			input.value = addCommas(bestLoan);
-        });
-
-		spanShare.textContent = addCommas(shareValue);
-		spanShare2.textContent = addCommas(shareValue);
-		spanShare3.textContent = addCommas(shareValue);
-		// spanSmallDeposit.textContent = addCommas(repayAmt);
-		// spanRentalDeposit.textContent = addCommas(wrLease);
-		spanSmallDeposit.textContent = repayAmt == '' ? "0" : addCommas(repayAmt);
-		spanRentalDeposit.textContent = wrLease == '' ? "0" : addCommas(wrLease);
-
-		spanSeniorLoan.textContent = addCommas(bestLoan);
-    });
-
-    $(document).ready(function() {
-		let calculate_log_data = $('#calculate_log_data').val();
-
-		// 계산식 라디오버튼 추가해서 표기
-		if (calculate_log_data) {
-			const entries = calculate_log_data.split('\n').map((entry, index) => {
-				const isChecked = entry.startsWith('****');
-				const uniqueId = 'logRadio_' + index;
-				const cleanedEntry = isChecked ? entry.replace('**** ', '') : entry;
-
-				const resultMatch = cleanedEntry.match(/= ([\d,]+) 원/);
-        		const resultValue = resultMatch ? resultMatch[1].replace(/,/g, '') : 0;
-
-				return `
-					<div class="log-entry">
-						<input type="radio" id="${uniqueId}" name="logSelection" class="log-radio" 
-							data-value="${resultValue}" ${isChecked ? 'checked' : ''}>
-						<label for="${uniqueId}">${cleanedEntry}</label>
-					</div>
-				`;
-			}).join('');
-			
-			$('#calculate_log').html(entries);
-		}
-
-		// 계산식 엔터 허용
-		$('#formulaForm').on('keydown', function (e) {
-			if (e.key === 'Enter') {
-				e.preventDefault();  // 엔터 키로 폼이 제출되는 것을 막음
-				$('#calculateBtn').click();  // 계산하기 버튼 클릭
-			}
-		});
-
-
-        // 계산 버튼 클릭 시
-        $('#calculateBtn').click(function() {
-            // 폼 데이터 수집
-			var price1 = removeCommas($("#price1").val()) || 0;
-			var price2 = removeCommas($("#price2").val()) || 0;
-			var share1 = $("#share1").val()/100 || 0;
-			var share2 = $("#share2").val()/100 || 0;
-			var ltv1 = $("#ltv1").val()/100 || 0;
-			var small_deposit1 = removeCommas($("#small_deposit1").val()) || 0;
-			var small_deposit2 = removeCommas($("#small_deposit2").val()) || 0;
-			var rental_deposit1 = removeCommas($("#rental_deposit1").val()) || 0;
-			var rental_deposit2 = removeCommas($("#rental_deposit2").val()) || 0;
-			var senior_loan1 = removeCommas($("#senior_loan1").val()) || 0;
-			var senior_loan2 = removeCommas($("#senior_loan2").val()) || 0;
-
-
-			var deposit1 = Math.max(rental_deposit1, small_deposit1);
-			var deposit2 = Math.max(rental_deposit2, small_deposit2);
-
-            var result1 = (((price1 * share1) * ltv1) - (deposit1 * share1) - (senior_loan1 * share1)) * 10000;
-            var result2 = ((price2 * share2) - (deposit2 * share2) - (senior_loan2 * share2)) * 10000;
-
-            // 결과 표시
-            $('#result1Value').text(addCommas(result1) + " 원 ( " + numberToKorean(result1) + "원 )");
-            $('#result2Value').text(addCommas(result2) + " 원 ( " + numberToKorean(result2) + "원 )");
-
-			// $('#calculate_log').append( "( ( " + addCommas(price1) + " * " + addCommas(share1) + " ) * " + addCommas(ltv1) + " ) - ( " + addCommas(deposit1) + " * " + addCommas(share1) + " ) - ( " + addCommas(senior_loan1) + " * " + addCommas(share1) + " ) =" +
-			// 	addCommas(result1) + " 원 ( " + numberToKorean(result1) + "원 )<br/>"
-			// );
-			var uniqueId = 'logRadio_' + Math.random().toString(36).substring(7);
-
-			// 로그 내용 추가 (라디오 버튼 포함)
-			$('#calculate_log').append(`
-				<div class="log-entry">
-					<input type="radio" id="${uniqueId}" name="logSelection" class="log-radio" data-value="${result1}">
-					<label for="${uniqueId}">
-						( ( ${addCommas(price1)} * ${addCommas(share1)} ) * ${addCommas(ltv1)} ) - ( ${addCommas(deposit1)} * ${addCommas(share1)} ) - ( ${addCommas(senior_loan1)} * ${addCommas(share1)} ) = ${addCommas(result1)} 원 ( ${numberToKorean(result1)} 원 )
-					</label>
-				</div>
-			`);
-
-			updateLogData();
-        });
-
-		// 자동 계산 실행
-		setTimeout(function(){
-			$('#calculateBtn').trigger('click');
-		},500);
-
-		// 자동 콤마
-		$('#price1, #small_deposit1, #rental_deposit1, #senior_loan1').on('input', function() {
-            let value = $(this).val();
-            value = value.replace(/[^0-9]/g, '');
-            if (value) {
-                value = Number(value).toLocaleString();
-            }
-            $(this).val(value);
-        });
-    });
-
-	$(document).on('change', '.log-radio', function() {
-        let selectedValue = ($(this).data('value')/10000);
-		
-		selectedValue = Math.floor(selectedValue).toString().replace(/(\d{3})$/, '000');
-        $('#jd_amount').val(selectedValue);
-    });
-
-	$(document).on('change', 'input[type="radio"].log-radio', function() {
-		updateLogData();
-	});
-
-
-    function updateLogData() {
-        const logEntries = $('.log-entry').map(function() {
-            const radioButton = $(this).find('input[type="radio"]');
-            const label = $(this).find('label').text().trim();
-            return radioButton.is(':checked') ? `**** ${label}` : label;
-        }).get().join('\n');
-
-        $('#calculate_log_data').val(logEntries);
-    }
-
-	function numberToKorean(number){
-		var inputNumber  = number < 0 ? false : number;
-		var unitWords    = ['', '만', '억', '조', '경'];
-		var splitUnit    = 10000;
-		var splitCount   = unitWords.length;
-		var resultArray  = [];
-		var resultString = '';
-
-		for (var i = 0; i < splitCount; i++){
-			var unitResult = (inputNumber % Math.pow(splitUnit, i + 1)) / Math.pow(splitUnit, i);
-			unitResult = Math.floor(unitResult);
-			if (unitResult > 0){
-				resultArray[i] = unitResult;
-			}
-		}
-
-		for (var i = 0; i < resultArray.length; i++){
-			if(!resultArray[i]) continue;
-			resultString = String(resultArray[i]) + unitWords[i] + resultString;
-		}
-
-		return resultString;
-	}
-
-</script>
--->
 <style>
 .ui-widget {
     font-family: font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -718,8 +327,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	 <input type="hidden" name="w" value="<?php echo $w; ?>">
 	 <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
 	 <input type="hidden" name="prev_status" value="<?php echo $row['wr_status']; ?>">
-	   <div class="form-group col-sm-8">
-	   
+	 <div class="form-group col-sm-8">
 			<div class="row"><label class="col-sm-2 control-label">등록자</label>
 				<div class="col-sm-10">
 				<?php 
@@ -977,9 +585,35 @@ $filecnt = number_format($pjfile['count']);
 			 <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
 		 	 <input type="hidden" name="prev_status" value="<?php echo $row['wr_status']; ?>">
 			 <input type="hidden" name="next_status" value="">
-			 <input type="hidden" name="calculate_log_data" id="calculate_log_data" value="<?php echo $row['wr_price_log'];?>">
 
-	   
+			<!-- park 산식계산 -->
+			<div class="calculation-section" id="calculation-section">
+				<div class="auto-calculation">
+					<h3>자동 계산</h3>
+					시세<input type="text" id="auto_price" name="auto_price" placeholder="시세" readonly value="<?php echo isset($row_calcul_auto['lc_price']) ? $row_calcul_auto['lc_price'] : ''; ?>"><br/>
+					지분율<input type="text" id="auto_part_percent" name="auto_part_percent" placeholder="지분율" readonly value="<?php echo isset($row_calcul_auto['lc_part_percent']) ? $row_calcul_auto['lc_part_percent'] : $row['wr_part_percent']; ?>"><br/>
+					LTV<input type="text" id="auto_ltv" placeholder="LTV" name="auto_ltv" readonly value="<?php echo $selected_value;?>"><br/>
+					소액보증금<input type="text" id="auto_small_deposit" name="auto_small_deposit" placeholder="소액보증금" readonly value="<?php echo isset($row_calcul_auto['lc_small_deposit']) ? number_format($row_calcul_auto['lc_small_deposit']) : number_format($repay_amt); ?>"><br/>
+					임대차보증금<input type="text" id="auto_rental_deposit" name="auto_rental_deposit" placeholder="임대차보증금" readonly value="<?php echo isset($row_calcul_auto['lc_rental_deposit']) ? number_format($row_calcul_auto['lc_rental_deposit']) : number_format($row['wr_rental_deposit']); ?>"><br/>
+					선순위최고액<input type="text" id="auto_senior_loan" name="auto_senior_loan" placeholder="선순위최고액" readonly value="<?php echo isset($row_calcul_auto['lc_senior_loan']) ? number_format($row_calcul_auto['lc_senior_loan']) : number_format($best_entry['amount']); ?>"><br/>
+					<div>한도(만원): <span id="auto_amount" name="auto_amount"></span></div>
+					<input type="radio" id="auto_selected_option" name="selected_option" value="auto"> <label for="auto_selected_option">선택</label>
+				</div>
+
+				<div class="manual-calculation">
+					<h3>수동 계산</h3>
+					시세<input type="text" id="manual_price" name="manual_price" placeholder="시세"><br/>
+					지분율<input type="text" id="manual_part_percent" name="manual_part_percent" placeholder="지분율"><br/>
+					LTV<input type="text" id="manual_ltv" name="manual_ltv" placeholder="LTV"><br/>
+					소액보증금<input type="text" id="manual_small_deposit" name="manual_small_deposit" placeholder="소액보증금"><br/>
+					임대차보증금<input type="text" id="manual_rental_deposit" name="manual_rental_deposit" placeholder="임대차보증금"><br/>
+					선순위최고액<input type="text" id="manual_senior_loan" name="manual_senior_loan" placeholder="선순위최고액"><br/>
+					<div>한도(만원): <span id="manual_amount" name="auto_amount"></span></div>
+					<input type="radio" id="manual_selected_option" name="selected_option" value="manual"> <label for="manual_selected_option">선택</label>
+				</div>
+				<button type="button" id="calculateBtn">계산하기</button>
+			</div>
+
 			<h3>심사의견<?php if($row['jd_autoid']) { ?> (<a href='javascript:autojudgeModalPopup(<?php echo $row['jd_autoid']; ?>);' data-jdid='<?php echo $row['jd_autoid']; ?>'><i class='fas fa-balance-scale'></i>자동한도</a>)<?php } ?></h3><hr/>
 			
 	   
@@ -1049,6 +683,132 @@ $filecnt = number_format($pjfile['count']);
 <div id="autojudgeModalPopup"></div>
 
 <script>
+
+document.getElementById("calculateBtn").addEventListener("click", function() {
+    // 자동 계산된 값을 표시하는 부분
+    const autoAmount = calculateAmount(
+        document.getElementById("auto_price").value,
+        document.getElementById("auto_part_percent").value,
+        document.getElementById("auto_ltv").value,
+        document.getElementById("auto_small_deposit").value,
+        document.getElementById("auto_rental_deposit").value,
+        document.getElementById("auto_senior_loan").value
+    );
+    document.getElementById("auto_amount").textContent = autoAmount;
+
+    // 수동 계산된 값을 표시하는 부분
+    const manualAmount = calculateAmount(
+        document.getElementById("manual_price").value,
+        document.getElementById("manual_part_percent").value,
+        document.getElementById("manual_ltv").value,
+        document.getElementById("manual_small_deposit").value,
+        document.getElementById("manual_rental_deposit").value,
+        document.getElementById("manual_senior_loan").value
+    );
+    document.getElementById("manual_amount").textContent = manualAmount;
+
+});
+
+function calculateAmount(price, partPercent, ltv, smallDeposit, rentalDeposit, seniorLoan) {
+    const calculatedAmount = (removeCommas_s(price) * partPercent / 100) * ltv / 100 - removeCommas_s(Math.max(smallDeposit, rentalDeposit)) * partPercent / 100 - removeCommas_s(seniorLoan) * removeCommas_s(partPercent) / 100;
+    return addCommas(calculatedAmount.toFixed(0));
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	const manualData = <?php echo json_encode($row_calcul_manual); ?>;
+	if (manualData && manualData.wr_id) {
+        // 수동 계산 데이터가 있을 때
+        document.getElementById("manual_price").value = manualData.lc_price || '';
+        document.getElementById("manual_part_percent").value = manualData.lc_part_percent || '';
+        document.getElementById("manual_ltv").value = manualData.lc_ltv || '';
+        document.getElementById("manual_small_deposit").value = manualData.lc_small_deposit || '';
+        document.getElementById("manual_rental_deposit").value = manualData.lc_rental_deposit || '';
+        document.getElementById("manual_senior_loan").value = manualData.lc_senior_loan || '';
+    } else {
+        // 수동 계산 데이터가 없을 때 (기본값 설정)
+        setTimeout(function() {
+            document.getElementById("manual_price").value = document.getElementById("auto_price").value;
+            document.getElementById("manual_part_percent").value = document.getElementById("auto_part_percent").value;
+            document.getElementById("manual_ltv").value = document.getElementById("auto_ltv").value;
+            document.getElementById("manual_small_deposit").value = document.getElementById("auto_small_deposit").value;
+            document.getElementById("manual_rental_deposit").value = document.getElementById("auto_rental_deposit").value;
+            document.getElementById("manual_senior_loan").value = document.getElementById("auto_senior_loan").value;
+        }, 500);
+    }
+
+
+	// 자동계산 실행, 클릭이벤트와 안겹치도록
+	$('#calculateBtn').on('calculateOnly', function () {
+		const autoAmount = calculateAmount(
+			document.getElementById("auto_price").value,
+			document.getElementById("auto_part_percent").value,
+			document.getElementById("auto_ltv").value,
+			document.getElementById("auto_small_deposit").value,
+			document.getElementById("auto_rental_deposit").value,
+			document.getElementById("auto_senior_loan").value
+		);
+		document.getElementById("auto_amount").textContent = autoAmount;
+
+		const manualAmount = calculateAmount(
+			document.getElementById("manual_price").value,
+			document.getElementById("manual_part_percent").value,
+			document.getElementById("manual_ltv").value,
+			document.getElementById("manual_small_deposit").value,
+			document.getElementById("manual_rental_deposit").value,
+			document.getElementById("manual_senior_loan").value
+		);
+		document.getElementById("manual_amount").textContent = manualAmount;
+	});
+
+	setTimeout(function(){
+		$('#calculateBtn').trigger('calculateOnly');
+	}, 700);
+
+	// 계산 클릭시
+	$('#calculateBtn').on('click', function () {
+		$('#calculateBtn').trigger('calculateOnly');
+        let amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
+        $('#jd_amount').val(amount);
+        $('input[type="radio"][name="selected_option"][value="manual"]').prop('checked', true).focus();
+		
+		setTimeout(function() {
+			$('input[type="radio"][name="selected_option"][value="manual"]').blur();  // 포커스 해제
+		}, 100);
+	});
+
+	// 계산식 엔터 허용
+	$('#calculation-section').on('keydown', function (e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();  // 엔터 키로 폼이 제출되는 것을 막음
+			$('#calculateBtn').click();
+		}
+	});
+
+	// 셀렉박스 클릭시
+	$('[name="selected_option"]').on('click', function() {
+		const selectedOption = $(this).val();
+		let amount;
+		
+		if (selectedOption === 'auto') {
+			amount = removeCommas_s($('#auto_amount').text());  // 자동 계산 한도 값 가져오기
+		} else if (selectedOption === 'manual') {
+			amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
+		}
+		$('#jd_amount').val(amount);
+	});
+
+	// 자동 콤마
+	$('#auto_price, #auto_small_deposit, #auto_rental_deposit, #auto_senior_loan, #manual_price, #manual_small_deposit, #manual_rental_deposit, #manual_senior_loan').on('input', function() {
+		let value = $(this).val();
+		value = value.replace(/[^0-9]/g, '');
+		if (value) {
+			value = Number(value).toLocaleString();
+		}
+		$(this).val(value);
+	});
+});
+
     function autojudgeModalPopup(jdid){
 		$.ajax({
 			url: "./modal.autojudge.php",
@@ -1072,9 +832,8 @@ $filecnt = number_format($pjfile['count']);
 			}
 		});
     }
-</script>
 
-<script>
+
 $(function () {
 	commonjs.selectNav("navbar", "newloan");
 	
