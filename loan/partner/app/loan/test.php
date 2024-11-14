@@ -571,7 +571,7 @@ if (!empty($best_entry['amount'])) {
 							</div>
 						</div>
 						<!-- 지분여부 -->
-						<div class="row">
+						<!-- <div class="row">
 							<label class="col-sm-2 control-label">지분여부</label>
 							<div class="col-sm-10 bs-padding10">
 								<input type="radio" id="control_04" name="wr_part" value="A" required 
@@ -595,7 +595,31 @@ if (!empty($best_entry['amount'])) {
 									value="<?php if($row['wr_part_percent']) echo $row['wr_part_percent']; else echo $owner_percent;?>" 
 									min="0" max="100" style="width:50px;" <?php if($row['wr_part']!='PE') echo "";?>>%
 							</div>
+						</div> -->
+						<div class="row">
+							<label class="col-sm-2 control-label">지분여부</label>
+							<div class="col-sm-10 bs-padding10">
+								<select id="wr_part_select" name="wr_part" required onchange="updatePercentInput()">
+									<option value="X">선택하세요</option>
+									<option value="A" <?php echo ($row['wr_part'] == 'A' || $owner_percent == '100') ? 'selected' : ''; ?>>단독소유</option>
+
+									<?php
+									foreach ($result as $owner_info) {
+										list($owner_name, $percent) = explode(', ', $owner_info);
+										echo '<option value="PE_' . $percent . '" ' . ($row['wr_part'] == 'PE' && $row['wr_part_percent'] == $percent ? 'selected' : '') . '>' . $owner_name . ' (' . $percent . '%)</option>';
+									}
+									?>
+
+									<option value="PE" <?php echo ($row['wr_part'] == 'PE' && !in_array($row['wr_part_percent'], array_column($result, 'percent'))) ? 'selected' : ''; ?>>지분소유(기타)</option>
+								</select>
+
+								<input type="number" id="control_07" name="wr_part_percent"
+									value="<?php echo $row['wr_part'] == 'PE' ? $row['wr_part_percent'] : ''; ?>"
+									min="0" max="100" style="width:50px;" <?php echo $row['wr_part'] != 'PE' ? 'style="display:none;"' : ''; ?>> %
+							</div>
 						</div>
+
+
 						<!-- park 전용면적 신규 -->
 						<div class="row"><label class="col-sm-2 control-label">전용면적</label>
 							<div class="col-sm-10"><input type="text" name="wr_m2" id="wr_m2" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>" class="form-control" style="display:inline-block; width:100px;" placeholder="000.00"> ㎡ (제곱미터)</div>
@@ -606,6 +630,10 @@ if (!empty($best_entry['amount'])) {
 				
 				<div class="section application-info">
 					<h2>신청 정보</h2>
+					<!-- park 임대차보증금 -->
+					<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
+						<div class="col-sm-10"><input type="text" id="wr_rental_deposit" name="wr_rental_deposit" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_rental_deposit"]; ?>" class="form-control"> 원</div>
+					</div>
 					<div class="form-content">
 						<!-- 희망금액 -->
 						<div class="row"><label class="col-sm-2 control-label">희망금액</label>
@@ -820,6 +848,22 @@ if (!empty($best_entry['amount'])) {
 </div>
 
 <script>
+	function updatePercentInput() {
+		const selectedValue = document.getElementById('wr_part_select').value;
+		const percentInput = document.getElementById('control_07');
+
+		if (selectedValue.startsWith('PE_')) {
+			const percent = selectedValue.split('_')[1];
+			percentInput.value = percent;
+		} else if (selectedValue === 'PE') {
+			percentInput.value = '';
+		} else if (selectedValue === 'X'){
+			percentInput.value = '';
+		}else {
+			percentInput.value = 100;
+		}
+	}
+
 	function setPercent(value) {
 		// 지분 값을 설정, 지분소유(기타) 선택 시 빈 값으로 둠
 		document.getElementById('control_07').value = value || '';

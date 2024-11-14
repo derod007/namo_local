@@ -29,7 +29,7 @@ $wr_m2 	= safe_request_string(trim($_POST['wr_m2']));
 $wr_cont2 	= safe_request_string(trim($_POST['wr_cont2']));
 $wr_cont3	= safe_request_string(trim($_POST['wr_cont3']));
 $wr_cont4	= safe_request_string(trim($_POST['wr_cont4']));
-$wr_lease	= safe_request_string(trim($_POST['wr_lease']));
+$wr_rental_deposit	= safe_request_string(trim($_POST['wr_rental_deposit']));
 $wr_amount 	= safe_request_string(trim($_POST['wr_amount']));
 $wr_link1 	= safe_request_string(trim($_POST['wr_link1']));
 $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
@@ -42,7 +42,7 @@ $auto_ltv = safe_request_string(trim($_POST['auto_ltv'])) ?: 0;
 $auto_small_deposit = safe_request_string(trim($_POST['auto_small_deposit'])) ?: 0;
 $auto_senior_loan = safe_request_string(trim($_POST['auto_senior_loan'])) ?: 0;
 
-$auto_deposit = max($auto_small_deposit, $wr_lease);
+$auto_deposit = max($auto_small_deposit, $wr_rental_deposit);
 $auto_price = 0;
 $auto_price = (($auto_real_price * ($wr_part_percent/100)) * ($auto_ltv/100)) - ($auto_deposit * ($wr_part_percent/100)) - ($auto_senior_loan * ($wr_part_percent/100));
 
@@ -112,7 +112,7 @@ if(!$w) {
 					wr_cont2   = '{$wr_cont2}',
 					wr_cont3   = '{$wr_cont3}',
 					wr_cont4   = '{$wr_cont4}',
-					wr_lease   = '{$wr_lease}',
+					wr_rental_deposit   = '{$wr_rental_deposit}',
 					wr_addr1   = '{$wr_addr1}',
 					wr_addr2   = '{$wr_addr2}',
 					wr_addr3   = '{$wr_addr3}',
@@ -217,7 +217,7 @@ if(!$w) {
 					wr_addr1   = '{$wr_addr1}',
 					wr_addr2   = '{$wr_addr2}',
 					wr_addr3   = '{$wr_addr3}',
-					wr_lease   = '{$wr_lease}',
+					wr_rental_deposit   = '{$wr_rental_deposit}',
 					wr_addr_ext1   = '{$wr_addr_ext1}',
 					wr_m2   = '{$wr_m2}',
 					wr_link1_subj = '{$wr_link1_subj}',
