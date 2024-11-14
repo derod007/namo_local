@@ -428,13 +428,11 @@ if (!empty($best_entry['amount'])) {
         <?php if(empty($filteredFiles)) { ?>
             <div class="upload-box" id="upload-box">
                 <div class="upload-content">
-                    <label for="uploadfile">
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>등기부를 업로드 해주세요</p>
                         <small>* 우선 등록시 일부 정보가 자동 기입 됩니다.<br>
                                * 이미 입력된 상태에서 신규 등록할 경우 정보가 변경됩니다.<br>
                                * 임시저장된 게시글일 경우 자동 기입은 진행하지 않습니다.</small>
-                    </label>
                 </div>
                 <input type="file" id="uploadfile" name="uploadfile[]" class="file-input" multiple required style="display:none;" onchange="displayFileName()">
                 <span id="file-name-display" style="display: none; margin-top: 10px; font-size: 14px; color: #4a5a6a;"></span>
