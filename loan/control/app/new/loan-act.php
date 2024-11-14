@@ -21,7 +21,7 @@ $wr_addr3 	= safe_request_string(trim($_POST['address3']));
 $wr_addr_ext1 	= safe_request_string(trim($_POST['address_ext']));
 $wr_m2 	= safe_request_string(trim($_POST['wr_m2']));
 $wr_cont2 	= safe_request_string(trim($_POST['wr_cont2']));
-$wr_lease	= safe_request_string(trim($_POST['wr_lease']));
+$wr_rental_deposit	= safe_request_string(trim($_POST['wr_rental_deposit']));
 $wr_amount 	= safe_request_string(trim($_POST['wr_amount']));
 $wr_link1 	= safe_request_string(trim($_POST['wr_link1']));
 $wr_link1_subj 	= safe_request_string(trim($_POST['wr_link1_subj']));
@@ -128,7 +128,7 @@ if(!$w) {
 					wr_link3_subj = '{$wr_link3_subj}',
 					wr_link3   = '{$wr_link3}',
 					wr_amount   = '{$wr_amount}',
-					wr_lease	= '{$wr_lease}'
+					wr_rental_deposit	= '{$wr_rental_deposit}'
 			  where wr_id   = '{$wr_id}' ";
 	//echo "<pre>".$sql."</pre>";
 	sql_query($sql);

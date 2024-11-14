@@ -830,3 +830,13 @@ function log_partnerid($str=''){
     @fclose($log_file);
 
 }
+
+// 컴마제거
+function removeCommas($number) {
+    alert('123');
+    if (is_string($number) && $number !== "0") {
+        return str_replace(",", "", $number);
+    } else {
+        return 0;
+    }
+}

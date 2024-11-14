@@ -16,6 +16,9 @@ if($w == 'u') {
 	}
 	$sql = "select * from loan_write where wr_id = '{$wr_id}' limit 1";
 	$row = sql_fetch($sql);
+
+	$sql_calcul = "SELECT * FROM loan_calcul WHERE wr_id = '{$wr_id}' limit 1";
+	$row_calcul = sql_fetch($sql_calcul);
 	
 	if(!$row['wr_id']) {
 		alert('해당되는 데이터가 없습니다');
@@ -165,7 +168,7 @@ function addCommas(number) {
 	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function removeCommas(number) {
+function removeCommas_s(number) {
 	if (typeof number === 'string' && number !== "0") {
 		return number.replace(/,/g, "");
 	}else{
@@ -195,8 +198,11 @@ $(function () {
 				// console.log(json);
 				if(json.data.ave_price){
 					var real_price = addCommas(json.data.ave_price);
-					$("input[name='price']").val(real_price);
-					$("#span_price").html(real_price);
+					if (!$('#auto_price').val()) {
+						$("#auto_price").val(real_price);
+					}
+					// $("input[name='price']").val(real_price);
+					// $("#span_price").html(real_price);
 				}
 			}
 		});
@@ -264,7 +270,172 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 <input type="hidden" id="best_loan" value="<?php echo htmlspecialchars($best_entry['amount'], ENT_QUOTES, 'UTF-8'); ?>">
 <!-- park 산식계산 -->
 
+<!-- 1112 작업시작 -->
+
 <form id="formulaForm">
+    <div class="calculation-section">
+        <!-- 자동 계산 섹션 -->
+        <div class="auto-calculation">
+            <h3>자동 계산</h3>
+			시세<input type="text" id="auto_price" placeholder="시세" readonly value="<?php echo isset($row_calcul['lc_price']) ? $row_calcul['lc_price'] : ''; ?>">
+            지분율<input type="text" id="auto_part_percent" placeholder="지분율" readonly value="<?php echo isset($row_calcul['lc_part_percent']) ? $row_calcul['lc_part_percent'] : $row['wr_part_percent']; ?>">
+            LTV<input type="text" id="auto_ltv" placeholder="LTV" readonly value="<?php echo $selected_value;?>">
+            소액보증금<input type="text" id="auto_small_deposit" placeholder="소액보증금" readonly value="<?php echo isset($row_calcul['lc_small_deposit']) ? number_format($row_calcul['lc_small_deposit']) : number_format($repay_amt); ?>">
+            임대차보증금<input type="text" id="auto_rental_deposit" placeholder="임대차보증금" readonly value="<?php echo isset($row_calcul['lc_rental_deposit']) ? number_format($row_calcul['lc_rental_deposit']) : number_format($row['wr_rental_deposit']); ?>">
+            선순위최고액<input type="text" id="auto_senior_loan" placeholder="선순위최고액" readonly value="<?php echo isset($row_calcul['lc_senior_loan']) ? number_format($row_calcul['lc_senior_loan']) : number_format($best_entry['amount']); ?>">
+            <div>한도(만원): <span id="auto_amount"></span></div>
+            <input type="radio" name="selected_option" value="auto" checked> 선택
+        </div>
+
+        <!-- 수동 계산 섹션 -->
+        <div class="manual-calculation">
+            <h3>수동 계산</h3>
+			시세<input type="text" id="manual_price" name="manual_price" placeholder="시세">
+            지분율<input type="text" id="manual_part_percent" name="manual_part_percent" placeholder="지분율">
+            LTV
+				<select id="manual_ltv" name="manual_ltv" required style="width: 60px; height: 25px">
+					<option value="50" <?= $selected_value == '50' ? 'selected' : '' ?>>50</option>
+					<option value="55" <?= $selected_value == '55' ? 'selected' : '' ?>>55</option>
+					<option value="60" <?= $selected_value == '60' ? 'selected' : '' ?>>60</option>
+					<option value="65" <?= $selected_value == '65' ? 'selected' : '' ?>>65</option>
+					<option value="70" <?= $selected_value == '70' ? 'selected' : '' ?>>70</option>
+					<option value="75" <?= $selected_value == '75' ? 'selected' : '' ?>>75</option>
+					<option value="80" <?= $selected_value == '80' ? 'selected' : '' ?>>80</option>
+					<option value="85" <?= $selected_value == '85' ? 'selected' : '' ?>>85</option>
+					<option value="90" <?= $selected_value == '90' ? 'selected' : '' ?>>90</option>
+					<option value="95" <?= $selected_value == '95' ? 'selected' : '' ?>>95</option>
+					<option value="100" <?= $selected_value == '100' ? 'selected' : '' ?>>100</option>
+				</select>
+            소액보증금<input type="text" id="manual_small_deposit" name="manual_small_deposit" placeholder="소액보증금">
+            임대차보증금<input type="text" id="manual_rental_deposit" name="manual_rental_deposit" placeholder="임대차보증금">
+            선순위최고액<input type="text" id="manual_senior_loan" name="manual_senior_loan" placeholder="선순위최고액">
+            <div>한도(만원): <span id="manual_amount"></span></div>
+            <input type="radio" name="selected_option" value="manual"> 선택
+        </div>
+    </div>
+
+    <button type="button" id="calculateBtn">계산하기</button>
+</form>
+
+<script>
+document.getElementById("calculateBtn").addEventListener("click", function() {
+    // 자동 계산된 값을 표시하는 부분
+    const autoAmount = calculateAmount(
+        document.getElementById("auto_price").value,
+        document.getElementById("auto_part_percent").value,
+        document.getElementById("auto_ltv").value,
+        document.getElementById("auto_small_deposit").value,
+        document.getElementById("auto_rental_deposit").value,
+        document.getElementById("auto_senior_loan").value
+    );
+    document.getElementById("auto_amount").textContent = autoAmount;
+
+    // 수동 계산된 값을 표시하는 부분
+    const manualAmount = calculateAmount(
+        document.getElementById("manual_price").value,
+        document.getElementById("manual_part_percent").value,
+        document.getElementById("manual_ltv").value,
+        document.getElementById("manual_small_deposit").value,
+        document.getElementById("manual_rental_deposit").value,
+        document.getElementById("manual_senior_loan").value
+    );
+    document.getElementById("manual_amount").textContent = manualAmount;
+
+});
+
+function calculateAmount(price, partPercent, ltv, smallDeposit, rentalDeposit, seniorLoan) {
+    const calculatedAmount = (removeCommas_s(price) * partPercent / 100) * ltv / 100 - removeCommas_s(Math.max(smallDeposit, rentalDeposit)) * partPercent / 100 - removeCommas_s(seniorLoan) * removeCommas_s(partPercent) / 100;
+    return addCommas(calculatedAmount.toFixed(0));
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	setTimeout(function() {
+		document.getElementById("manual_price").value = document.getElementById("auto_price").value;
+		document.getElementById("manual_part_percent").value = document.getElementById("auto_part_percent").value;
+		document.getElementById("manual_ltv").value = document.getElementById("auto_ltv").value;
+		document.getElementById("manual_small_deposit").value = document.getElementById("auto_small_deposit").value;
+		document.getElementById("manual_rental_deposit").value = document.getElementById("auto_rental_deposit").value;
+		document.getElementById("manual_senior_loan").value = document.getElementById("auto_senior_loan").value;
+	},500);
+
+
+
+	// 자동계산 실행, 클릭이벤트와 안겹치도록
+	$('#calculateBtn').on('calculateOnly', function () {
+		const autoAmount = calculateAmount(
+			document.getElementById("auto_price").value,
+			document.getElementById("auto_part_percent").value,
+			document.getElementById("auto_ltv").value,
+			document.getElementById("auto_small_deposit").value,
+			document.getElementById("auto_rental_deposit").value,
+			document.getElementById("auto_senior_loan").value
+		);
+		document.getElementById("auto_amount").textContent = autoAmount;
+
+		const manualAmount = calculateAmount(
+			document.getElementById("manual_price").value,
+			document.getElementById("manual_part_percent").value,
+			document.getElementById("manual_ltv").value,
+			document.getElementById("manual_small_deposit").value,
+			document.getElementById("manual_rental_deposit").value,
+			document.getElementById("manual_senior_loan").value
+		);
+		document.getElementById("manual_amount").textContent = manualAmount;
+	});
+
+	setTimeout(function(){
+		$('#calculateBtn').trigger('calculateOnly');
+	}, 700);
+
+	// 계산 클릭시
+	$('#calculateBtn').on('click', function () {
+		$('#calculateBtn').trigger('calculateOnly');
+        let amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
+        $('#jd_amount').val(amount);
+        $('input[type="radio"][name="selected_option"][value="manual"]').prop('checked', true).focus();
+		
+		setTimeout(function() {
+			$('input[type="radio"][name="selected_option"][value="manual"]').blur();  // 포커스 해제
+		}, 100);
+	});
+
+	// 계산식 엔터 허용
+	$('#formulaForm').on('keydown', function (e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();  // 엔터 키로 폼이 제출되는 것을 막음
+			$('#calculateBtn').click();
+		}
+	});
+
+	// 셀렉박스 클릭시
+	$('[name="selected_option"]').on('click', function() {
+		const selectedOption = $(this).val();
+		let amount;
+		if (selectedOption === 'auto') {
+			amount = removeCommas_s(('#auto_amount').text());  // 자동 계산 한도 값 가져오기
+		} else if (selectedOption === 'manual') {
+			amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
+		}
+		$('#jd_amount').val(amount);
+	});
+
+	// 자동 콤마
+	$('#auto_price, #auto_small_deposit, #auto_rental_deposit, #auto_senior_loan, #manual_price, #manual_small_deposit, #manual_rental_deposit, #manual_senior_loan').on('input', function() {
+		let value = $(this).val();
+		value = value.replace(/[^0-9]/g, '');
+		if (value) {
+			value = Number(value).toLocaleString();
+		}
+		$(this).val(value);
+	});
+});
+
+
+</script>
+
+<!-- 1112 작업끝 -->
+<!-- <form id="formulaForm">
 	<div class="formula-result">
 		<div>
 			<strong>기존 금액 ( 만원 )</strong><br/>
@@ -305,25 +476,11 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 
 	<br/>
 	<div>결과 1: <span id="result1Value"></span></div>
-    <!-- <br/>
-
-    <div><strong>선순위 차주 동일물건</strong> - ( 소액보증금, 임대차보증금은 둘 중 높은것으로 자동 선택됩니다. 지분율, LTV는 자동 퍼센트처리 됩니다. )<br/> 
-	(&emsp;&emsp;&emsp;시세&emsp;&emsp;&emsp;&ensp; *&emsp;지분율&ensp; ) - (&emsp;&emsp;&ensp;소액보증금&emsp;&ensp; or&emsp;&emsp;임대차보증금&emsp;*&emsp;지분율&emsp;) - (&emsp;&ensp; 선순위 최고액&emsp;&ensp;)</div>
-    <div>
-        ( <input type="text" id="price2" name="price" required style="width: 100px;"> * 
-        <input type="text" id="share2" name="share" required style="width: 50px;"> ) - 
-        ( <input type="text" id="small_deposit2" name="small_deposit" required style="width: 100px;"> or 
-        <input type="text" id="rental_deposit2" name="rental_deposit" required style="width: 100px;"> * 
-        <input type="text" name="share" required style="width: 50px;"> ) - 
-        ( <input type="text" id="senior_loan2" name="senior_loan" required style="width: 100px;" >&ensp;)
-    </div>
-<br/>
-<div>결과 2: <span id="result2Value"></span></div> -->
-<br/>
+	<br/>
     <button type="button" id="calculateBtn">계산하기</button>
 </form>
 
-<div id="calculate_log" value="<?php echo $row['price_log'];?>"></div>
+<div id="calculate_log" value="<?php echo $row['price_log'];?>"></div> 
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -332,7 +489,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
         var shareValue = document.getElementById('control_05').value;
 		var repayAmt = document.getElementById('repay_amt').value;
 		var bestLoan = document.getElementById('best_loan').value;
-		var wrLease = document.getElementById('wr_lease').value;
+		var wrLease = document.getElementById('wr_rental_deposit').value;
 
 		var shareInputs = document.querySelectorAll('input[name="share"]');
 		var smallDeposit = document.querySelectorAll('input[name="small_deposit"]');
@@ -512,7 +669,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 	}
 
 </script>
-
+-->
 <style>
 .ui-widget {
     font-family: font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -708,7 +865,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 
 			<!-- park 임대차보증금 -->
 			<div class="row"><label class="col-sm-2 control-label">임대차보증금</label>
-				<div class="col-sm-10"><input type="text" id="wr_lease" name="wr_lease" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_lease"]; ?>" class="form-control"> 원</div>
+				<div class="col-sm-10"><input type="text" id="wr_rental_deposit" name="wr_rental_deposit" style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원" value="<?php echo $row["wr_rental_deposit"]; ?>" class="form-control"> 원</div>
 			</div>
 
 
