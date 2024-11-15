@@ -993,6 +993,7 @@ uploadBox.addEventListener("drop", (e) => {
     e.preventDefault();
     uploadBox.style.backgroundColor = "white";
     fileInput.files = e.dataTransfer.files;
+	displayFileName(); 
 });
 
 
