@@ -473,10 +473,9 @@ if (!isset($repay_amt)) {
 								<div class="form_field">
 									<label class="w_20 field_title">지분여부<span class="p_l_2" style="color: #BF1212;">*</span></label>
 									<div class="w_80">
-
-										<select id="wr_part_select" name="wr_part" required onchange="updatePercentInput()">
+										<select id="wr_part_select" name="wr_part" required>
 											<option value="A" <?php echo ($row['wr_part'] == 'A' || $owner_percent == '100') ? 'selected' : ''; ?>>단독소유</option>
-											<option value="PE" <?php echo ($row['wr_part'] == 'PE' || $owner_percent != '100') ? 'selected' : ''; ?>>지분소유(기타)</option>
+											<option value="PE" <?php echo ($row['wr_part'] == 'PE') ? 'selected' : ''; ?>>지분소유(기타)</option>
 										</select>
 										<input type="number" id="control_05" name="wr_part_percent" value="<?php echo $row['wr_part_percent']; ?>" placeholder="30" style="width:50px;">%
 									</div>
