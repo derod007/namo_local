@@ -41,6 +41,7 @@ if(!$member['mb_id'] && $pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '
     <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo JS_VERSION; ?>">
 	
     <link rel="stylesheet" href="/assets/css/test.css?v=<?php echo JS_VERSION; ?>">
+    <link rel="stylesheet" href="/assets/css/control.css?v=<?php echo JS_VERSION; ?>">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
