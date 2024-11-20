@@ -40,6 +40,8 @@ if(!$member['mb_id'] && $pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '
     <link rel="stylesheet" href="/assets/css/iamks-basic.css">
     <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo JS_VERSION; ?>">
 	
+    <link rel="stylesheet" href="/assets/css/test.css?v=<?php echo JS_VERSION; ?>">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>

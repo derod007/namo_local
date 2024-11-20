@@ -163,7 +163,8 @@ if (!isset($repay_amt)) {
 ?>
 <!-- 아파트 실거래가 시세 -->
 <form name="fnewwin_real" id="fnewwin_real" method="GET">
-	<input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>">
+	<!-- <input type="hidden" name="addr1" value="<?php echo isset($row["wr_addr1"]) && !empty($row["wr_addr1"]) ? htmlspecialchars(trim($row["wr_addr1"])) : htmlspecialchars(trim($new_addr1)); ?>"> -->
+	<input type="hidden" name="addr1" value="<?php echo isset($address) ? trim($address) : trim($row["wr_addr1"]); ?>">
 	<input type="hidden" name="py" value="<?php echo isset($row["wr_m2"]) && !empty($row["wr_m2"]) ? htmlspecialchars(trim($row["wr_m2"])) : htmlspecialchars(trim($area[0])); ?>">
 </form>
 
@@ -212,7 +213,7 @@ $(function () {
 		});
 });
 </script>
-
+<php
 <?php
 // park 선순위 최고액 산출
 
@@ -221,7 +222,7 @@ $wr_cont3_lines = explode("\n", $row['wr_cont3']);
 $best_entry = null;
 foreach ($wr_cont3_lines as $wr_cont3_line) {
 
-	if (strpos($wr_cont3_line, '유지') !== false) {
+	if (strpos($wr_cont3_line, '해제') !== false) {
         continue;
     }
 
@@ -446,17 +447,18 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 							foreach ($lines as $i => $line) {
 								$line = htmlspecialchars($line);
 								$lastTwoChars = mb_substr($line, -4);
-								if (strpos($lastTwoChars, '유지') !== false) {
-									$class = "highlighted";
+								
+								if (strpos($lastTwoChars, '해제') !== false) {
+									$spanClass ="strikethrough";
 								} else {
-									$class = "";
-									$line = str_replace('말소','',$line);
+									$spanClass = "";
+									// $line = str_replace('유지','',$line);
 								}
-								$view_line = str_replace(['유지', '말소'], '', $line); // '유지' 또는 '말소' 제거
+								$view_line = str_replace(['해제', '유지'], '', $line); // '해제' 또는 '유지' 제거
 
 								echo "<div class='row $class' id='row_$i' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc;'>";
-								echo "<span class='line-text' style='display:none'>" . $line . "</span>";
-								echo "<span>" . $view_line . "</span>"; 
+								echo "<span style='display:none'>" . $line . "</span>";
+								echo "<span class='line-text $spanClass'>" . $view_line . "</span>"; 
 								echo "</div>";
 							}
 							echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
@@ -710,7 +712,9 @@ document.getElementById("calculateBtn").addEventListener("click", function() {
 });
 
 function calculateAmount(price, partPercent, ltv, smallDeposit, rentalDeposit, seniorLoan) {
-    const calculatedAmount = (removeCommas_s(price) * partPercent / 100) * ltv / 100 - removeCommas_s(Math.max(smallDeposit, rentalDeposit)) * partPercent / 100 - removeCommas_s(seniorLoan) * removeCommas_s(partPercent) / 100;
+    const calculatedAmount = ((removeCommas_s(price) * partPercent / 100) * (ltv / 100)) - 
+							((Math.max(removeCommas_s(smallDeposit), removeCommas_s(rentalDeposit)) * partPercent / 100)) - 
+							(removeCommas_s(seniorLoan) * partPercent / 100);
     return addCommas(calculatedAmount.toFixed(0));
 }
 
@@ -769,6 +773,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	$('#calculateBtn').on('click', function () {
 		$('#calculateBtn').trigger('calculateOnly');
         let amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
+		amount = parseInt(amount.toString().slice(0, -3) + '000', 10);
         $('#jd_amount').val(amount);
         $('input[type="radio"][name="selected_option"][value="manual"]').prop('checked', true).focus();
 		
@@ -785,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	// 셀렉박스 클릭시
+	// 선택 라디오버튼 클릭시
 	$('[name="selected_option"]').on('click', function() {
 		const selectedOption = $(this).val();
 		let amount;
@@ -795,6 +800,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else if (selectedOption === 'manual') {
 			amount = removeCommas_s($('#manual_amount').text());  // 수동 계산 한도 값 가져오기
 		}
+		amount = parseInt(amount.toString().slice(0, -3) + '000', 10);
 		$('#jd_amount').val(amount);
 	});
 
