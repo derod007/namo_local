@@ -93,7 +93,8 @@ if(isset($_GET['chk_reset'])) {
 <div class="btn-div">
 	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
     <?php if($member['mb_id']=='testuser'){ ?>
-        <a class="btn btn-success btn-sm" href="./test.php">신규 등록 (테스트중- testuser)</a>    
+        <!-- <a class="btn btn-success btn-sm" href="./test.php">신규 등록 (테스트중- testuser)</a>     -->
+        <a class="btn btn-success btn-sm" href="./test2.php">신규 등록 (테스트중- testuser)</a>
     <?php } ?>
 	<a class="btn btn-success btn-sm" href="./loan-apt.php">아파트 등록</a>
 	<a class="btn btn-warning btn-sm" href="./loan-write.php">빌라/토지 등록</a></div>
@@ -180,7 +181,8 @@ $(function () {
                     }
                     var mb_id = "<?php echo $member['mb_id']?>"
                     if(mb_id=='testuser'){
-                        var btn = $("<a href='./test.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
+                        // var btn = $("<a href='./test.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
+                        var btn = $("<a href='./test2.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
                     }else{
 					    var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
                     }
@@ -190,7 +192,7 @@ $(function () {
             {
                 data: 'address',
                 title: '담보주소',
-				orderable: false
+				orderable  : false
             },
             {
                 data: 'filecnt',
