@@ -10,15 +10,8 @@
   margin-bottom: 10px;
 }
 
-.upload-form-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .upload-box {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,14 +116,6 @@
   width: 100%;
 }
 
-.section01{
-  background-color: #ffffff;
-  box-shadow: 2px 2px 6px #00000033;
-  box-sizing: border-box;
-  /* padding: 14px 20px; */
-  width: 100%;
-}
-
 /* 섹션 제목 스타일 */
 .section h2 {
   font-size: 18px;
@@ -166,26 +151,11 @@
 }
 
 .bond-actions {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%); /* 화면 중앙에 고정 */
-    width: 100%;
-    background: #fff;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 6px #00000033;
+  width: 1168px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
 }
-
-.bond-actions-btn{
-  width: 579px;
-  box-shadow: 2px 2px 6px #00000033;
-}
-
 
 .action-button {
   background-color: #007bff;
@@ -231,16 +201,6 @@
   border: 1px solid #4466ff;
 }
 
-.btn_aqua{
-  height: 42px;
-  background-color: #30d4d9;
-  color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid #30d4d9;
-  font-size: 16px;
-  padding: 8px;
-}
-
 .btn_bl {
   background-color: #1087ff;
   color: #ffffff;
@@ -261,7 +221,7 @@
 }
 
 .btn_pk {
-  background-color: #ec1f71;
+  color: #ec1f71;
   color: #ffffff;
 }
 
@@ -299,20 +259,12 @@
 
 /* margin */
 
-.m_t_6{
-  margin-top: 6px;
-}
-
 .m_t_20 {
   margin-top: 20px;
 }
 
 .m_t_30 {
   margin-top: 30px;
-}
-
-.m_b_4{
-  margin-bottom: 4px;
 }
 
 .m_b_6 {
@@ -329,10 +281,6 @@
 
 .m_l_30 {
   margin-left: 15px;
-}
-
-.m_r_14{
-  margin-right: 14px;
 }
 
 .m_r_30 {
@@ -391,10 +339,6 @@
   width: 49%;
 }
 
-.w_30{
-  width: 30%;
-}
-
 .w_20 {
   width: 20%;
 }
@@ -413,8 +357,6 @@
   padding: 30px;
   border: 1px solid #bcbcbc;
   border-radius: 6px;
-  background-color: #e7e7e7;
-  margin-bottom: 20px;
 }
 
 .h1_title {
@@ -432,7 +374,6 @@
   padding: 20px;
   border: 1px solid #bcbcbc;
   box-shadow: 2px 2px 6px #00000033;
-  background-color: #f2f2f2;
 }
 
 .upload_form_wrap p{
@@ -531,11 +472,6 @@
   align-items: center;
 }
 
-.input_link_copy{
-  padding: 6px;
-  white-space: nowrap;
-}
-
 
 /* 최대요청 toggle */
 
@@ -604,8 +540,6 @@
 
 
 
-
-
 /* 등기부 등록이후 화면 */
 
 .file_zone{
@@ -621,7 +555,6 @@
   padding: 9px 18px;
   font-size: 12px;
   border-radius: 4px;
-  cursor: pointer;
 }
 
 .add_file_zone{
@@ -654,12 +587,6 @@
   border-radius: 4px;
   border: 1px solid #4466ff;
 }
-
-
-
-
-
-/* 유지/해제 toggle 버튼 */
 
 .toggle_button {
   position: relative;
@@ -708,13 +635,13 @@
 /* '유지' 텍스트 */
 .toggle_button .text_max {
   left: calc(100% - 30px);
-  top: 55%;
+  top: 48%;
 }
 
 /* '해제' 텍스트 */
 .toggle_button .text_input {
   left: 6px;
-  top: 55%;
+  top: 48%;
   opacity: 0; /* 초기 상태: 숨김 */
 }
 
@@ -735,119 +662,7 @@
   opacity: 1;
 }
 
-/* 해제시 중간줄 */
 .line-text.strikethrough {
   color: #c3c3c3;
   text-decoration: line-through;
 }
-
-
-
-
-
-
-/* 파트너 화면 - 가승인,부결화면 */
-
-.result_headline{
- background-color: #1087FF;
- color: #ffffff;
- font-size: 18px;
- font-weight: 600;
- padding: 5px 30px;
- text-align: left;
-/*  border: 1px solid #1087ff; */
-}
-
-.result_detail{
-  background-color: #ffffff;
-  padding: 20px 30px;
-  border: 1px solid #6e6e6e;
-}
-
-.result_th{
-  background-color: #dbeeff;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid #6e6e6e !important;
-}
-
-.result_td{
-  border: 1px solid #6e6e6e !important;
-  color: #1087FF;;
-}
-
-.result_status_10{
-  display:inline-block;
-	font-size:18px;
-  font-weight:600;
-	color:#fff;
-}
-
-.info_enter_section{
-  display: flex;
-  justify-content: space-between;
-}
-
-.info_enter_wrap{
-  width: 49%;
-}
-
-.info_enter{
-  display: flex;
-  align-items: center;
-}
-
-.info_enter label{
-  width: 30%;
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 0px;
-  font-weight: 500;
-}
-
-.info_enter input, .info_enter textarea{
-  border: 1px solid #6e6e6e;
-  border-bottom: 1px solid #6e6e6e !important;
-}
-
-.action_btn_zone {
-  display: flex;
-  justify-content: space-between;
-}
-
-.action_btn {
- width: 49%;
-  height: 35px;
-  font-size: 14px;
-  text-align: center;
-  border: none;
-}
-
-.action_btn_request {
-  width: 100%;
-  background-color: #007bff; 
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
-
-.action_btn_cancel {
-  width: 100%;
-  background-color: #e83e8c; 
-  color: white;
-  padding: 8px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-}
-
-.action_btn_request:hover{
-  background-color: #0061C4;
-}
-
-.action_btn_cancel:hover{
-  background-color: #BF0C54;
-}
-

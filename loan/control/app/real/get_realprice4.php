@@ -59,11 +59,23 @@ foreach($jsondata['data'] as $kk => $vv) {
 		"y" => $vv['price'],
 	);
 	$trade_cnt++;
-	$total_price += $vv['price'];
+	// $total_price += $vv['price'];
 }
-if($trade_cnt) {
+
+// 최근 5건 추출
+$recent_trades = array_slice($datasets, -5); // 마지막 5건
+foreach ($recent_trades as $trade) {
+    $total_price += $trade['y'];
+}
+
+if($trade_cnt > 5) {
+	$ave_price = round($total_price / 5, 0);
+}else if ($tradfe_cnt <= 5){
 	$ave_price = round($total_price / $trade_cnt, 0);
+}else{
+	$ave_price = 0;
 }
+
 
 $res = array();
 if(count($datasets)) {
