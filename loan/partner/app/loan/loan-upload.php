@@ -222,7 +222,7 @@ if($w == 'file') {
 	}
 
 	// 이부분 걸림!!! 지워야함
-	alert('등록되었습니다.', './loan-file.php?wr_id='.$wr_id);
+	// alert('등록되었습니다.', './loan-file.php?wr_id='.$wr_id);
 	// JSON 응답 설정
 	header('Content-Type: application/json; charset=utf-8');
 	echo json_encode($result);
@@ -337,14 +337,12 @@ if($w == 'file') {
 	//@log_write("WRITE", "PROJECT", "FILE");
 	
 	if($new_post=='1'){
-		// alert('등록되었습니다.', './test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
-		alert('등록되었습니다.', './test2.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
+		alert('등록되었습니다.', './loan-write.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
 
 		// alert('등록되었습니다.');
 		// goto_url('./test.php?wr_id='.$wr_id.'&new_post='.$new_post.'&w=u');
 	}else{
-		// alert('등록되었습니다.', './test.php?wr_id='.$wr_id.'&w=u');
-		alert('등록되었습니다.', './test2.php?wr_id='.$wr_id.'&w=u');
+		alert('등록되었습니다.', './loan-write.php?wr_id='.$wr_id.'&w=u');
 
 		// alert('첨부파일이 등록되었습니다.');
 		// goto_url('./test.php?wr_id='.$wr_id.'&w=u');
@@ -362,11 +360,7 @@ if($w == 'file') {
 	$sql = " delete from file_loaninfo where file_id = '{$file_id}' limit 1 ";
 	sql_query($sql);
 	
-	if($member['mb_id']=='testuser'){
-		alert('삭제되었습니다.', './test2.php?wr_id='.$wr_id.'&w=u');
-	}else{
-		goto_url('./loan-file.php?wr_id='.$wr_id);
-	}
+	alert('삭제되었습니다.', './loan-write.php?wr_id='.$wr_id.'&w=u');
 	// goto_url('./test.php?wr_id='.$wr_id.'&w=u');
 	// goto_url('./loan-file.php?wr_id='.$wr_id);
 }

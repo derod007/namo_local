@@ -42,6 +42,8 @@ $auto_ltv = safe_request_string(trim($_POST['auto_ltv'])) ?: 0;
 $auto_small_deposit = safe_request_string(trim($_POST['auto_small_deposit'])) ?: 0;
 $auto_senior_loan = safe_request_string(trim($_POST['auto_senior_loan'])) ?: 0;
 
+$new_post = $_POST['new_post'] ? $_POST['new_post'] : 0;
+
 if(!$wr_rental_deposit) $wr_rental_deposit='0';
 $auto_deposit = max($auto_small_deposit, $wr_rental_deposit);
 $auto_price = 0;
@@ -80,8 +82,14 @@ if($member['is_sub']) {
 	$pt_idx = $member['idx'];
 } 
 
-	$src_arr = array("서울시 ", "서울특별시 ", "경기도 ", "인천광역시 ", "인천시 ", "제주특별자치도 ", "강원특별자치도 ", "전북특별자치도 ", "부산광역시 ", "대구광역시 ", "대전광역시 " );
-	$dst_arr = array("서울 ", "서울 ", "경기 ", "인천 ", "인천 ", "제주 ", "강원 ", "전북 ", "부산 ", "대구 ", "대전 " );
+	$src_arr = array("서울시 ", "서울특별시 ", "경기도 ", "인천광역시 ", "인천시 ", 
+					"제주특별자치도 ", "강원특별자치도 ", "전북특별자치도 ", "부산광역시 ", 
+					"대구광역시 ", "대전광역시 ", "경상북도 ", "경상남도 ", "충청북도 ", "충청남도",
+					"울산광역시 ", "광주광역시 ", "전라남도 ", "전라북도 " );
+	$dst_arr = array("서울 ", "서울 ", "경기 ", "인천 ", "인천 ", 
+					"제주 ", "강원 ", "전북 ", "부산 ", 
+					"대구 ", "대전 ", "경북 ", "경남 ", "충북 ", "충남 ",
+					"울산 ", "광주 ", "전남 ", "전북 " );
 	$wr_addr1 = str_replace($src_arr, $dst_arr, trim($wr_addr1));
 
 	$wr_addr1 = str_replace("  ", " ", $wr_addr1);
@@ -204,6 +212,10 @@ if(!$w) {
 	die();
 	
 } else if($w=='u') {
+
+	if($new_post=="1"){
+		$sql_query = ", wr_datetime= NOW()";
+	}
 	
 	$sql = " update `loan_write`
 				set wr_ca   = '{$wr_ca}',
@@ -229,6 +241,7 @@ if(!$w) {
 					wr_link3   = '{$wr_link3}',
 					wr_amount   = '{$wr_amount}',
 					wr_auto_price = '{$auto_price}'
+					$sql_query
 			  where wr_id   = '{$wr_id}' ";
 	sql_query($sql);
 	

@@ -92,12 +92,8 @@ if(isset($_GET['chk_reset'])) {
 <div class="page-header">
 <div class="btn-div">
 	<a class="btn btn-sm btn-default max-768-toggle"><i class="fas fa-filter"></i> Filter</a>
-    <?php if($member['mb_id']=='testuser'){ ?>
-        <!-- <a class="btn btn-success btn-sm" href="./test.php">신규 등록 (테스트중- testuser)</a>     -->
-        <a class="btn btn-success btn-sm" href="./test2.php">신규 등록 (테스트중- testuser)</a>
-    <?php } ?>
-	<a class="btn btn-success btn-sm" href="./loan-apt.php">아파트 등록</a>
-	<a class="btn btn-warning btn-sm" href="./loan-write.php">빌라/토지 등록</a></div>
+    <a class="btn btn-success btn-sm" href="./loan-write.php">신규 등록</a>
+</div>
 	<h1>대출신청 목록 <a class="btn btn-default btn-sm" href="./loan-list.php"><i class="fas fa-sync-alt"></i></a></h1>
 </div>
 
@@ -180,12 +176,7 @@ $(function () {
                         rowData.wr_subject = "임시 저장 파일입니다";
                     }
                     var mb_id = "<?php echo $member['mb_id']?>"
-                    if(mb_id=='testuser'){
-                        // var btn = $("<a href='./test.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
-                        var btn = $("<a href='./test2.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
-                    }else{
-					    var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
-                    }
+                    var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
 					$(cell).append(btn);
 				}
             },

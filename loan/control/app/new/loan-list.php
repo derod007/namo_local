@@ -251,11 +251,8 @@ $(function () {
                         rowData.wr_subject = "임시 저장 파일입니다";
                     }
                     var mb_id = "<?php echo $member['mb_id']?>"
-                    if(mb_id=='testuser'){
-                        var btn = $("<a href='./test.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
-                    }else{
-					    var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
-                    }
+					var btn = $("<a href='./loan-write.php?w=u&wr_id=" + rowData.wr_id + "'>" + rowData.wr_subject + "</a>");
+                    
 					$(cell).append(btn);
 				}
             },

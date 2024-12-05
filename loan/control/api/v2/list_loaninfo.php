@@ -89,14 +89,14 @@ if($sortName ?? '') {
 	$orderby = " order by wr_id desc ";
 }
 
-$sql = " select count(*) as cnt from {$loan_table} {$where_sql} ";
+$sql = " select count(*) as cnt from {$loan_table} {$where_sql} AND wr_subject != '' ";
 $row = sql_fetch($sql);
 $total_count = ($row['cnt'])?$row['cnt']:0;
 
 if(!isset($start)) $start = 0;
 if(!isset($length)) $length = $config['rows'];
 
-$sql = " select * from {$loan_table} {$where_sql} {$orderby} limit {$start}, {$length} ";
+$sql = " select * from {$loan_table} {$where_sql} AND wr_subject != ''  {$orderby} limit {$start}, {$length} ";
 //echo "<div>".$sql."</div>";
 $result = sql_query($sql);
 $data = array();

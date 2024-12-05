@@ -2,18 +2,25 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/inc/common.php');
 
 // IP 접속제한
-/*
-$ip_addr = $_SERVER["REMOTE_ADDR"];
-if($pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '/app/module' && $pathinfo['dirname'] != '/api') {
-	if(!in_array($ip_addr, $allow_ips)) {
 
-		session_unset(); // 모든 세션변수를 언레지스터 시켜줌
-		session_destroy(); // 세션해제함
+$ip_addr = $_SERVER["REMOTE_ADDR"];
+// if($pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '/app/module' && $pathinfo['dirname'] != '/api') {
+	// if(!in_array($ip_addr, $allow_ips)) {
+
+	// 	session_unset(); // 모든 세션변수를 언레지스터 시켜줌
+	// 	session_destroy(); // 세션해제함
 		
-		alert('로그인후 이용해주세요. RETURN ', '/');
-	}
-}
-*/
+	// 	alert('로그인후 이용해주세요. RETURN ', '/');
+	// }
+
+//     if($member['mb_id'] != 'testuser'){
+//         session_unset(); // 모든 세션변수를 언레지스터 시켜줌
+// 	    session_destroy(); // 세션해제함
+		
+// 	    alert('서버작업중입니다. 잠시후 이용 가능합니다.', '/');
+//     }
+// }
+
 
 $pathinfo = pathinfo($_SERVER["PHP_SELF"]);
 if(!$member['mb_id'] && $pathinfo['dirname'] != '/' && $pathinfo['dirname'] != '/app/module' && $pathinfo['dirname'] != '/api') {

@@ -136,8 +136,18 @@ function check_duplicate($addr, $addr2, $wr_id='')
 		$str .= "<p>{$row['wr_addr1']} {$row['wr_addr3']} {$row['wr_addr2']}</p>";
 		$str .= "<p>전용면적(㎡) : {$row['wr_m2']} / 담보가산정 : {$row['rf_first3']}</p>";
 		$str .= "<p>승인한도/금리 : {$row['jd_amount']} / {$row['jd_interest']}</p>";
+		$str .= "<p>부대조건 : {$row['jd_condition']}</p>";
 		$str .= "<p class='red'>".$status_arr[$row['wr_status']]."</p>";
 		$str .= "<p><a href='./loan-write.php?w=u&wr_id={$row['wr_id']}' target='_blank'>자세히보기</a></p>";
+		$str .= "<p>
+					<button class='duplicate-data-btn' 
+						data-rf-first3='{$row['rf_first3']}'
+						data-jd-amount='{$row['jd_amount']}' 
+						data-jd-interest='{$row['jd_interest']}'
+						data-jd-condition='{$row['jd_condition']}'>
+						선택
+					</button>
+				</p>";
 		$cnt++;
     }
 	//$str .= "<p>{$sql}</p>";

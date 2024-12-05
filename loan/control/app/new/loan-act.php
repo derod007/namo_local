@@ -148,6 +148,32 @@ if(!$w) {
 		$senior_loan = removeCommas(safe_request_string(trim($_POST[$prefix . 'senior_loan'])));
 
 		if ($selected_option === 'manual') {
+
+			$sql_is_auto = "SELECT * FROM loan_calcul WHERE wr_id='$wr_id' AND lc_type='auto'";
+			$row_is_auto = sql_fetch($sql_is_auto);
+
+			if(!$row_is_auto){
+				$auto_price = removeCommas(safe_request_string(trim($_POST['auto_price'])));
+				$auto_part_percent = removeCommas(safe_request_string(trim($_POST['auto_part_percent'])));
+				$auto_ltv = removeCommas(safe_request_string(trim($_POST['auto_ltv'])));
+				$auto_small_deposit = removeCommas(safe_request_string(trim($_POST['auto_small_deposit'])));
+				$auto_rental_deposit = removeCommas(safe_request_string(trim($_POST['auto_rental_deposit'])));
+				$auto_senior_loan = removeCommas(safe_request_string(trim($_POST['auto_senior_loan'])));
+
+				$sql_insert = "INSERT INTO loan_calcul (
+							wr_id, lc_type, lc_price, lc_part_percent, lc_ltv,
+							lc_small_deposit, lc_rental_deposit, lc_senior_loan, lc_use
+							) VALUES (
+								'$wr_id', 'auto', '$auto_price', '$auto_part_percent', '$auto_ltv',
+								'$auto_small_deposit', '$auto_rental_deposit', '$auto_senior_loan', '0'
+							)
+						";
+				sql_query($sql_insert);
+				
+			}
+
+
+
 			$sql_update_auto = "UPDATE loan_calcul SET lc_use = 0 WHERE wr_id='$wr_id' AND lc_type='auto'";
 			sql_query($sql_update_auto);
 		} elseif ($selected_option === 'auto') {
