@@ -71,6 +71,13 @@
   color: #4466ff;
 }
 
+.manager_result_status_20 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff7e29;
+}
+
 .manager_result_status_30 {
   display: inline-block;
   font-size: 20px;
@@ -82,7 +89,15 @@
   display: inline-block;
   font-size: 20px;
   font-weight: 600;
-  color: #333333;
+  color: #000000;
+}
+
+.manager_result_status_99 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: line-through;
 }
 
 .manager_info_wrap {

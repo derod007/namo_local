@@ -858,7 +858,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 			<div class="result_feedback m_t_20">
 				<div class="feedback_headline">심사의견<?php if ($row['jd_autoid']) { ?> (<a href='javascript:autojudgeModalPopup(<?php echo $row['jd_autoid']; ?>);' data-jdid='<?php echo $row['jd_autoid']; ?>'><i class='fas fa-balance-scale'></i>자동한도</a>)<?php } ?></div>
 				<div class="feedback_zone">
-				기존담보가산정 <input type="text" id="rf_first3" name="rf_first3" value="<?php echo $row["rf_first3"]; ?>"  class="form-control">
+				담보가산정 <input type="text" id="rf_first3" name="rf_first3" value="<?php echo $row["rf_first3"]; ?>"  class="form-control">
 				<br/>
 					<div class="num_zone">
 						<div class="">
@@ -1091,10 +1091,13 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 		// 계산 클릭시
 		$('#calculateBtn').on('click', function() {
 			$('#calculateBtn').trigger('calculateOnly');
-			let amount = removeCommas_s($('#manual_amount').text()); // 수동 계산 한도 값 가져오기
+			var amount = removeCommas_s($('#manual_amount').text()); // 수동 계산 한도 값 가져오기
+			var price = removeCommas_s($('#manual_price').val()); // 계산기 시세값 가져오기
+			
 			amount = parseInt(amount.toString().slice(0, -3) + '000', 10);
 			if(amount < 0) amount=0;
 			$('#jd_amount').val(amount);
+			$('#rf_first3').val(price);
 			$('input[type="radio"][name="selected_option"][value="manual"]').prop('checked', true).focus();
 
 			setTimeout(function() {
@@ -1114,13 +1117,18 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 		$('[name="selected_option"]').on('click', function() {
 			const selectedOption = $(this).val();
 			let amount;
+			var price;
 
 			if (selectedOption === 'auto') {
 				amount = removeCommas_s($('#auto_amount').text()); // 자동 계산 한도 값 가져오기
+				price = removeCommas_s($('#auto_price').val()); // 계산기 시세값 가져오기
 			} else if (selectedOption === 'manual') {
 				amount = removeCommas_s($('#manual_amount').text()); // 수동 계산 한도 값 가져오기
+				price = removeCommas_s($('#manual_price').val()); // 계산기 시세값 가져오기
 			}
 			amount = parseInt(amount.toString().slice(0, -3) + '000', 10);
+			
+			$('#rf_first3').val(price);
 			$('#jd_amount').val(amount);
 		});
 

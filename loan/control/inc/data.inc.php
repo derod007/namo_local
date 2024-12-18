@@ -138,8 +138,8 @@ function check_duplicate($addr, $addr2, $wr_id='')
 		$str .= "<p>승인한도/금리 : {$row['jd_amount']} / {$row['jd_interest']}</p>";
 		$str .= "<p>부대조건 : {$row['jd_condition']}</p>";
 		$str .= "<p class='red'>".$status_arr[$row['wr_status']]."</p>";
-		$str .= "<p><a href='./loan-write.php?w=u&wr_id={$row['wr_id']}' target='_blank'>자세히보기</a></p>";
-		$str .= "<p>
+		$str .= "<p style='display: flex; justify-content: space-between; align-items: center;'>
+					<a href='./loan-write.php?w=u&wr_id={$row['wr_id']}' target='_blank'>자세히보기</a>
 					<button class='duplicate-data-btn' 
 						data-rf-first3='{$row['rf_first3']}'
 						data-jd-amount='{$row['jd_amount']}' 
