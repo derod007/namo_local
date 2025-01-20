@@ -137,8 +137,20 @@ if($w == 'file') {
 			// 에러메세지는 출력하지 않는다.
 			//-----------------------------------------------------------------
 			$timg = getimagesize($tmp_file);
-			$upload[$i]['image'] = $timg;
-			print_r($timg);
+			// 이미지 정보를 배열로 저장
+			if($timg) {
+				$upload[$i]['image'] = array(
+					'width' => $timg[0],
+					'height' => $timg[1],
+					'type' => $timg[2]
+				);
+			} else {
+				$upload[$i]['image'] = array(
+					'width' => 0,
+					'height' => 0, 
+					'type' => 0
+				);
+			}
 
 			// 프로그램 원래 파일명
 			$upload[$i]['source'] = $filename;
@@ -172,9 +184,6 @@ if($w == 'file') {
 			$upload[$i]['source'] = addslashes($upload[$i]['source']);
 		}
 		if(!$memo[$i]) $memo[$i] = '';
-		if(!$upload[$i]['image']['0']) $upload[$i]['image']['0'] = 0;
-		if(!$upload[$i]['image']['1']) $upload[$i]['image']['1'] = 0;
-		if(!$upload[$i]['image']['2']) $upload[$i]['image']['2'] = 0;
 		if(!$category[$i]) $category[$i] = '일반';
 		
 		$sql = " insert into file_loaninfo
@@ -186,22 +195,17 @@ if($w == 'file') {
 						 file_memo = '{$memo[$i]}',
 						 file_download = 0,
 						 file_size = '{$upload[$i]['filesize']}',
-						 file_width = '{$upload[$i]['image']['0']}',
-						 file_height = '{$upload[$i]['image']['1']}',
-						 file_type = '{$upload[$i]['image']['2']}',
+						 file_width = '{$upload[$i]['image']['width']}',
+						 file_height = '{$upload[$i]['image']['height']}',
+						 file_type = '{$upload[$i]['image']['type']}',
 						 file_datetime = '".TIME_YMDHIS."' ";
-		//echo $sql;
 		sql_query($sql);
 		$next_no++;
 	}
-	//echo "<p>".$sql."</p>";
-	//@log_write("WRITE", "PROJECT", "FILE");
 	
 	// 업로드 완료 후, 파일 목록을 불러와 JSON으로 반환
 	$wr_id = $_POST['wr_id'];
 	$result = [];
-	
-	
 
 	// SQL 쿼리 작성
 	$sql = "SELECT * FROM file_loaninfo WHERE wr_id = '{$wr_id}' ORDER BY file_datetime DESC";
@@ -211,24 +215,20 @@ if($w == 'file') {
 
 	// 결과 집합에서 데이터 가져오기
 	while ($file = sql_fetch_array($result_set)) {
-		$result[] = [
+		$result[] = array(
 			'category' => $file['file_category'],
 			'source' => $file['file_source'],
 			'size' => $file['file_size'],
 			'datetime' => substr($file['file_datetime'], 0, 16),
 			'memo' => $file['file_memo'],
 			'file_no' => $file['file_no']
-		];
+		);
 	}
 
-	// 이부분 걸림!!! 지워야함
-	// alert('등록되었습니다.', './loan-file.php?wr_id='.$wr_id);
 	// JSON 응답 설정
 	header('Content-Type: application/json; charset=utf-8');
-	echo json_encode($result);
+	echo json_encode($result, JSON_UNESCAPED_UNICODE);
 	exit;
-
-
 	
 }else if($w=='first_file'){
 	// 파일개수 체크

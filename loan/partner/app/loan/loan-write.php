@@ -46,7 +46,7 @@ if (!empty($filteredFiles) && $new_post == '1') {
         // 제곱미터 앞에 숫자 추출
         preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
         if (!empty($matches[0])) {
-            $area = $matches[0];
+            $area = [end($matches[0])];
         }
     }
 
@@ -150,6 +150,38 @@ if (!empty($filteredFiles) && $new_post == '1') {
     }
 
     // park 근저당권 및 전세권 등
+    // $startSearch2 = '전세권 등 ( 을구 )';
+    // $endSearch2 = '[ 참';
+    // $startPos2 = strpos($text, $startSearch2);
+    // $endPos2 = strpos($text, $endSearch2, $startPos2);
+
+    // $mortgage = '';
+    // if ($startPos2 !== false && $endPos2 !== false) {
+    //     $startPos2 += strlen($startSearch2);
+    //     $mortgage = substr($text, $startPos2, $endPos2 - $startPos2);
+    //     $mortgage = trim($mortgage);
+    // }
+
+    // preg_match_all('/(전세권|근저당권설정|근저당권변경|질권|근질권|압류|가압류|전세권설정|임차권설정)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
+    // // 전세권설정,임차권설정 추가
+
+    // // 행을 생성하여 표시
+    // $output = "";
+    // for ($i = 0; $i < count($matches[0]); $i++) {
+    //     $t1 = $matches[1][$i];
+    //     $t2 = $matches[2][$i];
+    //     $t3 = $matches[3][$i];
+    //     $t4 = isset($matches[4][$i]) ? $matches[4][$i] : '';
+    //     $t5 = isset($matches[5][$i]) ? $matches[5][$i] : '';
+
+    //     // 각 행을 HTML로 출력
+    //     $output .= "<div class='row' id='row_$i' style='width:100%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
+    //     $output .= "<span class='line-text'>$t1 / $t2 / $t3 / $t4 $t5 </span>";
+    //     $output .= "<button type='button' class='toggle_button' style='float:right;'><span class='text_max'>유지</span><span class='text_input'>해제</span></button>";
+    //     $output .= "</div>";
+    // }
+
+    // park 근저당권 및 전세권 등 고도화
     $startSearch2 = '전세권 등 ( 을구 )';
     $endSearch2 = '[ 참';
     $startPos2 = strpos($text, $startSearch2);
@@ -162,23 +194,80 @@ if (!empty($filteredFiles) && $new_post == '1') {
         $mortgage = trim($mortgage);
     }
 
-    preg_match_all('/(전세권|근저당권설정|근저당권변경|질권|근질권|압류|가압류|전세권설정|임차권설정)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\s]+))?/u', $text, $matches);
-    // 전세권설정,임차권설정 추가
+    // (1), (2) 등을 포함하도록 정규식 수정
+    preg_match_all('/(\d+(?:-\d+)?)\s*(?:\((\d+)\))?\s*(전세권설정|근저당권설정|근저당권변경|압류|가압류|전세권설정|임차권설정)[^\d]*(\d{4}년\d{1,2}월\d{1,2}일)[^\d]*금\s*([\d,]+)원(?:[^채권자근저당권자전세권자]*(채권자|근저당권자|전세권자)\s+([^\n]+))?/u', $mortgage, $matches);
+    // 순위번호별로 데이터 정리
+    $entries = [];
+    for ($i = 0; $i < count($matches[0]); $i++) {
+        $number = $matches[1][$i];
+        $subNumber = $matches[2][$i] ?? ''; // (1), (2) 등의 번호
+        $mainNumber = explode('-', $number)[0];
+        
+        if (!isset($entries[$mainNumber])) {
+            $entries[$mainNumber] = [];
+        }
+        
+        $entries[$mainNumber][] = [
+            'number' => $number,
+            'subNumber' => $subNumber,
+            'type' => $matches[3][$i],
+            'date' => $matches[4][$i],
+            'amount' => $matches[5][$i],
+            'creditorType' => isset($matches[6][$i]) ? $matches[6][$i] : '',
+            'creditor' => isset($matches[7][$i]) ? trim($matches[7][$i]) : ''
+        ];
+    }
 
     // 행을 생성하여 표시
     $output = "";
-    for ($i = 0; $i < count($matches[0]); $i++) {
-        $t1 = $matches[1][$i];
-        $t2 = $matches[2][$i];
-        $t3 = $matches[3][$i];
-        $t4 = isset($matches[4][$i]) ? $matches[4][$i] : '';
-        $t5 = isset($matches[5][$i]) ? $matches[5][$i] : '';
-
-        // 각 행을 HTML로 출력
-        $output .= "<div class='row' id='row_$i' style='width:100%;  margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
-        $output .= "<span class='line-text'>$t1 / $t2 / $t3 / $t4 $t5 </span>";
-        $output .= "<button type='button' class='toggle_button' style='float:right;'><span class='text_max'>유지</span><span class='text_input'>해제</span></button>";
-        $output .= "</div>";
+    foreach ($entries as $mainNumber => $items) {
+        $hasChange = false;
+        $lastChangeItem = null;  // 마지막 근저당권변경을 저장할 변수
+        $validItems = [];
+        
+        // 근저당권변경이 있는지 확인
+        foreach ($items as $item) {
+            if ($item['type'] === '근저당권변경') {
+                $hasChange = true;
+                $lastChangeItem = $item;  // 마지막 근저당권변경 저장
+                // break;
+            }
+        }
+        
+        foreach ($items as $item) {
+            $isExcluded = false;
+            $suffix = '';
+            
+            // 제외 조건 확인
+            if ($hasChange && $item['type'] !== '근저당권변경') {
+                $isExcluded = true;
+            } elseif ($hasChange && $item['type'] === '근저당권변경' && $item !== $lastChangeItem) {
+                $isExcluded = true;  // 마지막이 아닌 근저당권변경도 제외
+            } elseif (!$hasChange && !$item['subNumber'] && $item['type'] === '근저당권이전') {
+                $isExcluded = true;
+            }
+            
+            if ($isExcluded) {
+                $suffix = ' 해제';
+            }
+            
+            $output .= "<div class='row' style='width:100%; margin:5px 0 5px 0; border-bottom: 1px solid #ccc'>";
+            
+            // 순위번호 포함하여 텍스트 구성
+            $mortage_num = '';
+            if ($item['number']) {
+                // $text .= $item['number'] . ' / ';  // 기본 순위번호 (예: "1" 또는 "1-2")
+                $mortage_num .= "<pre style='all: unset; white-space: pre; display: inline-block; width: 40px;'>" . sprintf('%-4s', $item['number']) . "</pre> / ";
+            }
+            if ($item['subNumber']) {
+                $mortage_num .= "({$item['subNumber']}) ";  // 부가 번호 (예: "(1)")
+            }
+            $mortage_num .= $item['type'];
+            
+            $output .= "<span class='line-text'>{$mortage_num} / {$item['date']} / {$item['amount']} / {$item['creditorType']} {$item['creditor']}{$suffix}</span>";
+            $output .= "<button type='button' class='toggle_button' style='float:right;'><span class='text_max'>유지</span><span class='text_input'>해제</span></button>";
+            $output .= "</div>";
+        }
     }
 
     // park 신규주소
@@ -193,8 +282,8 @@ if (!empty($filteredFiles) && $new_post == '1') {
         $new_addr = substr($text, $startPos3, $endPos3 - $startPos3);
         $new_addr = trim($new_addr);
     }
-
-    $pattern = '/^(.*?\d+[-\d]*)(.*)$/u';
+    // $pattern = '/^(.*?\d+[-\d]*)(.*)$/u';
+    $pattern = '/^(.*?\d+(?:-\d+)?(?:[리가])?(?:\s*\d+(?:-\d*)?)?)(.*)$/u';
     preg_match($pattern, $new_addr, $matches);
 
     if (isset($matches[1])) {
@@ -453,7 +542,7 @@ if (!empty($best_entry['amount'])) {
                     class="upload-form-top">
                     <input type="hidden" name="w" value="first_file">
                     <input type="hidden" name="wr_id" value="<?php echo $wr_id; ?>">
-                    <input type="hidden" name=n"category[]" value="등기부등본">
+                    <input type="hidden" name="category[]" value="등기부등본">
 
                     <?php if (empty($filteredFiles)) { ?>
                         <div class="upload-box" id="upload-box">
@@ -722,9 +811,14 @@ if (!empty($best_entry['amount'])) {
                                     </div>
                                     <!-- park 임대차보증금 -->
                                     <div class="form_field bg_gr"><label class="w_20 field_title">임대차보증금</label>
-                                        <div class=""><input type="text" id="wr_rental_deposit" name="wr_rental_deposit"
-                                                style="display:inline-block; width:334px" placeholder="있을경우 작성 / 단위 만원"
-                                                value="<?php echo $row["wr_rental_deposit"]; ?>" class="form-control"><span class="unit_text"> 만원</span></div>
+                                        <div class="">
+                                            <input type="text" id="wr_rental_deposit" name="wr_rental_deposit" 
+                                                style="display:inline-block; width:200px;" placeholder="있을경우 작성 / 단위 만원"
+                                                value="<?php echo $row["wr_rental_deposit"]; ?>" class="form-control"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                                <span class="unit_text"> 만원</span>
+                                        </div>
+                                        <span style="color:#4466ff; font-size:13px; padding-left:30px">* 숫자만 입력 가능합니다.</span>
                                     </div>
                                     <!-- 기타정보 -->
                                     <!-- park 임시 담보정보 (기타정보로??) -->
@@ -787,7 +881,33 @@ if (!empty($best_entry['amount'])) {
                                     } else {
                                         if (!$row["wr_cont3"]) {
                                             // 등록 시
-                                            echo $output;
+                                            $outputLines = [];
+                                            preg_match_all('/<span class=\'line-text\'>(.*?)<\/span>/', $output, $matches);
+                                            
+                                            if (isset($matches[1])) {
+                                                $outputLines = $matches[1];
+                                            }
+                                            
+                                            foreach ($outputLines as $i => $line) {
+                                                $line = trim($line);
+                                                if (!empty($line)) {
+                                                    $lastThreeChars = mb_substr($line, -3);
+                                                    
+                                                    if (strpos($lastThreeChars, '해제') !== false) {
+                                                        echo "<div class='row' id='row_$i' style='width:100%; margin:5px 0 5px 0; padding-bottom: 5px; border-bottom: 1px solid #ccc;'>";
+                                                        echo "<span style='display:none'>" . $line . "</span>";
+                                                        echo "<span class='line-text strikethrough'>" . $line . "</span>";
+                                                        echo "<button type='button' class='toggle_button active' style='float:right;'><span class='text_max'>유지</span><span class='text_input'>해제</span></button>";
+                                                        echo "</div>";
+                                                    } else {
+                                                        echo "<div class='row' id='row_$i' style='width:100%; margin:5px 0 5px 0; padding-bottom: 5px; border-bottom: 1px solid #ccc;'>";
+                                                        echo "<span style='display:none'>" . $line . "</span>";
+                                                        echo "<span class='line-text'>" . $line . "</span>";
+                                                        echo "<button type='button' class='toggle_button' style='float:right;'><span class='text_max'>유지</span><span class='text_input'>해제</span></button>";
+                                                        echo "</div>";
+                                                    }
+                                                }
+                                            }
                                             echo '<textarea id="wr_cont3" name="wr_cont3" class="form-control" style="display:none;"></textarea>';
                                         } else {
                                             $lines = explode("\n", $row['wr_cont3']);
@@ -872,6 +992,8 @@ if (!empty($best_entry['amount'])) {
                                                     </div>
                                                     <input type="file" id="uploadfile" name="uploadfile[]" class="file-input"
                                                         multiple required style="display:none;" onchange="displayFileName()">
+                                                    <span id="file-name-display"
+                                                        style="display: none; margin-top: 10px; font-size: 14px; color: #4a5a6a;"></span>
                                                 </div>
                                                 <button class="btn_file_save" type="submit">저장</button>
                                             </form>
