@@ -250,18 +250,18 @@ foreach ($wr_cont3_lines as $wr_cont3_line) {
 
 	$parts = explode(' / ', trim($wr_cont3_line));
 
-	if (count($parts) < 3) {
+	if (count($parts) < 4) {
 		continue;
 	}
 
-	preg_match('/(\d{4})년(\d{1,2})월(\d{1,2})일/', $parts[1], $matches);
+	preg_match('/(\d{4})년(\d{1,2})월(\d{1,2})일/', $parts[2], $matches);
 	if ($matches) {
 		$year = $matches[1];
 		$month = str_pad($matches[2], 2, '0', STR_PAD_LEFT);
 		$day = str_pad($matches[3], 2, '0', STR_PAD_LEFT);
 		$date = $year . $month . $day;
 
-		$amount = intval(str_replace(',', '', $parts[2]));
+		$amount = intval(str_replace(',', '', $parts[3]));
 
 		// 가장 이른 날짜이거나, 같은 날짜면 금액이 더 높은 것을 선택
 		// if ($best_entry === null || $date < $best_entry['date'] || ($date === $best_entry['date'] && $amount > $best_entry['amount'])) {
@@ -622,7 +622,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 				$filecnt = number_format($pjfile['count']);
 				?>
 				<div class="upload_files m_t_30">
-					<label class="h1_title">첨부파일 <?php echo "(" . $filecnt . ")"; ?><br /></label>
+					<label class="h1_title">첨부파일 <?php echo "(" . $filecnt . ")"; ?><a href="./loan-file.php?wr_id=<?php echo $wr_id;?>" style="float:right; padding-left:10px;">관리 &gt;&gt;</a></label><br /></label>
 					<div class="section">
 						<?php
 						$cnt = $pjfile['count'];
@@ -993,7 +993,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 
 	function calculateAmount(price, partPercent, ltv, smallDeposit, rentalDeposit, seniorLoan) {
 		const calculatedAmount = ((removeCommas_s(price) * partPercent / 100) * (ltv / 100)) -
-			((Math.max(removeCommas_s(smallDeposit), removeCommas_s(rentalDeposit)) * partPercent / 100)) -
+			((removeCommas_s(smallDeposit)* partPercent / 100)) - ((removeCommas_s(rentalDeposit)* partPercent / 100)) - 
 			(removeCommas_s(seniorLoan) * partPercent / 100);
 		return addCommas(calculatedAmount.toFixed(0));
 	}
@@ -1127,7 +1127,7 @@ if (strpos($row['wr_subject'], '토지') !== false) {
 				price = removeCommas_s($('#manual_price').val()); // 계산기 시세값 가져오기
 			}
 			amount = parseInt(amount.toString().slice(0, -3) + '000', 10);
-			
+			if(amount < 0) amount=0;
 			$('#rf_first3').val(price);
 			$('#jd_amount').val(amount);
 		});
