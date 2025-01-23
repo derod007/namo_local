@@ -46,7 +46,7 @@ if (!empty($filteredFiles) && $new_post == '1') {
         // 제곱미터 앞에 숫자 추출
         preg_match_all('/\d+(\.\d+)?(?=\s*㎡)/', $text0, $matches);
         if (!empty($matches[0])) {
-            $area = [end($matches[0])];
+            $area = $matches[0];
         }
     }
 
