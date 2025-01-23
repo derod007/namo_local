@@ -71,6 +71,7 @@ $region_mapping = [
 	"울산" => "울산광역시",
 	"대구" => "대구광역시",
 	"대전" => "대전광역시",
+	"경북" => "경상북도",
 	"경남" => "경상남도",
 	"충남" => "충청남도",
 	"광주" => "광주광역시",
@@ -142,6 +143,7 @@ $address_condition = implode(' ', $add2);
 if (!$add2) $address_condition = $address;
 
 $sql1 = "SELECT rp_repay_amt FROM region_preferential2 WHERE rp_rcity = '{$address_condition}'";
+
 $result1 = sql_query($sql1);
 $row1 = sql_fetch_array($result1);
 if ($row1) {
@@ -164,7 +166,11 @@ if ($row1) {
 		if ($result2) {
 			$row2 = sql_fetch_array($result2);
 			if ($row2) {
-				$repay_amt = $row2['rp_repay_amt'];
+				if (preg_match('/^양주시\s|[^남]양주시\s/', $address_condition)) {
+                    $repay_amt = 2500;
+                }else{
+					$repay_amt = $row2['rp_repay_amt'];
+				}
 			}
 		}
 	}
